@@ -1,20 +1,222 @@
+@font-face {
+    font-family: 'PixelFont';
+    src: url('../fonts/PixelFont.ttf') format('truetype');
+}
+
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
+    background: linear-gradient(to right, #3127e9, #ac38ff);
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.welcome-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    font-family: PixelFont, Arial, Helvetica, sans-serif;
+    padding: 150px; 
+    font-size: 2rem; 
+    color: white; 
+    position: absolute;
+    top: 20px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    margin-left: 5px;
+}
+
+.welcome-container span {
+    display: inline-block;
+    animation: jump 2s infinite ease-in-out;
+}
+
+.welcome-container span:nth-child(1) { 
+    animation-delay: 0.1s; 
+    color: #00F;
+}
+.welcome-container span:nth-child(2) { 
+    animation-delay: 0.2s; 
+    color: #0F0;
+}
+.welcome-container span:nth-child(3) { 
+    animation-delay: 0.3s; 
+    color: #F0F;
+}
+.welcome-container span:nth-child(4) { 
+    animation-delay: 0.4s; 
+    color: #FF0; 
+} 
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0); 
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+main {
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    border-radius: 15px;
+    margin: 250px 300px 250px 300px;
+    position: relative; 
+    z-index: 1;
+}
+
+main::before,
+main::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background: white;
+    animation: lineShrinkExpand 16s infinite ease-in-out;
+}
+
+main::before {
+    top: -15px;
+    left: 0;
+    right: 0;
+}
+
+main::after {
+    bottom: -15px;
+    left: 0;
+    right: 0;
+}
+
+main .vertical-line {
+    position: absolute;
+    width: 2px;
+    background: white;
+    animation: lineShrinkExpand 24s infinite ease-in-out;
+}
+
+main .vertical-line.left {
+    top: 0;
+    bottom: 0;
+    left: -35px;
+}
+
+main .vertical-line.right {
+    top: 0;
+    bottom: 0;
+    right: -35px;
+}
+
+@keyframes lineShrinkExpand {
+    0%, 100% {
+        transform: scaleX(1); 
+    }
+    50% {
+        transform: scaleX(0.4); 
+    }
+}
+
+@keyframes verticalLineShrinkExpand {
+    0%, 100% {
+        transform: scaleY(1); 
+    }
+    50% {
+        transform: scaleY(0.4); 
+    }
+}
+
+.text-container {
+    font-family: PixelFont;
+}
+
+.headline-container {
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.menu-container {
+    max-width: 600px;
+    width: 100%;
     text-align: center;
+    font-family: PixelFont;
 }
-h1 {
-    color: #4CAF50;
-    font-size: 48px;
+
+.menu-container .btn {
+    height: 75px;
+    width: 400px;
+    display: inline-flex;
+    color: white;
+    border: none;
+    font-size: 2rem;
+    font-style: bold;
+    text-align: center;
+    position: relative;
+    background-color: transparent;
+    transition: all 0.3s ease;
 }
-p {
-    color: #555;
-    font-size: 20px;
+
+.menu-container .btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: repeating-linear-gradient(
+        to right,
+        white 0,
+        white 5px,
+        transparent 5px,
+        transparent 10px
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.5s ease;
+    width: 0%;
 }
+
+.menu-container .btn:hover::after {
+    opacity: 1;
+    width: 100%;
+}
+
+.menu-container .btn:hover {
+    text-decoration: none;
+    color: #ffeb3b;
+}
+
+.menu-container .storybtn:hover {
+    color: #00f;
+}
+
+.menu-container .freeplaybtn:hover {
+    color: #0f0;
+}
+
+.menu-container .settingsbtn:hover {
+    color: #f0f;
+}
+
+.menu-container .myaccountbtn:hover {
+    color: #ff0;
+}
+

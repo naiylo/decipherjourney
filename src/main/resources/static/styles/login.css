@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'PixelFont';
+    src: url('../fonts/PixelFont.ttf') format('truetype');
+}
+
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(to right, #3127e9, #ac38ff);
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 100px 100px;
+    z-index: 100;
+}
+
+.back-arrow {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px;
+}
+
+.back-arrow:hover {
+    color: rgb(255, 255, 255);
+}
+
+main {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin: 250px 300px;
+    position: relative;
+    z-index: 1;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    padding: 80px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.headline-container {
+    text-align: center;
+    font-family: PixelFont;
+    margin-bottom: 20px;
+}
+
+.login-form .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.login-form .form-group label {
+    font-family: PixelFont;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.login-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-family: PixelFont;
+    border-radius: 10px;
+}
+
+.login-form .form-control:focus {
+    outline: none;
+    border-color: #0f0;
+}
+
+.button-group {
+    align-items: center;
+    width: 100%;
+}
+
+.button-group .btn {
+    border: 2px solid white;
+    border-radius: 10px;
+    font-family: PixelFont;
+    color: #fff;
+    background: transparent;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-group .loginbtn:hover {
+    color: #0f0;
+    border-color: #0f0;
+}
