@@ -28,6 +28,11 @@ public class User {
      */
     private String level;
 
+    /**
+     * The password of the user.
+     */
+    private String password;
+
     // Getter and Setter methods
 
     /**
@@ -82,5 +87,23 @@ public class User {
      */
     public void setLevel(String level) {
         this.level = level;
+    }
+
+    /**
+     * Getter for the password of the user.
+     * 
+     * @return  The password of the user.
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Setter for the password of the user.
+     * 
+     * @param password The password to set for the user.
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

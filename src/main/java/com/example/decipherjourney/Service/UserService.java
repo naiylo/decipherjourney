@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.decipherjourney.Model.*;
 import com.mongodb.client.result.UpdateResult;
 import java.util.Optional;
-
 import jakarta.servlet.http.HttpServletRequest;
-
 import java.util.List;
 
 @Service
@@ -43,7 +41,7 @@ public class UserService {
      * 
      * @return The created user.
      */
-    public void createUser(String username, String level) {
+    public void createUser(String username, String password, String level) {
         
         if (!userRepository.findByUsername(username).isEmpty()) {
             System.out.println("Username already taken.");
@@ -51,9 +49,13 @@ public class UserService {
         }
 
         try {
+
+            System.out.println("Attempting to register: " + username);
+
             User newUser = new User();
             newUser.setUsername(username);
             newUser.setLevel(level);
+            newUser.setPassword(password);
 
             userRepository.save(newUser);
 

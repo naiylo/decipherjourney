@@ -59,7 +59,7 @@ main {
     z-index: 1;
 }
 
-.login-container {
+.register-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -79,7 +79,7 @@ main {
     margin-bottom: 20px;
 }
 
-.login-form {
+.register-form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -88,13 +88,13 @@ main {
     margin-bottom: 20px;
 }
 
-.login-form .form-group label {
+.register-form .form-group label {
     font-family: PixelFont;
     font-size: 1.2rem;
     margin-bottom: 5px;
 }
 
-.login-form .form-control {
+.register-form .form-control {
     width: 100%;
     padding: 10px;
     border: 2px solid white;
@@ -104,7 +104,7 @@ main {
     border-radius: 10px;
 }
 
-.login-form .form-control:focus {
+.register-form .form-control:focus {
     outline: none;
     border-color: #0f0;
 }
@@ -134,33 +134,7 @@ main {
     display: block;
 }
 
-.button-group .loginbtn:hover {
+.button-group .registerbtn:hover {
     color: #0f0;
     border-color: #0f0;
-}
-
-.divider {
-    border: none;
-    border-top: 4px solid white;
-    background-color: white;
-    margin: 20px 0;
-    width: 100%;
-}
-
-.register-container {
-    margin-top: 40px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-}
-
-.register-button {
-    font-family: PixelFont;
-    font-size: medium;
-    text-decoration: none;
-    color: #fff;
-}
-
-.register-button:hover {
-    text-decoration: underline;
 }

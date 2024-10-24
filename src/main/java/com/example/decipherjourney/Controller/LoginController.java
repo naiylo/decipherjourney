@@ -48,29 +48,40 @@ public class LoginController {
     /**
      * Function to check the login information
      * 
-     * @param username The username the client is trying to login to
+     * @param username The username the client is trying to login to.
+     * @param password The password the client is trying to login with.
      * @param response The cookie to set for the client.
      * 
      * @return A redirection to the landing page either with a set cookie or without.
      */
     @RequestMapping("/checkLogin")
-    public String checkLogin(@RequestParam("username") String username, HttpServletResponse response) {
+    public String checkLogin(@RequestParam("username") String username, 
+                             @RequestParam("password") String password, 
+                             HttpServletResponse response) {
         System.out.println("Checking username: " + username);
 
         // Authenticate the user data
-
         if (userService.getUserByUsername(username) != null) {
             try {
                 String userId = userService.getUserByUsername(username).getId();
+
+                // Checking if password is correct
+                if(password != userService.getUserByUsername(username).getPassword()) {
+                    System.out.println("Checking account failed.");
+        
+                    return "redirect:/";  
+                }
+
+                // If Login is succesful set the user cookie and redirect to the main menu
                 cookieService.setUserCookie(response, userId);
 
-                System.out.println("Checking username was a success.");
+                System.out.println("Checking account was a success.");
 
                 return "redirect:/";
             } catch (Exception e) {}
         } 
         
-        System.out.println("Checking username failed.");
+        System.out.println("Checking account failed.");
         
         return "redirect:/";  
     }
