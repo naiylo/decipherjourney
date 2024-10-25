@@ -42,11 +42,6 @@ public class UserService {
      * @return The created user.
      */
     public void createUser(String username, String password, String level) {
-        
-        if (!userRepository.findByUsername(username).isEmpty()) {
-            System.out.println("Username already taken.");
-            return;
-        }
 
         try {
 
@@ -115,22 +110,17 @@ public class UserService {
      * @throws IllegalArgumentException If the provided userId is null or empty.
      */
     public String getUsernameById(String userId) {
-        if (userId == null || userId.isEmpty()) {
-            throw new IllegalArgumentException("ID cannot be null or empty");
-        }
-
         try {
             Optional<User> userOptional = userRepository.findById(userId);
             if (userOptional.isPresent()) {
                 User user = userOptional.get();
                 return user.getUsername();
+            } else {
+                return null;
             }
         } catch (Exception e) {
-            System.err.println("An error occurred while trying to find the username by ID: " + e.getMessage());
-            e.printStackTrace();
-        }
-
-        return null;
+            return null;
+        }   
     }
 
     /**
@@ -141,7 +131,11 @@ public class UserService {
      * @return A list of users with the specified username.
      */
     public User getUserByUsername(String username) {
-        return userRepository.findByUsername(username).getFirst();
+        try {
+            return userRepository.findByUsername(username).getFirst();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     /**

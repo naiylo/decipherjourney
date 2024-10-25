@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.example.decipherjourney.Service.UserService;
 import com.example.decipherjourney.Service.CookieService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -41,37 +43,42 @@ public class RegisterController {
     @RequestMapping("/register")
     public String Register(HttpServletRequest request, Model model) {
         System.out.println("Switched to register page.");
-        return "Register"; 
+        return "register"; 
     }
 
     /**
      * Function to handle registration data.
      * 
-     * @param username The username provided by the client.
-     * @param password The password provided by the client.
-     * @param response The HTTP response to set cookies.
+     * @param username              The username provided by the client.
+     * @param password              The password provided by the client.
+     * @param response              The HTTP response to set cookies.
+     * @param redirectAttributes    The direct feedback to be sent to the view.
      * 
      * @return Redirect to the main menu or back to registration if registration failed.
      */
     @RequestMapping("/submitRegistration")
     public String submitRegistration(@RequestParam("username") String username, 
                                      @RequestParam("password") String password, 
-                                     HttpServletResponse response) {
+                                     HttpServletResponse response,
+                                     RedirectAttributes redirectAttributes) {
         System.out.println("Attempting to register username: " + username);
 
         // Try to create the new user
         try {
-            userService.createUser(username, password, "0"); 
-            String userId = userService.getUserByUsername(username).getId();
+            if (userService.getUserByUsername(username) == null) {
+                userService.createUser(username, password, "0"); 
+                String userId = userService.getUserByUsername(username).getId();
 
-            // Set the cookie for the new user and navigate back to main menu
-            cookieService.setUserCookie(response, userId);
+                // Set the cookie for the new user and navigate back to main menu
+                cookieService.setUserCookie(response, userId);
 
-            System.out.println("User registration successful.");
-
-            return "redirect:/"; 
+                return "redirect:/"; 
+            } else  {
+                redirectAttributes.addFlashAttribute("errorMessage", "Username is already in use. Try another.");
+                return "redirect:/register";
+            }
         } catch (Exception e) {
-            System.out.println("Registration failed: " + e.getMessage());
+            redirectAttributes.addFlashAttribute("errorMessage", "An error occurred during registration. Please try again.");
             return "redirect:/register";
         }
     }

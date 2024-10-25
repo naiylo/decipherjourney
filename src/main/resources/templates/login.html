@@ -24,6 +24,9 @@
             <div class="headline-container">
                 <h1>Login</h1>
             </div>
+            <div class="feedback-messages">
+                <div class="alert alert-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+            </div>
             <div class="login-form">
                 <form action="/checkLogin" method="post">
                     <div class="form-group">

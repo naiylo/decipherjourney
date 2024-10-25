@@ -138,3 +138,23 @@ main {
     color: #0f0;
     border-color: #0f0;
 }
+
+.feedback-messages {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.feedback-messages .alert {
+    font-family: 'PixelFont';
+    font-size: 1.1rem;
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+
+.feedback-messages .alert-danger {
+    background-color: rgba(255, 0, 0, 0.3);
+}

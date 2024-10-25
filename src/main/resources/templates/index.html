@@ -29,22 +29,24 @@
         </div>
         <div class="menu-container">
             <div class="mb-3">
-                <a href="/story" class="btn storybtn">Story-Modus</a>
+                <a href="/story" class="btn storybtn">Story-Mode</a>
             </div>
             <div class="mb-3">
-                <a href="/freeplay" class="btn freeplaybtn">Freies Spiel</a>
+                <a href="/freeplay" class="btn freeplaybtn">Free-Play</a>
             </div>
             <div class="mb-3">
-                <a href="/settings" class="btn settingsbtn">Einstellungen</a>
+                <a href="/settings" class="btn settingsbtn">Settings</a>
             </div>
             <div class="mb-3">
-                <a href="/account" class="btn myaccountbtn">Mein Account</a>
+                <a href="/account" class="btn myaccountbtn">My Account</a>
             </div>
         </div>
     </main>
 
     <footer>
-
+        <div class="feedback-messages">
+            <div class="alert" th:if="${feedbackmessage}" th:text="${feedbackmessage}"></div>
+        </div>
     </footer>
 
     <!-- Bootstrap JS -->

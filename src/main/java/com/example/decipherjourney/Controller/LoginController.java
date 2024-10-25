@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.example.decipherjourney.Service.CookieService;
 import com.example.decipherjourney.Service.UserService;
 
@@ -48,40 +50,40 @@ public class LoginController {
     /**
      * Function to check the login information
      * 
-     * @param username The username the client is trying to login to.
-     * @param password The password the client is trying to login with.
-     * @param response The cookie to set for the client.
+     * @param username              The username the client is trying to login to.
+     * @param password              The password the client is trying to login with.
+     * @param response              The cookie to set for the client.
+     * @param redirectAttributes    The direct feedback to be sent to the view.
      * 
      * @return A redirection to the landing page either with a set cookie or without.
      */
     @RequestMapping("/checkLogin")
     public String checkLogin(@RequestParam("username") String username, 
                              @RequestParam("password") String password, 
-                             HttpServletResponse response) {
+                             HttpServletResponse response,
+                             RedirectAttributes redirectAttributes) {
         System.out.println("Checking username: " + username);
 
         // Authenticate the user data
-        if (userService.getUserByUsername(username) != null) {
-            try {
+        try {
+            if (userService.getUserByUsername(username) != null) {
                 String userId = userService.getUserByUsername(username).getId();
 
                 // Checking if password is correct
-                if(password != userService.getUserByUsername(username).getPassword()) {
-                    System.out.println("Checking account failed.");
-        
-                    return "redirect:/";  
-                }
+                if(password.equals(userService.getUserByUsername(username).getPassword())) {
+                    // If Login is succesful set the user cookie and redirect to the main menu
+                    cookieService.setUserCookie(response, userId);
+                    return "redirect:/";
+                } 
+            }
 
-                // If Login is succesful set the user cookie and redirect to the main menu
-                cookieService.setUserCookie(response, userId);
+            redirectAttributes.addFlashAttribute("errorMessage", "The password or username is wrong. Please try again.");
 
-                System.out.println("Checking account was a success.");
-
-                return "redirect:/";
-            } catch (Exception e) {}
+            return "redirect:/login";
+            
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", "There is an unknown error. Please try again.");
         } 
-        
-        System.out.println("Checking account failed.");
         
         return "redirect:/";  
     }

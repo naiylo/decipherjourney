@@ -220,3 +220,28 @@ main .vertical-line.right {
     color: #ff0;
 }
 
+.feedback-messages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: PixelFont, Arial, Helvetica, sans-serif;
+    padding: 150px; 
+    font-size: 2rem; 
+    color: white; 
+    position: absolute;
+    bottom: 20px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    margin-left: 5px;
+}
+
+.feedback-messages .alert {
+    font-family: 'PixelFont';
+    font-size: 1.1rem;
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+
