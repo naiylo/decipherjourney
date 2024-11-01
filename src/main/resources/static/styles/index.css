@@ -205,15 +205,11 @@ main .vertical-line.right {
 }
 
 .menu-container .storybtn:hover {
-    color: #00f;
+    color: #f0f;
 }
 
 .menu-container .freeplaybtn:hover {
     color: #0f0;
-}
-
-.menu-container .settingsbtn:hover {
-    color: #f0f;
 }
 
 .menu-container .myaccountbtn:hover {

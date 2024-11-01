@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'PixelFont';
+    src: url('../fonts/PixelFont.ttf') format('truetype');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    background: linear-gradient(to right, #2d2be4, #a22ffd);
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 100px 100px;
+    z-index: 100;
+}
+
+.back-arrow {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px;
+}
+
+.back-arrow:hover {
+    color: rgb(255, 255, 255);
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.freeplay-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    padding: 60px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.headline-container {
+    text-align: center;
+    font-family: PixelFont;
+    margin-bottom: 20px;
+}
+
+.headline-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.headline-container p {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+.menu-container {
+    width: 100%;
+    text-align: center;
+}
+
+.menu-container .btn {
+    height: 70px;
+    width: 100%;
+    max-width: 350px;
+    color: #fff;
+    border: 2px solid #fff;
+    font-size: 1.5rem;
+    font-family: PixelFont;
+    background-color: transparent;
+    margin: 10px 0;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-container .btn:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.menu-container .caesarbtn:hover {
+    border-color: #007bff;
+}
+
+.menu-container .permutationbtn:hover {
+    border-color: #28a745;
+}
+
+.menu-container .vigenerebtn:hover {
+    border-color: #dc3545;
+}
