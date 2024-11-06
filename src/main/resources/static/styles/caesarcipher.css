@@ -28,13 +28,12 @@ html, body {
 }
 
 header {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative; 
     width: 100%;
     padding: 100px 100px;
     z-index: 100;
 }
+
 
 .back-arrow {
     text-decoration: none;
@@ -43,84 +42,132 @@ header {
     padding: 10px;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-}
-
-.caesar-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    max-width: 600px;
+.tutorial-container {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -100px;
+    max-width: 1200px; 
     padding: 40px;
     border-radius: 15px;
+    border-style: dotted;
+    border-color: #fff;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
 }
 
-.tutorial-container {
-    text-align: center;
+.tutorial-container h1 {
     font-family: PixelFont;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    text-decoration: underline;
 }
 
-.tutorial-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+.tutorial-container p {
+    font-size: 1.25rem;
+}
+
+.big-letter {
+    font-size: 1em;
+    font-weight: bold; 
+    color: #fff; 
 }
 
 .tutorial-animation {
     font-size: 2rem;
-    animation: tutorialAnimation 2s infinite;
+    display: flex;
+    gap: 10px;
 }
 
 .tutorial-text {
-    display: inline-block;
-    margin-right: 10px;
+    opacity: 0; 
     animation: tutorialText 5s ease-in-out infinite;
-}
-
-@keyframes tutorialAnimation {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+    padding-left: 210px; 
 }
 
 @keyframes tutorialText {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    0% { opacity: 0; transform: translateY(20px); } 
+    20% { opacity: 1; transform: translateY(0); } 
+    80% { opacity: 1; transform: translateY(0); } 
+    100% { opacity: 0; transform: translateY(-20px); } 
+}
+
+.tutorial-text:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.tutorial-text:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.tutorial-text:nth-child(3) {
+    animation-delay: 1s;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    padding: 50px 20px;
+    margin-top: -125px;
 }
 
 .cipher-container {
-    width: 100%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 50px; 
+    border-radius: 15px;
 }
 
-.cipher-container .form-group {
-    margin-bottom: 20px;
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-auto-rows: minmax(50px, auto); 
+    gap: 15px; 
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    width: 375px;
+    height: 650px;
 }
 
-.cipher-container .btn {
-    margin-top: 20px;
-    font-size: 1.2rem;
-}
-
-.hints-container {
-    margin-top: 15px;
-    color: #ddd;
-    font-size: 1rem;
-}
-
-footer {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
+.letter-pair {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    gap: 10px;
     font-family: PixelFont;
-    color: white;
 }
+
+.letter {
+    font-size: 1.2rem;
+    color: #fff;
+    width: 20px;
+    text-align: center;
+}
+
+.cipher-input {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.text-container {
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    width: 775px;
+    height: 650px;
+
+}
+
