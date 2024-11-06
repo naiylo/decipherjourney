@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'PixelFont';
+    src: url('../fonts/PixelFont.ttf') format('truetype');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    background: linear-gradient(to right, #2d2be4, #a22ffd);
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 100px 100px;
+    z-index: 100;
+}
+
+.back-arrow {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.caesar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.tutorial-container {
+    text-align: center;
+    font-family: PixelFont;
+    margin-bottom: 20px;
+}
+
+.tutorial-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.tutorial-animation {
+    font-size: 2rem;
+    animation: tutorialAnimation 2s infinite;
+}
+
+.tutorial-text {
+    display: inline-block;
+    margin-right: 10px;
+    animation: tutorialText 5s ease-in-out infinite;
+}
+
+@keyframes tutorialAnimation {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes tutorialText {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.cipher-container {
+    width: 100%;
+    text-align: center;
+}
+
+.cipher-container .form-group {
+    margin-bottom: 20px;
+}
+
+.cipher-container .btn {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.hints-container {
+    margin-top: 15px;
+    color: #ddd;
+    font-size: 1rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-family: PixelFont;
+    color: white;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher - Free Play</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/styles/caesarcipher.css">
+
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="/freeplay" class="back-arrow">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </header>
+
+    <main>
+        <div class="caesar-container">
+            <!-- Animated Tutorial -->
+            <div class="tutorial-container">
+                <h1>Caesar Cipher</h1>
+                <p>The Caesar Cipher is a simple encryption technique where each letter in the plaintext is shifted by a certain number. 
+                    For example, with a shift of 3, 'A' becomes 'D', 'B' becomes 'E', 'X' becomes 'A' and 'Z' becomes 'C'</p>
+                <div class="tutorial-animation">
+                    <span class="tutorial-text">A → D</span>
+                    <span class="tutorial-text">B → E</span>
+                    <span class="tutorial-text">C → F</span>
+                </div>
+            </div>
+
+            <!-- Cipher Input and Hints -->
+            <div class="cipher-container">
+                <div class="form-group">
+                    <label for="cipher-text">Enter the Ciphered Text:</label>
+                    <input type="text" id="cipher-text" class="form-control" placeholder="Encrypted Text">
+                </div>
+                <button class="btn btn-primary" id="generate-cipher-btn">Generate Cipher</button>
+                <div id="cipher-hints" class="hints-container"></div>
+                
+                <div class="form-group">
+                    <label for="user-answer">Your Answer:</label>
+                    <input type="text" id="user-answer" class="form-control" placeholder="Your Decoded Text">
+                </div>
+                <button class="btn btn-success" id="check-answer-btn">Check Answer</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="feedback-messages">
+            <div class="alert" id="feedback-alert"></div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/caesarcipher.js"></script>
+</body>
+</html>
