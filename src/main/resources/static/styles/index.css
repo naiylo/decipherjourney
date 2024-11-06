@@ -168,7 +168,6 @@ main .vertical-line.right {
     color: white;
     border: none;
     font-size: 2rem;
-    font-style: bold;
     text-align: center;
     position: relative;
     background-color: transparent;
@@ -181,7 +180,7 @@ main .vertical-line.right {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 2px;
+    height: 4px;
     background: repeating-linear-gradient(
         to right,
         white 0,
