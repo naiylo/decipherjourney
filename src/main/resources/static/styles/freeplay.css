@@ -43,10 +43,6 @@ header {
     padding: 10px;
 }
 
-.back-arrow:hover {
-    color: rgb(255, 255, 255);
-}
-
 main {
     height: 100vh;
     display: flex;
@@ -94,26 +90,48 @@ main {
     max-width: 350px;
     color: #fff;
     border: 2px solid #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-family: PixelFont;
-    background-color: transparent;
     margin: 10px 0;
-    transition: color 0.3s ease, background-color 0.3s ease;
+    transition: background-image 0s, text-shadow 0s;
 }
 
-.menu-container .btn:hover {
-    background-color: #fff;
-    color: #333;
+.caesarbtn {
+    height: 70px;
+    width: 100%;
+    max-width: 350px;
+    color: #fff;
+    font-size: 2rem;
+    font-family: PixelFont;
+    margin: 10px 0;
+    position: relative;
+    transition: background-image 0s, text-shadow 0s;
 }
 
-.menu-container .caesarbtn:hover {
-    border-color: #007bff;
+.caesarbtn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
 }
 
-.menu-container .permutationbtn:hover {
-    border-color: #28a745;
+.caesarbtn:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
-.menu-container .vigenerebtn:hover {
-    border-color: #dc3545;
+.caesarbtn:hover {
+    background-image: url('/images/caesarpixel2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: color-dodge;
 }
+
+

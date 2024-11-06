@@ -30,12 +30,12 @@ public class FreePlayController {
     CookieService cookieService;
 
     /**
-     * Function to freeplay the login view.
+     * Function to load the freeplay view.
      * 
      * @param request   HTTP request made by a client.
      * @param model     The model to set attributes for the view.
      * 
-     * @return The view name for the free play menu.
+     * @return The free play view.
      */
     @RequestMapping("/freeplay")
     public String showFreePlayMenu(HttpServletRequest request, Model model) {
