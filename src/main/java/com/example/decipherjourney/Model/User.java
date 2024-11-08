@@ -33,6 +33,11 @@ public class User {
      */
     private String password;
 
+    /**
+     * The current caesar cipher the user is working with in free play
+     */
+    private CaesarCipher caesarCipher;
+
     // Getter and Setter methods
 
     /**
@@ -105,5 +110,23 @@ public class User {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * Getter for the caesar cipher of the user.
+     * 
+     * @return  The caesar cipher of the user.
+     */
+    public CaesarCipher getCaesarCipher() {
+        return caesarCipher;
+    }
+
+    /**
+     * Setter for the caesar cipher of the user.
+     * 
+     * @param cipher The caesar cipher to set for the user.
+     */
+    public void setCaesarCipher(CaesarCipher cipher) {
+        this.caesarCipher = cipher;
     }
 }

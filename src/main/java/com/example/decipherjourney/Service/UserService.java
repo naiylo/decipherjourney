@@ -52,6 +52,9 @@ public class UserService {
             newUser.setLevel(level);
             newUser.setPassword(password);
 
+            // Set the ciphers of free play mode
+            newUser.setCaesarCipher(null);
+
             userRepository.save(newUser);
 
             // Verify user creation
@@ -195,6 +198,20 @@ public class UserService {
             return;
         }
         updateField(username, "level", level, "Updated level succesfully.");
+    }
+
+    /**
+     * Updates the level of the user identified by the username
+     * 
+     * @param username      The current username of the user
+     * @param level         The new level of the user
+     */
+    public void changeCaesarCipher(String username, CaesarCipher cipher) {
+        if (username == null || username.isEmpty()) {
+            System.out.println("Username can not be empty.");
+            return;
+        }
+        updateField(username, "caesarCipher", cipher, "Updated caesar cipher succesfully.");
     }
 
 }
