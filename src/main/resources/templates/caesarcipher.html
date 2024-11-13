@@ -19,8 +19,7 @@
         </a>
         <div class="tutorial-container">
             <h1>Caesar Cipher</h1>
-            <p>The Caesar Cipher is a simple encryption technique where each letter in the plaintext is shifted by a certain number.</p>
-            <p>For example, with a shift of 3, <span class="big-letter">A</span> becomes <span class="big-letter">D</span>, 
+            <p>The Caesar Cipher is a simple encryption technique where each letter in the plaintext is shifted by a certain number. For example, with a shift of 3, <span class="big-letter">A</span> becomes <span class="big-letter">D</span>, 
                 <span class="big-letter">B</span> becomes <span class="big-letter">E</span>, 
                 <span class="big-letter">X</span> becomes <span class="big-letter">A</span> and 
                 <span class="big-letter">Z</span> becomes <span class="big-letter">C</span>.
@@ -39,134 +38,138 @@
                 <div class="notes-text">
                     <h1>Notes:</h1>
                 </div>
+                <form id="decipher-form" action="/freeplay/caesarcipher/decipherMapping" method="post">
                 <div class="notes-letters">
                     <div class="alphabet-pair">
                         <div class="letter-pair">
                             <span class="letter">A</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapA" id="mapA" class="cipher-input" placeholder="" th:value="${mappingParams['A']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">B</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapB" id="mapB" class="cipher-input" placeholder="" th:value="${mappingParams['B']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">C</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapC" id="mapC" class="cipher-input" placeholder="" th:value="${mappingParams['C']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">D</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapD" id="mapD" class="cipher-input" placeholder="" th:value="${mappingParams['D']}">
                         </div>
                     </div>
                     <div class="alphabet-pair">
                         <div class="letter-pair">
                             <span class="letter">E</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapE" id="mapE" class="cipher-input" placeholder="" th:value="${mappingParams['E']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">F</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapF" id="mapF" class="cipher-input" placeholder="" th:value="${mappingParams['F']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">G</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapG" id="mapG" class="cipher-input" placeholder="" th:value="${mappingParams['G']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">H</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapH" id="mapH" class="cipher-input" placeholder="" th:value="${mappingParams['H']}">
                         </div>
                     </div>
                     <div class="alphabet-pair">
                         <div class="letter-pair">
                             <span class="letter">I</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1"  name="mapI" id="mapI" class="cipher-input" placeholder="" th:value="${mappingParams['I']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">J</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapJ" id="mapJ" class="cipher-input" placeholder="" th:value="${mappingParams['J']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">K</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapK" id="mapK" class="cipher-input" placeholder="" th:value="${mappingParams['K']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">L</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapL" id="mapL" class="cipher-input" placeholder="" th:value="${mappingParams['L']}">
                         </div>
                     </div>
                     <div class="alphabet-pair">
                         <div class="letter-pair">
                             <span class="letter">M</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapM" id="mapM" class="cipher-input" placeholder="" th:value="${mappingParams['M']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">N</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapN" id="mapN" class="cipher-input" placeholder="" th:value="${mappingParams['N']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">O</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapO" id="mapO" class="cipher-input" placeholder="" th:value="${mappingParams['O']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">P</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapP" id="mapP" class="cipher-input" placeholder="" th:value="${mappingParams['P']}">
                         </div>
                     </div>
                     <div class="alphabet-pair">
                         <div class="letter-pair">
                             <span class="letter">Q</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapQ" id="mapQ" class="cipher-input" placeholder="" th:value="${mappingParams['Q']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">R</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapR" id="mapR" class="cipher-input" placeholder="" th:value="${mappingParams['R']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">S</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapS" id="mapS" class="cipher-input" placeholder="" th:value="${mappingParams['S']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">T</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapT" id="mapT" class="cipher-input" placeholder="" th:value="${mappingParams['T']}">
                         </div>
                     </div>
                     <div class="alphabet-pair">
                         <div class="letter-pair">
                             <span class="letter">U</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapU" id="mapU" class="cipher-input" placeholder="" th:value="${mappingParams['U']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">V</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapV" id="mapV" class="cipher-input" placeholder="" th:value="${mappingParams['V']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">W</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapW" id="mapW" class="cipher-input" placeholder="" th:value="${mappingParams['W']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">X</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapX" id="mapX" class="cipher-input" placeholder="" th:value="${mappingParams['X']}">
                         </div>
                     </div>
                     <div class="alphabet-pair">
                         <div class="letter-pair">
                             <span class="letter">Y</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapY" id="mapY" class="cipher-input" placeholder="" th:value="${mappingParams['Y']}">
                         </div>
                         <div class="letter-pair">
                             <span class="letter">Z</span>
-                            <input type="text" maxlength="1" class="cipher-input" placeholder="_">
+                            <input type="text" maxlength="1" name="mapZ" id="mapZ" class="cipher-input" placeholder="" th:value="${mappingParams['Z']}">
                         </div>
                     </div>
                 </div>
                 <div class="notes-buttons">
                     <div>
-                        <button class="try-button">Try out your Combination</button>
+                        <button type="submit" class="try-button">Try out your Combination</button>
                     </div>
+                </form>
                     <div class="clear-shift-buttons">
+                        <form id="clear-mapping" action="/freeplay/caesarcipher/clearMapping" method="post">
                         <div class="clear-button">
                             <button>Clear</button>
                         </div>
+                        </form>
                         <div>
                         <form action="/freeplay/caesarcipher/shift" method="post">
                             <button class="shift-button">Shift by:</button>
@@ -192,11 +195,20 @@
                 <div class="answer-container">
                     <p th:text="${tryoutText}"></p>
                 </div>
-                <div class="task-buttons">
-                    <button class="reveal-button">Reveal the original Text</button>
+                <div class="text-buttons-container">
+                <form action="/freeplay/caesarcipher/revealOriginal" method="post">
+                    <div class="task-buttons">
+                        <button class="reveal-button">Reveal the original Text</button>
+                    </div>
+                    </form>
+                    <form action="/freeplay/caesarcipher/tryNew" method="post">
+                    <div class="task-buttons">
+                        <button class="reveal-button">Tryout a new cipher</button>
+                    </div>
+                    </form>
                 </div>
                 <div class="feedback-messages">
-                    <div class="alert alert-danger" th:if="${errorMessage2}" th:text="${errorMessage2}"></div>
+                    <div class="alert alert-success" th:if="${successMessage}" th:text="${successMessage}"></div>
                 </div>
             </div>
         </div>

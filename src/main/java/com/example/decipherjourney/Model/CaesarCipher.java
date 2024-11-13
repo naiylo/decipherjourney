@@ -1,5 +1,8 @@
 package com.example.decipherjourney.Model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Freeplay Class represents a gamestate of a freeplay instance
  * 
@@ -21,6 +24,11 @@ public class CaesarCipher {
      * The ciphered text
      */
     private String cipheredText;
+
+    /**
+     * The supposed dictionary to translate without the shift
+     */
+    private Map<String, String> map;
 
     /**
      * Gets the shift number used for the Caesar cipher.
@@ -74,6 +82,29 @@ public class CaesarCipher {
      */
     public void setCipheredText(String cipheredText) {
         this.cipheredText = cipheredText;
+    }
+
+    /**
+     * Gets the supposed map.
+     * 
+     * @return The supposed map.
+     */
+    public Map<String, String> getMap() {
+        Map<String, String> fullMap = new HashMap<>();
+            for (char letter = 'A'; letter <= 'Z'; letter++) {
+                String key = String.valueOf(letter);
+                fullMap.put(key, map.getOrDefault(key, "")); 
+            }
+            return fullMap;
+        }
+
+    /**
+     * Sets the supposed map.
+     * 
+     * @param newMap The new map to set.
+     */
+    public void setMap(Map<String, String> newMap) {
+        this.map = newMap;
     }
 
 

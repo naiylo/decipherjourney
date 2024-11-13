@@ -1,5 +1,9 @@
 package com.example.decipherjourney.Controller;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -65,9 +69,11 @@ public class CaesarCipherController {
                     CaesarCipher cipher = caesarCipherService.createRandomCaesarCipher();
                     userService.changeCaesarCipher(user.getUsername(), cipher);;
                     model.addAttribute("cipher", cipher);
+                    model.addAttribute("mappingParams", cipher.getMap());
                 } else {
                     CaesarCipher cipher = user.getCaesarCipher();
                     model.addAttribute("cipher", cipher);
+                    model.addAttribute("mappingParams", cipher.getMap());
                 }
                 
     
@@ -87,7 +93,7 @@ public class CaesarCipherController {
      * @param request               HTTP request made by a client.
      * @param model                 The model to set attributes for the view.
      * 
-     * @return                      The updated caesarcipher view.
+     * @return The updated caesarcipher view.
      */
     @RequestMapping("/freeplay/caesarcipher/shift")
     public String shiftCipher(@RequestParam("shift") String shiftValue,
@@ -98,7 +104,6 @@ public class CaesarCipherController {
         String shiftString = (shiftValue.isEmpty()) ? "0" : shiftValue;
         try {
             int shift = Integer.parseInt(shiftString);
-            System.out.println(shift);
 
             // Get the existing cipher from the model
             CaesarCipher cipher = userService.getCurrentUser(request).getCaesarCipher();
@@ -113,8 +118,121 @@ public class CaesarCipherController {
             redirectAttributes.addFlashAttribute("errorMessage", "The shift value should be a number between 0 and 25");
         }
 
-         
         return "redirect:/freeplay/caesarcipher";  
+    }
+
+    /**
+     * Function to translate the cipher text with the input letters that are the supposed map of the cipher.
+     * 
+     * @param mappingParams         The Mapping of all inputs for the supposed map of the cipher.
+     * @param redirectAttributes    Object to redirect Attributes.
+     * @param request               The updated caesarcipher view.
+     * @param model                 The model to set attributes for the view.
+     * 
+     * @return The updated caesarcipher view.
+     */
+    @RequestMapping("/freeplay/caesarcipher/decipherMapping")
+    public String decipherWithMapping(@RequestParam Map<String, String> mappingParams,
+                                      RedirectAttributes redirectAttributes,
+                                      HttpServletRequest request,
+                                      Model model) {
+
+        // Create the map from the form inputs
+        Map<String, String> cipherMap = new HashMap<>();
+        // Pattern to check if a character is a valid uppercase letter A-Z
+        Pattern pattern = Pattern.compile("[A-Z]");
+        
+        for (char letter = 'A'; letter <= 'Z'; letter++) {
+            String key = "map" + letter;
+            String value = mappingParams.get(key);
+            
+            // Add to map if a mapping was provided for the letter
+            if (value != null && !value.isEmpty()) {
+                
+                // Check if the value contains only one uppercase letter
+                Matcher matcher = pattern.matcher(value.toUpperCase());
+                if (value.length() == 1 && matcher.matches()) {
+                    cipherMap.put(String.valueOf(letter), value.toUpperCase());
+                } else {
+                    // Throw an exception if the value is not a valid single letter
+                    redirectAttributes.addFlashAttribute("errorMessage", "The letter can only be between A-Z.");
+                }
+            }
+        }
+
+        // Update the current supposed map
+        CaesarCipher newCipher = userService.getCurrentUser(request).getCaesarCipher();
+        newCipher.setMap(cipherMap);
+        userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), newCipher);
+
+        // Retrieve the current ciphered text from the user session
+        CaesarCipher cipher = userService.getCurrentUser(request).getCaesarCipher();
+        String cipheredText = cipher.getCipheredText();
+
+        // Use the cipher map to decode the ciphered text
+        String decipheredText = caesarCipherService.decipherSpecificLetter(cipherMap, cipheredText);
+
+        // Redirect with the deciphered result
+        redirectAttributes.addFlashAttribute("tryoutText", decipheredText);
+        return "redirect:/freeplay/caesarcipher";
+    }
+
+    /**
+     * Function to clear the supposed mapping of the cipher.
+     * 
+     * @param request HTTP request made by a client.
+     *  
+     * @return The updated caesarcipher view.
+     */
+    @RequestMapping("/freeplay/caesarcipher/clearMapping")
+    public String clearMapping(HttpServletRequest request) {
+
+        // Clear the current supposed map
+        CaesarCipher newCipher = userService.getCurrentUser(request).getCaesarCipher();
+        newCipher.setMap(new HashMap<>());
+        userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), newCipher);
+
+        return "redirect:/freeplay/caesarcipher";
+    }
+
+    /**
+     * Function to reveal the original Text nad load the congrats and disclaimer.
+     * 
+     * @param request               HTTP request made by a client.
+     * @param redirectAttributes    Object to redirect Attributes.
+     * 
+     * @return The updated caesarcipher view.
+     */
+    @RequestMapping("/freeplay/caesarcipher/revealOriginal")
+    public String revealOriginal(HttpServletRequest request,
+                                 RedirectAttributes redirectAttributes) {
+
+        CaesarCipher newCipher = userService.getCurrentUser(request).getCaesarCipher();
+        newCipher.setCipheredText(newCipher.getOriginalText());
+        userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), newCipher);
+
+        redirectAttributes.addFlashAttribute("successMessage", "Congratulations, this is the original text. Did you succeed?");
+
+        return "redirect:/freeplay/caesarcipher";
+    }
+
+    /**
+     * Function to try out a new caesar cipher.
+     * 
+     * @param request  HTTP request made by a client.
+     * 
+     * @return The updated caesarcipher view with a new casear cipher.
+     */
+    @RequestMapping("/freeplay/caesarcipher/tryNew")
+    public String tryNew(HttpServletRequest request,
+                         RedirectAttributes redirectAttributes) {
+
+        CaesarCipher newCipher = caesarCipherService.createRandomCaesarCipher();
+        userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), newCipher);
+
+        redirectAttributes.addFlashAttribute("successMessage", "Congratulations, here is your new cipher!");
+
+        return "redirect:/freeplay/caesarcipher";
     }
     
 }

@@ -1,5 +1,7 @@
 package com.example.decipherjourney.Service;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.decipherjourney.Model.*;
@@ -52,12 +54,44 @@ public class CaesarCipherService {
     }
 
     /**
+     * Function to decipher the given text using the provided map of the cipher.
+     * 
+     * @param map   The mapping for the cipher, where each key-value pair represents the substitution.
+     * @param text  The text to decipher.
+     * @return      The deciphered text.
+     */
+    public String decipherSpecificLetter(Map<String, String> map, String text) {
+        StringBuilder decipheredText = new StringBuilder();
+
+        for (char ch : text.toCharArray()) {
+            String charAsString = String.valueOf(ch);
+
+            // Check if the character is a line break, space, or non-alphabet character
+            if (ch == '\n' || ch == ' ' || !Character.isLetter(ch)) {
+                // Preserve line breaks, spaces, and non-alphabet characters
+                decipheredText.append(ch);
+            } else if (map.containsKey(charAsString)) {
+                // Replace with the mapped value if it exists
+                decipheredText.append(map.get(charAsString));
+            } else {
+                // Substitute missing mappings with an underscore
+                decipheredText.append("_");
+            }
+        }
+
+        return decipheredText.toString();
+    }
+
+    /**
      * Function to create a random CaesarCipher object with a random text and shift.
      * 
      * @return  A populated CaesarCipher object.
      */
     public CaesarCipher createRandomCaesarCipher() {
         CaesarCipher cipher = new CaesarCipher();
+
+        // Initialize an empty mapping
+        cipher.setMap(new HashMap<>());
 
         // Get a random example text from CreatorService
         String originalText = creatorService.getRandomText();
@@ -83,6 +117,9 @@ public class CaesarCipherService {
      */
     public CaesarCipher createSpecificCaesarCipher(String text, Integer shift) {
         CaesarCipher cipher = new CaesarCipher();
+
+        // Initialize an empty mapping
+        cipher.setMap(new HashMap<>());
 
         cipher.setOriginalText(text);
         cipher.setShiftNumber(shift);
