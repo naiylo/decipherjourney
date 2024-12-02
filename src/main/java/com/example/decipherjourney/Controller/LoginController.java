@@ -76,12 +76,12 @@ public class LoginController {
                 } 
             }
 
-            redirectAttributes.addFlashAttribute("errorMessage", "The password or username is wrong. Please try again.");
+            redirectAttributes.addFlashAttribute("errorMessage", "Das Password oder der Nutzername ist falsch.");
 
             return "redirect:/login";
             
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("errorMessage", "There is an unknown error. Please try again.");
+            redirectAttributes.addFlashAttribute("errorMessage", "Unbekannter Fehler. Bitte versuche es erneut.");
         } 
         
         return "redirect:/";  

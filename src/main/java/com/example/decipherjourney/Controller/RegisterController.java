@@ -73,11 +73,11 @@ public class RegisterController {
 
                 return "redirect:/"; 
             } else  {
-                redirectAttributes.addFlashAttribute("errorMessage", "Username is already in use. Try another.");
+                redirectAttributes.addFlashAttribute("errorMessage", "Der Benutzername ist schon vergeben. Bitte versuche einen anderen.");
                 return "redirect:/register";
             }
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("errorMessage", "An error occurred during registration. Please try again.");
+            redirectAttributes.addFlashAttribute("errorMessage", "Es ist ein Fehler aufgetreten. Bitte versuche es erneut.");
             return "redirect:/register";
         }
     }
