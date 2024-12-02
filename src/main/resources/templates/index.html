@@ -42,7 +42,12 @@
 
     <footer>
         <div class="feedback-messages">
-            <div class="alert" th:if="${feedbackmessage}" th:text="${feedbackmessage}"></div>
+            <form id="logout" action="/logout" method="post" th:if="${feedbackmessage == 'Login'}">
+                <div class="logout">
+                    <button type="submit" class="logout-button">Logout</button>
+                </div>
+            </form>
+            <div class="alert" th:if="${feedbackmessage != 'Login'}" th:text="${feedbackmessage}"></div>
         </div>
     </footer>
 

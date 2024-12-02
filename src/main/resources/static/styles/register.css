@@ -95,18 +95,20 @@ main {
 }
 
 .register-form .form-control {
-    width: 100%;
+    width: 400px;
     padding: 10px;
     border: 2px solid white;
     background: transparent;
     color: white;
-    font-family: PixelFont;
     border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem; 
+    height: auto; 
 }
 
 .register-form .form-control:focus {
     outline: none;
-    border-color: #0f0;
+    border-color: #fff;
 }
 
 .form-group {

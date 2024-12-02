@@ -34,6 +34,11 @@ public class User {
     private String password;
 
     /**
+     * The story progress of the user.
+     */
+    private StoryMode storyMode;
+
+    /**
      * The current caesar cipher the user is working with in free play
      */
     private CaesarCipher caesarCipher;
@@ -113,6 +118,24 @@ public class User {
     }
 
     /**
+     * Gets the story mode progress of the user.
+     * 
+     * @return The story mode progress of the user.
+     */
+    public StoryMode getStoryMode() {
+        return storyMode;
+    }
+
+    /**
+     * Sets the story mode progress for the user.
+     * 
+     * @param storyMode The new story mode progress to set for the user.
+     */
+    public void setStoryMode(StoryMode storyMode) {
+        this.storyMode = storyMode;
+    }
+
+    /**
      * Getter for the caesar cipher of the user.
      * 
      * @return  The caesar cipher of the user.
@@ -129,4 +152,5 @@ public class User {
     public void setCaesarCipher(CaesarCipher cipher) {
         this.caesarCipher = cipher;
     }
+    
 }

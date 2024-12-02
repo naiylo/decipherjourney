@@ -1,9 +1,12 @@
 package com.example.decipherjourney.Controller;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.decipherjourney.Service.CookieService;
 import com.example.decipherjourney.Service.UserService;
 import com.example.decipherjourney.Model.*;
@@ -46,11 +49,28 @@ public class MainController {
         try {
             User user = userService.getCurrentUser(request);
             model.addAttribute("username", user.getUsername());
+            model.addAttribute("feedbackmessage", "Login");
             return "index";
         } catch (Exception e) {}
 
         model.addAttribute("feedbackmessage", "You are not logged in yet. Go to My-Account to login or register.");
         return "index";
+    }
+
+    /**
+     * Logout of your account.
+     * 
+     * @param request   HTTP request made by a client.
+     * @param response  HTTP response to the client.
+     * 
+     * @return  The landing page view.
+     */
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request,
+                         HttpServletResponse response) {
+        cookieService.deleteAllCookies(request, response);
+
+        return "redirect:/";
     }
     
 }

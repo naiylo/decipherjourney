@@ -94,6 +94,7 @@ main::after {
     height: 2px;
     background: white;
     animation: lineShrinkExpand 16s infinite ease-in-out;
+    transform-origin: center; /* Adjusted to make the lines start in the middle */
 }
 
 main::before {
@@ -112,7 +113,8 @@ main .vertical-line {
     position: absolute;
     width: 2px;
     background: white;
-    animation: lineShrinkExpand 24s infinite ease-in-out;
+    animation: verticalLineShrinkExpand 24s infinite ease-in-out;
+    transform-origin: center; /* Adjusted for vertical lines */
 }
 
 main .vertical-line.left {
@@ -163,7 +165,7 @@ main .vertical-line.right {
 
 .menu-container .btn {
     height: 75px;
-    width: 400px;
+    width: 375px;
     display: inline-flex;
     color: white;
     border: none;
@@ -184,7 +186,7 @@ main .vertical-line.right {
     background: repeating-linear-gradient(
         to right,
         white 0,
-        white 5px,
+        white 4px,
         transparent 5px,
         transparent 10px
     );
@@ -198,11 +200,6 @@ main .vertical-line.right {
     width: 100%;
 }
 
-.menu-container .btn:hover {
-    text-decoration: none;
-    color: #ffeb3b;
-}
-
 .menu-container .storybtn:hover {
     color: #f0f;
 }
@@ -213,6 +210,24 @@ main .vertical-line.right {
 
 .menu-container .myaccountbtn:hover {
     color: #ff0;
+}
+
+.logout-button {
+    font-family: PixelFont;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    color: red;
+    border-color: red;
 }
 
 .feedback-messages {
