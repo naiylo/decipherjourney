@@ -18,10 +18,10 @@
             <i class="fas fa-arrow-left"></i>
         </a>
         <div class="tutorial-container">
-            <h1>Caesar Cipher</h1>
-            <p>The Caesar Cipher is a simple encryption technique where each letter in the plaintext is shifted by a certain number. For example, with a shift of 3, <span class="big-letter">A</span> becomes <span class="big-letter">D</span>, 
+            <h1>Caesar Verschlüsselung</h1>
+            <p>Die Caesar-Verschlüsselung ist eine einfache Verschlüsselungstechnik, bei der jeder Buchstabe im Klartext um eine bestimmte Anzahl verschoben wird. Zum Beispiel wird bei einer Verschiebung um 3 aus <span class="big-letter">A</span> ein <span class="big-letter">D</span>,
                 <span class="big-letter">B</span> becomes <span class="big-letter">E</span>, 
-                <span class="big-letter">X</span> becomes <span class="big-letter">A</span> and 
+                <span class="big-letter">X</span> becomes <span class="big-letter">A</span> und
                 <span class="big-letter">Z</span> becomes <span class="big-letter">C</span>.
             </p>
             <div class="tutorial-animation">
@@ -33,17 +33,19 @@
         <div class="help-container">
             <i class="fas fa-question-circle help-icon" id="help-icon"></i>
             <div class="help-text" id="help-text">
-                <h3>Explanation</h3>
-                <p><strong>Notes Section:</strong> In the notes section, you can customize the letter mappings of the Caesar cipher. You can just write down a letter between A-Z 
-                                                   in the box beside the letter and press the buttons. <br> <br>
-                                                   "Try out your Combination": See what the text would look like with your mapping by replacing letters from the cipher text with your own ones. If you leave out a mapping it will be subsituted with a _. <br> <br>
-                                                   "Clear": Reset your current mapping. <br> <br>
-                                                   "Shift": Try out a shift value. Make sure to calculate backwards from the letter. For Example if the ciphered letter is F and you think it could be a A use a shift value of 5.
-                                                   </p>
-                <p><strong>Cipher Text:</strong> Here, you will see the encoded text. Try to solve it by trying 
-                                                 different shift values or mapping your guessed letters. </p>
-                <p><strong>Deciphered Text:</strong> Once you input your cipher mapping or shift value, the "decoded" text will appear.</p>
-            </div>
+                <h3>Erklärung:</h3>
+                <br>
+                <p>Im Notizen-Bereich können Sie die Buchstaben des Caesar-Verschlüsselten Textes anpassen. 
+                                             Schreiben Sie einfach einen Buchstaben zwischen A-Z in das Feld neben dem Buchstaben und drücken 
+                                             Sie den <strong>"Try out your combination"</strong> Button. So können sie sehen wie der Text aussieht wenn 
+                                             bestimmte Buchstaben mit anderen ersetzt wurden und dadurch auf die Verschiebung schlussfolgern.
+                                             Leere Buchstabenfelder werden durch ein _ dargestellt. Der <strong>"Clear"</strong> Button löscht alle bis jetzt 
+                                             aufgestellten Vermutungen von Buchstaben Paaren. Mit dem <strong>"Shift By"</strong> Button können sie direkt eine Verschiebung
+                                             ausprobieren um einen festen Wert ausprobieren.<br> 
+                        
+                <p>Unter verschlüsselter Text können sie den verschlüsselten Text sehen. Hier wird auch die Lösung angezeigt sollten sie sich dafür entscheiden aufzugeben
+                                                    und den <strong>"Reveal the original Text"</strong> Button zu klicken. Mit dem <strong>"Tryout a new cipher"</strong> Button können sie eine 
+                                                    komplett neu verschlüsselte Nachricht erhalten.                    
         </div>
     </header>
 
@@ -51,7 +53,7 @@
         <div class="cipher-container">
             <div class="notes-container">
                 <div class="notes-text">
-                    <h1>Notes:</h1>
+                    <h1>Notizen:</h1>
                 </div>
                 <form id="decipher-form" action="/freeplay/caesarcipher/decipherMapping" method="post">
                 <div class="notes-letters">
@@ -176,7 +178,7 @@
                 </div>
                 <div class="notes-buttons">
                     <div>
-                        <button type="submit" class="try-button">Try out your Combination</button>
+                        <button type="submit" class="try-button">Try out your combination</button>
                     </div>
                 </form>
                     <div class="clear-shift-buttons">
@@ -199,13 +201,13 @@
             </div>
             <div class="text-container">
                 <div class="text-headline">
-                    <h1>Cipher Text:</h1>
+                    <h1>Verschlüsselter Text:</h1>
                 </div>
                 <div class="question-container">
                     <p th:text="${cipher.cipheredText}"></p>
                 </div>
                 <div class="text-headline2">
-                    <h1>Your deciphered Text:</h1>
+                    <h1>Entschlüsselter Text:</h1>
                 </div>
                 <div class="answer-container">
                     <p th:text="${tryoutText}"></p>

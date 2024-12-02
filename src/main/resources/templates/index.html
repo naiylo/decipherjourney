@@ -13,7 +13,7 @@
     <header>
         <div class="welcome-container" th:if="${username != null}">
             <a>
-                <span id="welcome-text" th:text="'Wellcome ' + ${username}"></span>
+                <span id="welcome-text" th:text="'Starte deine Reise ' + ${username}"></span>
             </a>
         </div>
     </header>
@@ -24,18 +24,18 @@
                 <h1>CryptoQuest</h1>
             </div>
             <div class="description-container">
-                <a>Experience your own crypto journey</a>
+                <a>Erlebe deine eigene Krypto-Reise</a>
             </div>
         </div>
         <div class="menu-container">
             <div class="mb-3">
-                <a href="/story" class="btn storybtn" id="story-btn">Story-Mode</a>
+                <a href="/story" class="btn storybtn" id="story-btn">Story-Modus</a>
             </div>
             <div class="mb-3">
-                <a href="/freeplay" class="btn freeplaybtn" id="freeplay-btn">Free-Play</a>
+                <a href="/freeplay" class="btn freeplaybtn" id="freeplay-btn">Freies-Spiel</a>
             </div>
             <div class="mb-3">
-                <a href="/account" class="btn myaccountbtn" id="account-btn">My Account</a>
+                <a href="/account" class="btn myaccountbtn" id="account-btn">Mein Account</a>
             </div>
         </div>
     </main>

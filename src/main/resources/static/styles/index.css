@@ -48,23 +48,6 @@ body {
     animation: jump 2s infinite ease-in-out;
 }
 
-.welcome-container span:nth-child(1) { 
-    animation-delay: 0.1s; 
-    color: #00F;
-}
-.welcome-container span:nth-child(2) { 
-    animation-delay: 0.2s; 
-    color: #0F0;
-}
-.welcome-container span:nth-child(3) { 
-    animation-delay: 0.3s; 
-    color: #F0F;
-}
-.welcome-container span:nth-child(4) { 
-    animation-delay: 0.4s; 
-    color: #FF0; 
-} 
-
 @keyframes jump {
     0%, 100% {
         transform: translateY(0); 
@@ -129,31 +112,15 @@ main .vertical-line.right {
     right: -35px;
 }
 
-@keyframes lineShrinkExpand {
-    0%, 100% {
-        transform: scaleX(1); 
-    }
-    50% {
-        transform: scaleX(0.4); 
-    }
-}
-
-@keyframes verticalLineShrinkExpand {
-    0%, 100% {
-        transform: scaleY(1); 
-    }
-    50% {
-        transform: scaleY(0.4); 
-    }
-}
-
-.text-container {
-    font-family: PixelFont;
-}
 
 .headline-container {
     margin-bottom: 20px;
     text-decoration: underline;
+    font-family: PixelFont
+}
+
+.description-container {
+    font-size: 1.9rem;
 }
 
 .menu-container {
@@ -165,7 +132,7 @@ main .vertical-line.right {
 
 .menu-container .btn {
     height: 75px;
-    width: 375px;
+    width: 400px;
     display: inline-flex;
     color: white;
     border: none;

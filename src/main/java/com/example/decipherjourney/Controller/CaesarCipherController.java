@@ -115,7 +115,7 @@ public class CaesarCipherController {
             redirectAttributes.addFlashAttribute("shift", shift);
 
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("errorMessage", "The shift value should be a number between 0 and 25");
+            redirectAttributes.addFlashAttribute("errorMessage", "Der Verschiebewert kann nur zwischen 0-25 liegen.");
         }
 
         return "redirect:/freeplay/caesarcipher";  
@@ -155,7 +155,7 @@ public class CaesarCipherController {
                     cipherMap.put(String.valueOf(letter), value.toUpperCase());
                 } else {
                     // Throw an exception if the value is not a valid single letter
-                    redirectAttributes.addFlashAttribute("errorMessage", "The letter can only be between A-Z.");
+                    redirectAttributes.addFlashAttribute("errorMessage", "Die Buchstaben können nur A-Z sein.");
                 }
             }
         }
@@ -209,9 +209,9 @@ public class CaesarCipherController {
 
         CaesarCipher newCipher = userService.getCurrentUser(request).getCaesarCipher();
         newCipher.setCipheredText(newCipher.getOriginalText());
-        userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), newCipher);
-
-        redirectAttributes.addFlashAttribute("successMessage", "Congratulations, this is the original text. Did you succeed?");
+        
+        redirectAttributes.addFlashAttribute("tryoutText", newCipher.getOriginalText());
+        redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, hier siehst du den richtigen Text.");
 
         return "redirect:/freeplay/caesarcipher";
     }
@@ -230,7 +230,7 @@ public class CaesarCipherController {
         CaesarCipher newCipher = caesarCipherService.createRandomCaesarCipher();
         userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), newCipher);
 
-        redirectAttributes.addFlashAttribute("successMessage", "Congratulations, here is your new cipher!");
+        redirectAttributes.addFlashAttribute("successMessage", "Hier ist dein neuer verschlüsselter Text. Viel Erfolg!");
 
         return "redirect:/freeplay/caesarcipher";
     }

@@ -63,6 +63,7 @@ header {
 }
 
 .tutorial-container p {
+    text-align: center;
     font-size: 1.25rem;
 }
 
@@ -113,6 +114,7 @@ header {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    width: 275px;
 }
 
 .help-icon {
@@ -326,11 +328,12 @@ main {
     padding: 6px;    
     margin-top: 20px;
     height: 165px;
-    letter-spacing: 3px
+    letter-spacing: 3px;
+    font-family: 'Monaco', monospace;
 }
 
 .question-container p {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     text-align: justify;
 }
 
@@ -348,10 +351,11 @@ main {
     border: 1px solid #ddd;
     height: 165px;
     letter-spacing: 3px;
+    font-family: 'Monaco', monospace;
 }
 
 .answer-container p {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     text-align: justify;
 }
 

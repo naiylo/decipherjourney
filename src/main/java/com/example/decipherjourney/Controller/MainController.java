@@ -53,7 +53,7 @@ public class MainController {
             return "index";
         } catch (Exception e) {}
 
-        model.addAttribute("feedbackmessage", "You are not logged in yet. Go to My-Account to login or register.");
+        model.addAttribute("feedbackmessage", "Du bist noch nicht eingeloggt. Bitte Logge dich unter Mein Account ein.");
         return "index";
     }
 

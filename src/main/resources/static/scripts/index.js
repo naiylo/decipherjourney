@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const text = welcomeTextElement.textContent;
 
     // Define a set of colors to cycle through
-    const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffeb3b', '#ff00ff', '#00ffff'];
+    const colors = ['#ffeb3b','fff', '#ff00ff', '#00ffff'];
 
     // Split text into words instead of characters
     const words = text.split(' ');
