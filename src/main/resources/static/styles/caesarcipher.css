@@ -60,7 +60,6 @@ header {
 .tutorial-container h1 {
     font-family: PixelFont;
     font-size: 2rem;
-    text-decoration: underline;
 }
 
 .tutorial-container p {
@@ -183,7 +182,6 @@ main {
 .notes-text h1 {
     font-family: PixelFont;
     font-size: 2rem;
-    text-decoration: underline;
     text-align: center;
 }
 
@@ -321,14 +319,11 @@ main {
 .text-headline h1 {
     font-family: PixelFont;
     font-size: 2rem;
-    text-decoration: underline;
     text-align: center;
 }
 
 .question-container {
     padding: 6px;    
-    border-radius: 10px;
-    border: 1px solid #ddd;
     margin-top: 20px;
     height: 165px;
     letter-spacing: 3px
@@ -343,7 +338,6 @@ main {
     margin-top: 20px;
     font-family: PixelFont;
     font-size: 2rem;
-    text-decoration: underline;
     text-align: center;
 }
 
