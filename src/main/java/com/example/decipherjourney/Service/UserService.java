@@ -37,7 +37,9 @@ public class UserService {
     /**
      * Creates a new user in the database.
      * 
-     * @param user The user object to be created.
+     * @param username The username of the object.
+     * @param password The password of the object.
+     * @param level    The level of the object.
      * 
      * @return The created user.
      */
@@ -54,6 +56,9 @@ public class UserService {
 
             // Set the ciphers of free play mode
             newUser.setCaesarCipher(null);
+
+            // Set the storymode of the user 
+            newUser.setStoryMode(null);
 
             userRepository.save(newUser);
 
@@ -201,10 +206,10 @@ public class UserService {
     }
 
     /**
-     * Updates the level of the user identified by the username
+     * Updates the caesar cipher of the user identified by the username
      * 
      * @param username      The current username of the user
-     * @param level         The new level of the user
+     * @param cipher        The new caesar cipher
      */
     public void changeCaesarCipher(String username, CaesarCipher cipher) {
         if (username == null || username.isEmpty()) {
@@ -212,6 +217,20 @@ public class UserService {
             return;
         }
         updateField(username, "caesarCipher", cipher, "Updated caesar cipher succesfully.");
+    }
+
+    /**
+     * Updates the storyMode of the user identified by the username
+     * 
+     * @param username      The current username of the user
+     * @param storyMode     The new storyMode of the user
+     */
+    public void changeStoryMode(String username, StoryMode storyMode) {
+        if (username == null || username.isEmpty()) {
+            System.out.println("Username can not be empty.");
+            return;
+        }
+        updateField(username, "storyMode", storyMode, "Updated storyMode succesfully.");
     }
 
 }

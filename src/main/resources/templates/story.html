@@ -26,12 +26,12 @@
                 <p>Starte dein Abenteuer!</p>
             </div>
             <div class="menu-container">
-                <a href="/story/resume" class="btn resume-btn" id="resume-btn" style="display: none;">
-                    Weiterspielen
-                </a>
-                <a href="/story/newgame" class="btn newgame-btn">
-                    Neues Spiel
-                </a>   
+                <a href="/story/resume" class="btn resume-btn" id="resume-btn" th:if="${hasStoryMode}">
+                Weiter
+            </a>
+            <a href="/story/newgame" class="btn newgame-btn">
+                Neues Spiel
+            </a> 
             </div>
         </div>
     </main>

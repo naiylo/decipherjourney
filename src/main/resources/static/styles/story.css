@@ -3,6 +3,11 @@
     src: url('../fonts/PixelFont.ttf') format('truetype');
 }
 
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
 html, body {
     background: linear-gradient(to right, #3127e9, #ac38ff);
     color: #fff;

@@ -2,9 +2,9 @@ package com.example.decipherjourney.Service;
 
 import com.example.decipherjourney.Model.StoryMode;
 import com.example.decipherjourney.Model.StoryOne;
-
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  * StoryModeService handles the initialization and progression of stories 
@@ -13,64 +13,63 @@ import java.util.List;
  * 
  * @author Oskar Schiedewitz
  */
+@Service
 public class StoryModeService {
-
-    // Represents the current story mode
-    private StoryMode storyMode;
-
-    /**
-     * Constructor initializes the StoryModeService with default story parts.
-     */
-    public StoryModeService() {
-        initializeStoryParts();
-    }
 
     /**
      * Initializes the story mode with story parts.
      */
-    private void initializeStoryParts() {
+    public StoryMode initializeStoryParts() {
         StoryOne storyOne = new StoryOne();
 
         // Initialize all of the story parts
         
-        storyOne.setDialogs(List.of(
-            "Welcome to the journey!",
-            "Your first challenge awaits...",
-            "Decipher the code to proceed."
+        storyOne.setDialogs(List.of(List.of(
+            "Unbekannter Roboter: Guten Morgen Reisender, kannst du mich hören? Mein Name ist Kip. ≧◉◡◉≦",
+            "Kip: Falls du dich nicht mehr daran erinner kannst, wir sind zusammen auf einer Reise durch Zeit und Raum.",
+            "Kip: Ich bin dein mechanischer Begleiter und zusammen erforschen wir die Tiefen der Galaxy. Dein Vater, Mein Erbauer hat uns für diese lange Reise ein Aufgabe gegeben.",
+            "Kip: Wir sollen den Tresor am Ende dieses Raumes irgendwie aufbekommen. ",
+            "Kip: Dazu müssen wir Schritt für Schritt verschieden Rätsel Lösen. Doch bis jetzt weiß ich auch nicht wie wir das Schaffen sollen? "
+        )
         ));
         storyOne.setStoryParts(List.of(
-            "Part 1: Introduction",
-            "Part 2: The Challenge",
-            "Part 3: The Revelation"
+            "Kapitel 1: Das Erwachen"
         ));
-        storyOne.setCheckpoint("Part 1: Introduction");
+        storyOne.setCheckpoint("Teil 1: Der Anfang einer Freundschaft");
 
         StoryMode storyMode = new StoryMode();
     
         List<Object> partList = new ArrayList<>();
         partList.add(storyOne);
+        System.out.println("Added Part 1.");
+
+        storyMode.setStoryParts(partList);
         storyMode.setPart("0");
 
-        this.storyMode = storyMode;
+        return storyMode;
     }
 
     /**
      * Gets the current story part the user is on.
      * 
+     * @param StoryMode storyMode The storyMode of the user.
+     * 
      * @return The current story part as an Object.
      */
-    public int getCurrentStoryPart() {
-        return Integer.parseInt(this.storyMode.getPart());
+    public int getCurrentStoryPart(StoryMode storyMode) {
+        return Integer.parseInt(storyMode.getPart());
     }
 
     /**
      * Moves to the next story part if available.
      * 
+     * @param StoryMode storyMode The storyMode of the user.
+     * 
      * @return True if the user successfully moved to the next part, False if no more parts.
      */
-    public boolean nextStoryPart() {
+    public boolean nextStoryPart(StoryMode storyMode) {
         try {
-            int currentPart = getCurrentStoryPart();
+            int currentPart = getCurrentStoryPart(storyMode);
             currentPart += 1;
             storyMode.setPart(Integer.toString(currentPart));
             return true;

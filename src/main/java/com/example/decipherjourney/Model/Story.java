@@ -18,12 +18,12 @@ public abstract class Story {
     /**
      * The list of dialogs included in the story.
      */
-    private List<String> dialogs;
+    private List<List<String>> dialogs;
 
     /**
      * The list of story parts representing the story's progression.
      */
-    private List<Object> storyParts;
+    private List<String> storyParts;
 
     // Getter and Setter methods
 
@@ -50,7 +50,7 @@ public abstract class Story {
      * 
      * @return The dialogs of the story.
      */
-    public List<String> getDialogs() {
+    public List<List<String>> getDialogs() {
         return dialogs;
     }
 
@@ -59,7 +59,7 @@ public abstract class Story {
      * 
      * @param dialogs The new dialogs to set for the story.
      */
-    public void setDialogs(List<String> dialogs) {
+    public void setDialogs(List<List<String>> dialogs) {
         this.dialogs = dialogs;
     }
 
@@ -68,7 +68,7 @@ public abstract class Story {
      * 
      * @return The story parts of the story.
      */
-    public List<Object> getStoryParts() {
+    public List<String> getStoryParts() {
         return storyParts;
     }
 
@@ -77,7 +77,7 @@ public abstract class Story {
      * 
      * @param storyParts The new story parts to set for the story.
      */
-    public void setStoryParts(List<Object> storyParts) {
+    public void setStoryParts(List<String> storyParts) {
         this.storyParts = storyParts;
     }
 }
