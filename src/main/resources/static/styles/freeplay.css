@@ -43,6 +43,10 @@ header {
     padding: 10px;
 }
 
+.back-arrow:hover {
+    transform: scale(1.1);
+}
+
 main {
     height: 100vh;
     display: flex;

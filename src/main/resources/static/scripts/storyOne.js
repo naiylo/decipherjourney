@@ -1,7 +1,40 @@
 let currentDialogIndex = 0;  
+
+let kipAnimationCounter = 0;
+
+const checkpoint = document.getElementById('checkpoint');
 const textBubble = document.getElementById('textbubble');
 const dialogList = document.getElementById('dialogList');
 const nextButton = document.getElementById('nextButton');
+const animatedKip = document.getElementById('animatedKip');
+
+// Funktion to animate Kip
+animatedKip.addEventListener('click', async () => {
+    if (kipAnimationCounter === 0) {
+        
+        animatedKip.classList.remove('robotkip');
+        animatedKip.classList.add('robotkip2');
+        kipAnimationCounter = 1;
+        
+        
+        await waitForNSeconds(3);  
+
+        animatedKip.classList.remove('robotkip2');
+        animatedKip.classList.add('robotkip3');
+        textBubble.classList.remove('hidden');
+        textBubble.classList.add('textbubble');
+        checkpoint.classList.remove('hidden');
+    }
+});
+
+// Function to wait for a certain amount of time
+function waitForNSeconds(n) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve();
+        }, n * 1000); 
+    });
+}
 
 // Function to simulate typing effect
 function typeDialog(dialog, callback) {
@@ -16,7 +49,7 @@ function typeDialog(dialog, callback) {
             clearInterval(typeInterval); 
             callback(); 
         }
-    }, 30); 
+    }, 20); 
 }
 
 // Function to move to the next dialog

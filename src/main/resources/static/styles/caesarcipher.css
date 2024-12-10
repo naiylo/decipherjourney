@@ -42,6 +42,10 @@ header {
     padding: 10px;
 }
 
+.back-arrow:hover {
+    transform: scale(1.1);
+}
+
 .tutorial-container {
     text-align: center;
     margin-bottom: 20px;

@@ -13,19 +13,27 @@
 </head>
 <body>
 
-    <header>
+    <header id="header" >
         <a href="/story" class="back-arrow">
             <i class="fas fa-arrow-left"></i>
         </a>
-        <span class="checkpoint" th:text="${checkpoint}"></span>
+        <span id="checkpoint" class="checkpoint hidden" th:text="${checkpoint}"></span> 
+        <div class="help-container">
+            <i class="fas fa-question-circle help-icon" id="help-icon"></i> 
+            <div class="help-text" id="help-text">
+                <h3>Erklärung:</h3>
+                <br>
+                <p>Gehe mit deiner Maus über den Bildschirm. Wenn du etwas anklicken kannst dann leuchtet es, oder wird umrandet.  <br> 
+                    Im Text-Bereich kannst du mit dem Pfeil zum nächsten Input klicken.</p>                   
+        </div>
     </header>
 
     <main>
         <div class="background">
             <div class="video-container">
-                <img src="/images/kip.png" class="robotkip" alt="Der Roboter Kip.">
+                <img id="animatedKip" src="/images/kip.png" class="robotkip" alt="Der Roboter Kip.">
             </div>
-            <div class="textbubble" id="textbubble">
+            <div class="hidden" id="textbubble">
                 <div class="text-container">
                     <ul class="dialog-text"  id="dialogList">
                         <li th:each="dialog : ${dialogs}" th:text="${dialog}"></li>

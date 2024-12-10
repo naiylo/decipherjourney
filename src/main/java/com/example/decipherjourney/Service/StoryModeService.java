@@ -25,11 +25,15 @@ public class StoryModeService {
         // Initialize all of the story parts
         
         storyOne.setDialogs(List.of(List.of(
-            "Unbekannter Roboter: Guten Morgen Reisender, kannst du mich hören? Mein Name ist Kip. ≧◉◡◉≦",
-            "Kip: Falls du dich nicht mehr daran erinner kannst, wir sind zusammen auf einer Reise durch Zeit und Raum.",
-            "Kip: Ich bin dein mechanischer Begleiter und zusammen erforschen wir die Tiefen der Galaxy. Dein Vater, Mein Erbauer hat uns für diese lange Reise ein Aufgabe gegeben.",
-            "Kip: Wir sollen den Tresor am Ende dieses Raumes irgendwie aufbekommen. ",
-            "Kip: Dazu müssen wir Schritt für Schritt verschieden Rätsel Lösen. Doch bis jetzt weiß ich auch nicht wie wir das Schaffen sollen? "
+            "Unbekannter Roboter: Guten Morgen, Reisender! Kannst du mich hören? Mein Name ist Kip. ≧◉◡◉≦",
+            "Kip: Falls du dich nicht mehr daran erinnern kannst, wir befinden uns auf einer Reise durch Zeit und Raum. Ich bin dein mechanischer Begleiter.",
+            "Kip: Mein Erbauer, dein Vater, hat uns eine wichtige Mission anvertraut.",
+            "Kip: Wir sollen den Tresor am Ende dieser Reise öffnen. Aber der Weg dorthin ist voller Rätsel und Geheimnisse. Gemeinsam werden wir die Schlüssel finden, um die verborgenen Türen der Vergangenheit zu entriegeln.",
+            "Kip: Unsere erste Station ist das alte Rom. Dort liegt der Ursprung einer der faszinierendsten Verschlüsselungsmethoden: der Caesar-Chiffre.",
+            "Kip: Bist du bereit, in die Welt der alten Römer einzutauchen und die Geheimnisse zu entschlüsseln, die Julius Caesar selbst genutzt hat?",
+            "Kip: Die Caesar-Chiffre ist eine Verschlüsselungstechnik, bei der Buchstaben im Alphabet um eine bestimmte Anzahl von Stellen verschoben werden. Einfach, aber genial! In Rom werden wir herausfinden, wie sie funktioniert, indem wir selbst Rätsel lösen.",
+            "Kip: Ich öffne nun das Portal. Halte dich fest, Reisender – es wird ein wenig holprig!",
+            "Kip: Auf geht's nach Rom! Aber vergiss nicht, ich bin hier, um dir zu helfen, falls du nicht weiterkommst. Los geht’s!"
         )
         ));
         storyOne.setStoryParts(List.of(

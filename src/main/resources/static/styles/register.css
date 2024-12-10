@@ -45,7 +45,7 @@ header {
 }
 
 .back-arrow:hover {
-    color: rgb(255, 255, 255);
+    transform: scale(1.1);
 }
 
 main {
