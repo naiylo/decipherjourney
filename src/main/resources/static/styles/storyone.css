@@ -7,10 +7,20 @@ html {
     overflow: hidden;
     height: 100%;
     background-color: black;
-    background-image: url('/images/BackgroundActOnePartOne.png');
-    background-size: cover; 
+    background-image: url('/images/AdvancedBackground.png');
+    background-size: 130%; 
     background-repeat: no-repeat; 
-    background-position: center;
+    background-position: calc(50% + 325px) center; 
+}
+
+.html2 {
+    overflow: hidden;
+    height: 100%;
+    background-color: black;
+    background-image: url('/images/AdvancedBackground.png');
+    background-size: 130%; 
+    background-repeat: no-repeat; 
+    background-position: calc(50% + 325px) center; 
 }
 
 body {  
@@ -117,6 +127,7 @@ header {
 }
 
 .robotkip {
+    position: relative;
     margin-left: 130px;
     margin-right: 400px;
     margin-top: 90px;
@@ -139,6 +150,7 @@ header {
 }
 
 .robotkip2 {
+    position: relative;
     margin-left: 130px;
     margin-right: 400px;
     animation: slideIn 3.9s ease-out forwards, increase 3.9s ease-out forwards; 
@@ -165,6 +177,7 @@ header {
 }
 
 .robotkip3 {
+    position: relative;
     margin-left: 1140px;
     margin-right: 400px;
     margin-top: 0px;
@@ -181,6 +194,46 @@ header {
         transform: translateY(-50px);  
     }
 }
+
+.robotkip4 {
+    position: relative;
+    animation: slideright 1.5s ease-out forwards;
+}
+@keyframes slideright {
+    0% {
+        margin-left: 0px;
+        margin-right: 400px;
+        width: 1200px;
+        height: auto;
+    }
+    100% {
+        margin-left: 300px;
+        margin-right: 400px;
+        width: 1200px;
+        height: auto;
+    }
+}
+
+.robotkip5 {
+    margin-left: 300px;
+    margin-right: 400px;
+    width: 1200px;
+    height: auto;
+    position: relative;
+    transform: scaleX(-1); 
+    animation: bounce3 4s infinite; 
+}
+
+@keyframes bounce3 {
+    0%, 100% {
+        margin-top: 0px;
+        ;
+    }
+    50% {
+        margin-top: -50px; 
+    }
+}
+
 
 .textbubble {
     position: relative;

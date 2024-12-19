@@ -53,14 +53,23 @@ function typeDialog(dialog, callback) {
 }
 
 // Function to move to the next dialog
-function showNextDialog() {
+async function showNextDialog() {
     if (currentDialogIndex < dialogs.length) {
         typeDialog(dialogs[currentDialogIndex], () => {
-            nextButton.style.display = 'block';  
+            nextButton.style.display = 'block';
         });
         currentDialogIndex++;
+        console.log(currentDialogIndex);
+
+        if (currentDialogIndex === 8) {
+            animatedKip.classList.remove('robotkip3');
+            animatedKip.classList.add('robotkip4');
+            await waitForNSeconds(1.5);
+            animatedKip.classList.remove('robotkip4');
+            animatedKip.classList.add('robotkip5'); 
+        }
     } else {
-        nextButton.style.display = 'none';  
+        nextButton.style.display = 'none'; 
     }
 }
 
