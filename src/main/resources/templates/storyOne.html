@@ -7,6 +7,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/styles/storyone.css">
+    <link rel="stylesheet" type="text/css" href="/styles/kipanimations.css">
 
     <!-- Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -17,7 +18,7 @@
         <a href="/story" class="back-arrow">
             <i class="fas fa-arrow-left"></i>
         </a>
-        <span id="checkpoint" class="checkpoint hidden" th:text="${checkpoint}"></span> 
+        <span id="checkpoint" class="hidden" th:text="${checkpoint}"></span> 
         <div class="help-container">
             <i class="fas fa-question-circle help-icon" id="help-icon"></i> 
             <div class="help-text" id="help-text">
@@ -31,7 +32,13 @@
     <main>
         <div class="background">
             <div class="video-container">
-                <img id="animatedKip" src="/images/kip.png" class="robotkip" alt="Der Roboter Kip.">
+                <div class="exampleCipher">
+                    <p><span id="shifted">R ➮ (+1 S) ➮ (+1 T)</span></p>
+                    <p><span id="originalText">R O B O T E R</span></p>
+                    <p><span id="originalText">⇩ ⇩ ⇩ ⇩ ⇩ ⇩ ⇩</span></p>
+                    <p><span id="encryptedText">T Q D Q V G T</span></p>
+                </div>
+                <img id="animatedKip" src="/images/kip.png" class="hoverindoorclickable" alt="Der Roboter Kip.">
             </div>
             <div class="hidden" id="textbubble">
                 <div class="text-container">
@@ -56,6 +63,6 @@
         const dialogs = /*[[${dialogs}]]*/ [];
         /*]]>*/
     </script>
-    <script src="/scripts/storyOne.js"></script>
+    <script type="module" src="/scripts/storyOne.js"></script>
 </body>
 </html>

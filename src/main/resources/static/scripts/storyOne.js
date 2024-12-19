@@ -1,5 +1,6 @@
-let currentDialogIndex = 0;  
+import { switchClasses } from './utils.js';
 
+let currentDialogIndex = 0;  
 let kipAnimationCounter = 0;
 
 const checkpoint = document.getElementById('checkpoint');
@@ -11,19 +12,15 @@ const animatedKip = document.getElementById('animatedKip');
 // Funktion to animate Kip
 animatedKip.addEventListener('click', async () => {
     if (kipAnimationCounter === 0) {
-        
-        animatedKip.classList.remove('robotkip');
-        animatedKip.classList.add('robotkip2');
+        // Use the imported function
+        switchClasses(animatedKip, 'hoverindoorclickable', 'flyfromdoortomiddlepart');
         kipAnimationCounter = 1;
-        
-        
-        await waitForNSeconds(3);  
 
-        animatedKip.classList.remove('robotkip2');
-        animatedKip.classList.add('robotkip3');
-        textBubble.classList.remove('hidden');
-        textBubble.classList.add('textbubble');
-        checkpoint.classList.remove('hidden');
+        await waitForNSeconds(3);
+
+        switchClasses(animatedKip, 'flyfromdoortomiddlepart', 'hoverinthecentre');
+        switchClasses(textBubble, 'hidden', 'textbubble');
+        switchClasses(checkpoint, 'hidden', 'checkpoint'); 
     }
 });
 
@@ -49,7 +46,7 @@ function typeDialog(dialog, callback) {
             clearInterval(typeInterval); 
             callback(); 
         }
-    }, 20); 
+    }, 5); 
 }
 
 // Function to move to the next dialog
@@ -62,11 +59,11 @@ async function showNextDialog() {
         console.log(currentDialogIndex);
 
         if (currentDialogIndex === 8) {
-            animatedKip.classList.remove('robotkip3');
-            animatedKip.classList.add('robotkip4');
+            switchClasses(animatedKip, 'hoverinthecentre', 'moveright');
             await waitForNSeconds(1.5);
-            animatedKip.classList.remove('robotkip4');
-            animatedKip.classList.add('robotkip5'); 
+            switchClasses(animatedKip, 'moveright', 'bouncerightmirrored');
+            await waitForNSeconds(1.5);
+
         }
     } else {
         nextButton.style.display = 'none'; 

@@ -126,114 +126,23 @@ header {
     margin-top: 100px;
 }
 
-.robotkip {
-    position: relative;
-    margin-left: 130px;
-    margin-right: 400px;
-    margin-top: 90px;
-    width: 600px;
-    height: auto;
-    animation: bounce 4s infinite;
+.exampleCipher {
+    position: absolute;
+    border-radius: 8px;
+    margin: 200px;
+    padding: 10px;
+    width: 400px;
+    font-size: 2.5rem;
+    font-family: Arial, sans-serif, bold;
+    color: #fff;
+    border-radius: 15px;
+    border: 2px solid #fff; 
+    background-color: rgba(169, 169, 169, 0.3); 
 }
 
-.robotkip:hover {
-    filter: brightness(1.2);
-}
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0) translateX(-94.12%);
-        ;
-    }
-    50% {
-        transform: translateY(-50px) translateX(-94.12%);
-    }
-}
+.shifted {
 
-.robotkip2 {
-    position: relative;
-    margin-left: 130px;
-    margin-right: 400px;
-    animation: slideIn 3.9s ease-out forwards, increase 3.9s ease-out forwards; 
 }
-@keyframes slideIn {
-    from {
-        transform: translateX(-95%);   
-    }
-    to {
-        transform: translateX(0);  
-    }
-}
-
-@keyframes increase {
-    from {
-        margin-top: 90px;
-        width: 600px;
-        height: auto;
-    } to {
-        margin-top: 0px;
-        width: 1200px;
-        height: auto;
-    }
-}
-
-.robotkip3 {
-    position: relative;
-    margin-left: 1140px;
-    margin-right: 400px;
-    margin-top: 0px;
-    width: 1200px;
-    height: auto;
-    animation: bounce 4s infinite; 
-}
-@keyframes bounce2 {
-    0%, 100% {
-        transform: translateY(0); 
-        ;
-    }
-    50% {
-        transform: translateY(-50px);  
-    }
-}
-
-.robotkip4 {
-    position: relative;
-    animation: slideright 1.5s ease-out forwards;
-}
-@keyframes slideright {
-    0% {
-        margin-left: 0px;
-        margin-right: 400px;
-        width: 1200px;
-        height: auto;
-    }
-    100% {
-        margin-left: 300px;
-        margin-right: 400px;
-        width: 1200px;
-        height: auto;
-    }
-}
-
-.robotkip5 {
-    margin-left: 300px;
-    margin-right: 400px;
-    width: 1200px;
-    height: auto;
-    position: relative;
-    transform: scaleX(-1); 
-    animation: bounce3 4s infinite; 
-}
-
-@keyframes bounce3 {
-    0%, 100% {
-        margin-top: 0px;
-        ;
-    }
-    50% {
-        margin-top: -50px; 
-    }
-}
-
 
 .textbubble {
     position: relative;

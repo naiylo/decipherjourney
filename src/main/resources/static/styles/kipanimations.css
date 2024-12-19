@@ -1,0 +1,108 @@
+.hoverindoorclickable {
+    position: absolute;
+    margin-left: 130px;
+    margin-right: 400px;
+    margin-top: 90px;
+    width: 600px;
+    height: auto;
+    animation: bounce 4s infinite;
+}
+
+.hoverindoorclickable:hover {
+    filter: brightness(1.2);
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) translateX(-94.12%);
+        ;
+    }
+    50% {
+        transform: translateY(-50px) translateX(-94.12%);
+    }
+}
+
+.flyfromdoortomiddlepart {
+    position: absolute;
+    margin-left: 130px;
+    margin-right: 400px;
+    animation: slideIn 3.9s ease-out forwards, increase 3.9s ease-out forwards; 
+}
+@keyframes slideIn {
+    from {
+        transform: translateX(-95%);   
+    }
+    to {
+        transform: translateX(0);  
+    }
+}
+
+@keyframes increase {
+    from {
+        margin-top: 90px;
+        width: 600px;
+        height: auto;
+    } to {
+        margin-top: 0px;
+        width: 1200px;
+        height: auto;
+    }
+}
+
+.hoverinthecentre {
+    position: absolute;
+    margin-left: 1140px;
+    margin-right: 400px;
+    margin-top: 0px;
+    width: 1200px;
+    height: auto;
+    animation: bounce 4s infinite; 
+}
+@keyframes bounce2 {
+    0%, 100% {
+        transform: translateY(0); 
+        ;
+    }
+    50% {
+        transform: translateY(-50px);  
+    }
+}
+
+.moveright {
+    position: absolute;
+    animation: slideright 1.5s ease-out forwards;
+}
+@keyframes slideright {
+    0% {
+        margin-left: 0px;
+        margin-right: 400px;
+        width: 1200px;
+        height: auto;
+    }
+    100% {
+        margin-left: 300px;
+        margin-right: 400px;
+        width: 1200px;
+        height: auto;
+    }
+}
+
+.bouncerightmirrored {
+    position: absolute;
+    margin-left: 300px;
+    margin-right: 400px;
+    width: 1200px;
+    height: auto;
+    position: relative;
+    transform: scaleX(-1); 
+    animation: bounce3 4s infinite; 
+}
+
+@keyframes bounce3 {
+    0%, 100% {
+        margin-top: 0px;
+        ;
+    }
+    50% {
+        margin-top: -50px; 
+    }
+}
