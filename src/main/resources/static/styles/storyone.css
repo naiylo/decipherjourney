@@ -127,21 +127,15 @@ header {
 }
 
 .exampleCipher {
+    margin: 200px;
     position: absolute;
     border-radius: 8px;
-    margin: 200px;
     padding: 10px;
-    width: 400px;
+    width: 310px;
     font-size: 2.5rem;
-    font-family: Arial, sans-serif, bold;
+    font-family: 'Monaco', monospace;
     color: #fff;
-    border-radius: 15px;
-    border: 2px solid #fff; 
-    background-color: rgba(169, 169, 169, 0.3); 
-}
-
-.shifted {
-
+    animation: fadeIn 1s ease-in forwards;
 }
 
 .textbubble {
