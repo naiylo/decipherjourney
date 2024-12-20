@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="html">
+<html id="html" lang="de" class="html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,11 +32,36 @@
     <main>
         <div class="background">
             <div class="video-container">
-                <div class="exampleCipher">
-                    <p><span id="originalText">R O B O T E R</span></p>
-                    <p><span id="arrows">⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇</span ></p>
-                    <p><span id="encryptedText">T Q D Q V G T</span></p>
+                <div id="example" class="hidden">
+                    <p>
+                        <span class="letter">R</span>
+                        <span class="letter">O</span>
+                        <span class="letter">B</span>
+                        <span class="letter">O</span>
+                        <span class="letter">T</span>
+                        <span class="letter">E</span>
+                        <span class="letter">R</span>
+                    </p>
+                    <p>
+                        <span class="arrow">⬇</span>
+                        <span class="arrow">⬇</span>
+                        <span class="arrow">⬇</span>
+                        <span class="arrow">⬇</span>
+                        <span class="arrow">⬇</span>
+                        <span class="arrow">⬇</span>
+                        <span class="arrow">⬇</span>
+                    </p>
+                    <p>
+                        <span class="letter">T</span>
+                        <span class="letter">Q</span>
+                        <span class="letter">D</span>
+                        <span class="letter">Q</span>
+                        <span class="letter">V</span>
+                        <span class="letter">G</span>
+                        <span class="letter">T</span>
+                    </p>
                 </div>
+                <img id="portal" class="hidden" src="/images/portal.gif"  alt="Ein Portal.">
                 <img id="animatedKip" src="/images/kip.png" class="hoverindoorclickable" alt="Der Roboter Kip.">
             </div>
             <div class="hidden" id="textbubble">

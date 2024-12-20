@@ -79,10 +79,62 @@
         height: auto;
     }
     100% {
-        margin-left: 300px;
+        margin-left: 270px;
         margin-right: 400px;
         width: 1200px;
         height: auto;
+    }
+}
+
+.moveright2 {
+    position: absolute;
+    animation: slideright2 2s ease-out forwards, decrease 2s ease-out forwards;
+}
+@keyframes slideright2 {
+    0% {
+        margin-left: 0px;
+        margin-right: 400px;
+        width: 1200px;
+        height: auto;
+    }
+    100% {
+        margin-left: 550px;
+        margin-right: 325px;
+        width: 1200px;
+        height: auto;
+    }
+}
+
+@keyframes decrease {
+    from {
+        margin-top: 0px;
+        width: 1200px;
+        height: auto;
+    } to {
+        margin-top: 350px;
+        width: 600px;
+        height: auto;
+    }
+}
+
+.bouncerightmirrored2 {
+    margin-left: 550px;
+    margin-right: 300px;
+    margin-top: 350px;
+    width: 600px;
+    height: auto;
+    position: relative;
+    transform: scaleX(-1); 
+    animation: bounce4 4s infinite; 
+}
+
+@keyframes bounce4 {
+    0%, 100% {
+        margin-top: 350px;
+        ;
+    }
+    50% {
+        margin-top: 300px; 
     }
 }
 
@@ -104,5 +156,58 @@
     }
     50% {
         margin-top: -50px; 
+    }
+}
+
+.moveleft {
+    position: absolute;
+    transform: scaleX(-1); 
+    animation: slideleft 1.5s ease-out forwards;
+}
+@keyframes slideleft {
+    0% {
+        margin-left: 300px;
+        margin-right: 400px;
+        width: 1200px;
+        height: auto;
+    }
+    100% {
+        margin-left: 0px;
+        margin-right: 400px;
+        width: 1200px;
+        height: auto;
+    }
+}
+
+.flyleftdisappear {
+    margin-right: 300px;
+    width: 600px;
+    height: auto;
+    position: relative;
+    transform: scaleX(-1); 
+    animation: flyleftdiasappear 1.5s ease-out forwards, fadeOut 1.5s ease-out forwards;
+}
+
+@keyframes flyleftdiasappear {
+    0% {
+    margin-left: 550px;
+    margin-top: 350px;
+    
+    }
+    100% {
+    margin-top: 250px;
+    margin-left: 150px;
+    }
+}
+
+@keyframes fadeOut {
+    0%{
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }

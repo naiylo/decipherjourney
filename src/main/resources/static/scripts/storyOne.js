@@ -8,6 +8,9 @@ const textBubble = document.getElementById('textbubble');
 const dialogList = document.getElementById('dialogList');
 const nextButton = document.getElementById('nextButton');
 const animatedKip = document.getElementById('animatedKip');
+const example = document.getElementById('example');
+const html = document.getElementById('html');
+const portal = document.getElementById('portal');
 
 // Funktion to animate Kip
 animatedKip.addEventListener('click', async () => {
@@ -63,8 +66,35 @@ async function showNextDialog() {
             await waitForNSeconds(1.5);
             switchClasses(animatedKip, 'moveright', 'bouncerightmirrored');
             await waitForNSeconds(1.5);
-
+            switchClasses(example, 'hidden', 'exampleCipher');
         }
+
+        if (currentDialogIndex === 8) {
+            switchClasses(animatedKip, 'hoverinthecentre', 'moveright');
+            switchClasses(example, 'hidden', 'exampleCipher');
+            await waitForNSeconds(1.5);
+            switchClasses(animatedKip, 'moveright', 'bouncerightmirrored');
+        }
+
+        if (currentDialogIndex === 10) {
+            switchClasses(animatedKip, 'bouncerightmirrored', 'moveleft');
+            switchClasses(example, 'exampleCipher', 'hidden');
+            await waitForNSeconds(1.5);
+            switchClasses(animatedKip, 'moveleft', 'hoverinthecentre');
+        }
+
+        if (currentDialogIndex === 14) {
+            switchClasses(animatedKip, 'hoverinthecentre', 'moveright2');
+            switchClasses(html, 'html', 'html2');
+            await waitForNSeconds(2.5);
+            switchClasses(animatedKip, 'moveright2', 'bouncerightmirrored2');
+            switchClasses(portal, 'hidden', 'portal');
+        }
+
+        if (currentDialogIndex === 15) {
+            switchClasses(animatedKip, 'bouncerightmirrored2', 'flyleftdisappear');
+        }
+
     } else {
         nextButton.style.display = 'none'; 
     }

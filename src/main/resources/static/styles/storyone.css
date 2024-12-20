@@ -20,7 +20,16 @@ html {
     background-image: url('/images/AdvancedBackground.png');
     background-size: 130%; 
     background-repeat: no-repeat; 
-    background-position: calc(50% + 325px) center; 
+    
+    animation: shiftBackground 2.5s ease-in forwards; 
+}
+@keyframes shiftBackground {
+    from {
+        background-position: calc(50% + 325px) center;
+    }
+    to {
+        background-position: calc(50% + 25px) center;
+    }
 }
 
 body {  
@@ -128,14 +137,49 @@ header {
 
 .exampleCipher {
     margin: 200px;
+    margin-top: 200px;
     position: absolute;
     border-radius: 8px;
     padding: 10px;
-    width: 310px;
-    font-size: 2.5rem;
+    width: 440px;
+    font-size: 3.5rem;
     font-family: 'Monaco', monospace;
     color: #fff;
-    animation: fadeIn 1s ease-in forwards;
+    text-decoration: wavy;
+}
+
+.letter, .arrow {
+    opacity: 0;
+    display: inline-block;
+    animation: fadeInLeft 0.1s ease-in forwards;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.letter:nth-child(1), .arrow:nth-child(1) { animation-delay: 0s; }
+.letter:nth-child(2), .arrow:nth-child(2) { animation-delay: 0.05s; }
+.letter:nth-child(3), .arrow:nth-child(3) { animation-delay: 0.1s; }
+.letter:nth-child(4), .arrow:nth-child(4) { animation-delay: 0.15s; }
+.letter:nth-child(5), .arrow:nth-child(5) { animation-delay: 0.2s; }
+.letter:nth-child(6), .arrow:nth-child(6) { animation-delay: 0.25s; }
+.letter:nth-child(7), .arrow:nth-child(7) { animation-delay: 0.3s; }
+
+.portal {
+    position: absolute;
+    width: 800px;
+    margin: 300px;
+    margin-left: -20px;
+    margin-top: 200px;
+    animation: fadeIn 2s ease-in forwards; 
 }
 
 .textbubble {
