@@ -10,6 +10,7 @@
 
 .hoverindoorclickable:hover {
     filter: brightness(1.2);
+    cursor: pointer;
 }
 @keyframes bounce {
     0%, 100% {
@@ -186,6 +187,7 @@
     position: relative;
     transform: scaleX(-1); 
     animation: flyleftdiasappear 1.5s ease-out forwards, fadeOut 1.5s ease-out forwards;
+    z-index: -1;
 }
 
 @keyframes flyleftdiasappear {

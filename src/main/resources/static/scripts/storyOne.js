@@ -54,7 +54,7 @@ function typeDialog(dialog, callback) {
 
 // Function to move to the next dialog
 async function showNextDialog() {
-    if (currentDialogIndex < dialogs.length) {
+    if (currentDialogIndex < dialogs.length - 1) {
         typeDialog(dialogs[currentDialogIndex], () => {
             nextButton.style.display = 'block';
         });
@@ -93,6 +93,7 @@ async function showNextDialog() {
 
         if (currentDialogIndex === 15) {
             switchClasses(animatedKip, 'bouncerightmirrored2', 'flyleftdisappear');
+            switchClasses(portal, 'portal', 'portal2');
         }
 
     } else {
