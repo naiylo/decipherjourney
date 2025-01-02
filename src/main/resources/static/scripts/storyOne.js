@@ -91,7 +91,7 @@ async function showNextDialog() {
             switchClasses(portal, 'hidden', 'portal');
         }
 
-        if (currentDialogIndex === 15) {
+        if (currentDialogIndex === 14) {
             switchClasses(animatedKip, 'bouncerightmirrored2', 'flyleftdisappear');
             switchClasses(portal, 'portal', 'portal2');
         }
