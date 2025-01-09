@@ -100,7 +100,7 @@ public class StoryMenuController {
     @RequestMapping("/story/resume")
     public String resumeStory(HttpServletRequest request) {
         System.out.println("Resuming current story mode.");
-
+        
         return "redirect:/story/play";
     }
 }

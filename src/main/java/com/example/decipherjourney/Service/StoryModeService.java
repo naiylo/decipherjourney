@@ -2,6 +2,7 @@ package com.example.decipherjourney.Service;
 
 import com.example.decipherjourney.Model.StoryMode;
 import com.example.decipherjourney.Model.StoryOne;
+import com.example.decipherjourney.Model.StoryTwo;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -20,9 +21,14 @@ public class StoryModeService {
      * Initializes the story mode with story parts.
      */
     public StoryMode initializeStoryParts() {
-        StoryOne storyOne = new StoryOne();
 
-        // Initialize all of the story parts
+        StoryMode storyMode = new StoryMode();
+        List<Object> partList = new ArrayList<>();
+
+        StoryOne storyOne = new StoryOne();
+        StoryTwo storyTwo = new StoryTwo();
+
+        // Initialize all of story one
         
         storyOne.setDialogs(List.of(List.of(
             "Unbekannter Roboter: Guten Morgen, Reisender! Kannst du mich hören? Mein Name ist Kip. ≧◉◡◉≦",
@@ -39,22 +45,47 @@ public class StoryModeService {
             "Kip: Die Caesar-Chiffre ist eine Verschlüsselungstechnik, bei der Buchstaben im Alphabet um eine bestimmte Anzahl von Stellen verschoben werden. Genau so wie ich es dir gerade kurz gezeigt habe!",
             "Kip: In Rom werden wir herausfinden, wie sie funktioniert, indem wir selbst Rätsel lösen.",
             "Kip: Lass uns hier rüber gehen und ich öffne das Portal. Halte dich fest, Reisender – es wird ein wenig holprig!",
-            "Kip: Auf geht's nach Rom! Und vergiss nicht Reisender ich bin hier um dir zu helfen. Los geht’s!"
+            "Kip: Auf geht's nach Rom! Und vergiss nicht Reisender ich bin hier um dir zu helfen. Los geht’s!",
+            ""
         )
         ));
-        storyOne.setStoryParts(List.of(
-            "Kapitel 1: Das Erwachen"
-        ));
-        storyOne.setCheckpoint("Teil 1: Der Anfang einer Freundschaft");
 
-        StoryMode storyMode = new StoryMode();
-    
-        List<Object> partList = new ArrayList<>();
+        storyOne.setStoryParts(List.of(
+            "Kapitel 1: Der Anfang einer Freundschaft"
+        ));
+
+        storyOne.setCheckpoint("Kapitel 1: Der Anfang einer Freundschaft");
+        
         partList.add(storyOne);
         System.out.println("Added Part 1.");
 
+        // Initialize all of story two
+
+        storyTwo.setDialogs(List.of(List.of(
+            "Kip: Willkommen im antiken Rom, Reisender! Ist es nicht atemberaubend?",
+            "Kip: Diese Stadt ist das Herz einer der einflussreichsten Kulturen der Geschichte. Hier begann das Abenteuer der Caesar-Chiffre!",
+            "Kip: Schaue dich doch erstmal kurz um, bevor wir weiterlaufen."
+        ), List.of(
+            "Fremder Verkäufer: Salve, du hast aber lustige Sachen an. Du kommst wohl aus einem fernen Land?",
+            "Fremder Verkäufer: Dir kann ich wohl keine meiner Waren verkaufen also geh bitte weiter."
+        ), List.of(
+            "Kip: Das ist die Statue vom römischen Gott Zeus!",
+            "Kip: Zeus ist der Gott der Blitze und des Donners und nebenbei auch noch der oberste Gott in der römischen Mythologie."
+        )));
+
+        storyTwo.setStoryParts(List.of(
+            "Kapitel 2: Das antike Reich",
+            "Kapitel 2.1: Die Caesar Chiffre",
+            "Kapitel 2.2: Die Herausforderung",
+            "Kapitel 2.3: Die Finale Prüfung"
+        ));
+
+        storyTwo.setCheckpoint("Kapitel 2: Das antike Reich");
+        partList.add(storyTwo);
+        System.out.println("Added Part 2.");
+
         storyMode.setStoryParts(partList);
-        storyMode.setPart("0");
+        storyMode.setPart("1");
 
         return storyMode;
     }
@@ -77,23 +108,18 @@ public class StoryModeService {
      * 
      * @return True if the user successfully moved to the next part, False if no more parts.
      */
-    public boolean nextStoryPart(StoryMode storyMode) {
+    public StoryMode nextStoryPart(StoryMode storyMode) {
         try {
             int currentPart = getCurrentStoryPart(storyMode);
+            System.out.println(currentPart);
             currentPart += 1;
             storyMode.setPart(Integer.toString(currentPart));
-            return true;
+            return storyMode;
 
         } catch(Exception e) {
-            return false;
+            System.out.println("An error accured returning old storyMode without switch.");
+            return storyMode;
         }
-    }
-
-    /**
-     * Resets the story to the beginning.
-     */
-    public void resetStory() {
-        initializeStoryParts();
     }
 
 }

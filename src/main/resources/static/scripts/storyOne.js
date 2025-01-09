@@ -91,13 +91,14 @@ async function showNextDialog() {
             switchClasses(portal, 'hidden', 'portal');
         }
 
-        if (currentDialogIndex === 14) {
+        if (currentDialogIndex === 15) {
             switchClasses(animatedKip, 'bouncerightmirrored2', 'flyleftdisappear');
             switchClasses(portal, 'portal', 'portal2');
         }
 
     } else {
-        nextButton.style.display = 'none'; 
+        nextButton.style.display = 'none';
+        textBubble.style.display = 'none'; 
     }
 }
 

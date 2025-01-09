@@ -9,6 +9,7 @@ import com.example.decipherjourney.Service.CookieService;
 import com.example.decipherjourney.Service.StoryModeService;
 import com.example.decipherjourney.Service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import com.example.decipherjourney.Model.StoryMode;
 
 /**
  * StoryModeController is a controller to switch betwwen the different story Parts depending on the current part.
@@ -48,13 +49,21 @@ public class StoryModeController {
         }
 
         User currentUser = userService.getCurrentUser(request);
-        int currentStoryPart = storyModeService.getCurrentStoryPart(currentUser.getStoryMode());
+        StoryMode storyMode = currentUser.getStoryMode();
+
+        Integer currentStoryPart = storyModeService.getCurrentStoryPart(storyMode);
+
+        System.out.println("currentStoryPart: " + currentStoryPart);
 
         // Return the curent Story View
         switch(currentStoryPart) {
             case 1:
             System.out.println("Part 1.");
             return "redirect:/storyOne";
+
+            case 2:
+            System.out.println("Part 2.");
+            return "redirect:/storyTwo";
 
             default:
             return "redirect:/storyOne";

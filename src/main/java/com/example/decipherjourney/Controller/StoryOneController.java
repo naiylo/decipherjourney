@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.example.decipherjourney.Model.StoryMode;
 import com.example.decipherjourney.Model.StoryOne;
 import com.example.decipherjourney.Model.User;
@@ -66,12 +65,11 @@ public class StoryOneController {
         // Add checkpoint to the model
         model.addAttribute("checkpoint", checkpoint);
 
-        // Return the curent Story View
+        // Return the current Story View
         switch(checkpoint) {
-            case "Teil 1: Der Anfang einer Freundschaft":
-                System.out.println("Story 1 Part 1.");
+            case "Kapitel 1: Der Anfang einer Freundschaft":
+                System.out.println("Story 1 Part 0.");
                 model.addAttribute("dialogs", storyOne.getDialogs().get(0));
-                System.out.println(storyOne.getDialogs().get(0));
             return "storyOne";
 
             default:
@@ -79,5 +77,22 @@ public class StoryOneController {
         }
   
     }
-    
+
+    /**
+     * Function to switch to the next story part
+     * 
+     * @param request HTTP request made by a client.
+     * 
+     * @return Reload the StoryMode to switch to next story part.
+     */
+    @RequestMapping("storyOne/nextPart")
+    public String nextPart(HttpServletRequest request) {
+
+        User currentUser = userService.getCurrentUser(request);
+        StoryMode storyMode = currentUser.getStoryMode();
+        StoryMode newStoryMode = storyModeService.nextStoryPart(storyMode);
+        userService.changeStoryMode(currentUser.getUsername(), newStoryMode);
+
+        return "redirect:/story/play";
+    }    
 }
