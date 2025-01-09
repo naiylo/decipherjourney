@@ -58,11 +58,11 @@ public class StoryModeController {
         // Return the curent Story View
         switch(currentStoryPart) {
             case 1:
-            System.out.println("Part 1.");
+            System.out.println("Part 1. Redirecting to the StoryOneController.");
             return "redirect:/storyOne";
 
             case 2:
-            System.out.println("Part 2.");
+            System.out.println("Part 2. Redirecting to the StoryTwoController.");
             return "redirect:/storyTwo";
 
             default:
