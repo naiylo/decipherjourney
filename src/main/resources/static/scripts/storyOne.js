@@ -1,4 +1,4 @@
-import { switchClasses } from './utils.js';
+import { switchClasses, waitForNSeconds, typeDialog } from './utils.js';
 
 let currentDialogIndex = 0;  
 let kipAnimationCounter = 0;
@@ -26,31 +26,6 @@ animatedKip.addEventListener('click', async () => {
         switchClasses(checkpoint, 'hidden', 'checkpoint'); 
     }
 });
-
-// Function to wait for a certain amount of time
-function waitForNSeconds(n) {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve();
-        }, n * 1000); 
-    });
-}
-
-// Function to simulate typing effect
-function typeDialog(dialog, callback) {
-    let charIndex = 0;
-    dialogList.innerHTML = "";  
-
-    const typeInterval = setInterval(() => {
-        dialogList.innerHTML += dialog.charAt(charIndex);  
-        charIndex++;
-
-        if (charIndex === dialog.length) {
-            clearInterval(typeInterval); 
-            callback(); 
-        }
-    }, 5); 
-}
 
 // Function to move to the next dialog
 async function showNextDialog() {

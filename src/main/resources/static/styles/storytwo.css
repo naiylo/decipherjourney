@@ -7,7 +7,7 @@ html {
     overflow: hidden;
     height: 100%;
     background-color: black;
-    background-image: url('/images/RomBackground.png');
+    background-image: url('/images/RomPixel.png');
     background-size: 130%; 
     background-repeat: no-repeat; 
     background-position: calc(50% + 325px) center; 
@@ -48,10 +48,11 @@ header {
     position: relative; 
     text-align: center;
     margin-right: 100px;
-    color: #9d9d9d;
+    color: #e8e8e8;
     flex: 1; 
     font-size: 1.2rem;
     font-family: 'PixelFont';
+    text-shadow: rgb(0, 0, 0) 1px 0 10px;
     animation: fadeIn 1s ease-in forwards; 
 }
 
