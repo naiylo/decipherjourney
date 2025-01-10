@@ -178,7 +178,7 @@ header {
 .portal {
     position: absolute;
     pointer-events: none;
-    background: url('/images/portal.gif') no-repeat center center;
+    background: url('/images/portalblue.gif') no-repeat center center;
     background-size: contain;
     width: 800px; 
     height: 600px; 
@@ -194,7 +194,7 @@ header {
 
 .portal2 {
     position: absolute;
-    background: url('/images/portal.gif') no-repeat center center;
+    background: url('/images/portalblue.gif') no-repeat center center;
     background-size: contain;
     width: 800px; 
     height: 600px; 
@@ -207,7 +207,7 @@ header {
 }
 
 .portal2:hover {
-    filter: brightness(4);
+    filter: brightness(1.5);
 }
 
 .textbubble {
