@@ -5,14 +5,13 @@ let kipAnimationCounter = 0;
 
 const checkpoint = document.getElementById('checkpoint');
 const textBubble = document.getElementById('textbubble');
-const dialogList = document.getElementById('dialogList');
 const nextButton = document.getElementById('nextButton');
 const animatedKip = document.getElementById('animatedKip');
 const example = document.getElementById('example');
 const html = document.getElementById('html');
 const portal = document.getElementById('portal');
 
-// Funktion to animate Kip
+// Function to animate Kip
 animatedKip.addEventListener('click', async () => {
     if (kipAnimationCounter === 0) {
         // Use the imported function
@@ -38,14 +37,6 @@ async function showNextDialog() {
 
         if (currentDialogIndex === 8) {
             switchClasses(animatedKip, 'hoverinthecentre', 'moveright');
-            await waitForNSeconds(1.5);
-            switchClasses(animatedKip, 'moveright', 'bouncerightmirrored');
-            await waitForNSeconds(1.5);
-            switchClasses(example, 'hidden', 'exampleCipher');
-        }
-
-        if (currentDialogIndex === 8) {
-            switchClasses(animatedKip, 'hoverinthecentre', 'moveright');
             switchClasses(example, 'hidden', 'exampleCipher');
             await waitForNSeconds(1.5);
             switchClasses(animatedKip, 'moveright', 'bouncerightmirrored');
@@ -61,7 +52,11 @@ async function showNextDialog() {
         if (currentDialogIndex === 14) {
             switchClasses(animatedKip, 'hoverinthecentre', 'moveright2');
             switchClasses(html, 'html', 'html2');
+            nextButton.style.display = 'none';
+            textBubble.style.display = 'none';
             await waitForNSeconds(2.5);
+            nextButton.style.display = 'block';
+            textBubble.style.display = 'block'; 
             switchClasses(animatedKip, 'moveright2', 'bouncerightmirrored2');
             switchClasses(portal, 'hidden', 'portal');
         }

@@ -18,7 +18,7 @@
         <a href="/story" class="back-arrow">
             <i class="fas fa-arrow-left"></i>
         </a>
-        <span id="checkpoint" class="checkpoint" th:text="${checkpoint}"></span> 
+        <span id="checkpoint" class="hidden" th:text="${checkpoint}"></span> 
         <div class="help-container">
             <i class="fas fa-question-circle help-icon" id="help-icon"></i> 
             <div class="help-text" id="help-text">
@@ -32,9 +32,15 @@
     <main>
         <div class="background">
             <div class="video-container">
-                
+                <img id="animatedKip" src="/images/kip.png" class="hoverinthecentreclickableappear" alt="Der Roboter Kip.">
+                <img id="romanSalesman" src="/images/römischerverkäufer.png" class="hidden" alt="Ein Römischer Verkäufer.">
+                <img id="statue" src="/images/römischestatue.png" class="hidden" alt="Eine römische Statue von Zeus.">
+                <video id="video" class="hidden" autoplay muted loop>
+                    <source src="/video/Tutorial.webm">
+                    Ihr Browser unterstützt dieses Videoformat nicht.
+                </video>
             </div>
-            <div class="textbubble" id="textbubble">
+            <div class="hidden" id="textbubble">
                 <div class="text-container">
                     <ul class="dialog-text"  id="dialogList">
                         <!-- <li th:each="dialog : ${dialogs}" th:text="${dialog}"></li> -->

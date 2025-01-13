@@ -1,39 +1,31 @@
-.hoverindoorclickable {
-    position: absolute;
-    margin-left: 130px;
-    margin-right: 400px;
-    margin-top: 90px;
-    width: 600px;
-    height: auto;
-    animation: bounce 4s infinite;
-}
-
-.hoverindoorclickable:hover {
-    filter: brightness(1.2);
-    cursor: pointer;
-}
+/* Allgemeine Animationen */
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0) translateX(-94.12%);
-        ;
     }
     50% {
         transform: translateY(-50px) translateX(-94.12%);
     }
 }
 
-.flyfromdoortomiddlepart {
-    position: absolute;
-    margin-left: 130px;
-    margin-right: 400px;
-    animation: slideIn 3.9s ease-out forwards, increase 3.9s ease-out forwards; 
+@keyframes fadeInSlow {
+    0% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
+
 @keyframes slideIn {
     from {
-        transform: translateX(-95%);   
+        transform: translateX(-95%);
     }
     to {
-        transform: translateX(0);  
+        transform: translateX(0);
     }
 }
 
@@ -42,36 +34,23 @@
         margin-top: 90px;
         width: 600px;
         height: auto;
-    } to {
+    }
+    to {
         margin-top: 0px;
         width: 1200px;
         height: auto;
     }
 }
 
-.hoverinthecentre {
-    position: absolute;
-    margin-left: 1140px;
-    margin-right: 400px;
-    margin-top: 0px;
-    width: 1200px;
-    height: auto;
-    animation: bounce 4s infinite; 
-}
 @keyframes bounce2 {
     0%, 100% {
-        transform: translateY(0); 
-        ;
+        transform: translateY(0);
     }
     50% {
-        transform: translateY(-50px);  
+        transform: translateY(-50px);
     }
 }
 
-.moveright {
-    position: absolute;
-    animation: slideright 1.5s ease-out forwards;
-}
 @keyframes slideright {
     0% {
         margin-left: 0px;
@@ -87,10 +66,6 @@
     }
 }
 
-.moveright2 {
-    position: absolute;
-    animation: slideright2 2s ease-out forwards, decrease 2s ease-out forwards;
-}
 @keyframes slideright2 {
     0% {
         margin-left: 0px;
@@ -106,65 +81,52 @@
     }
 }
 
+@keyframes slideright3 {
+    0% {
+        margin-left: 0px;
+        margin-right: 400px;
+        width: 1200px;
+        height: auto;
+    }
+    100% {
+        margin-left: 350px;
+        margin-right: 400px;
+        width: 1200px;
+        height: auto;
+    }
+}
+
 @keyframes decrease {
     from {
         margin-top: 0px;
         width: 1200px;
         height: auto;
-    } to {
+    }
+    to {
         margin-top: 350px;
         width: 600px;
         height: auto;
     }
 }
 
-.bouncerightmirrored2 {
-    margin-left: 550px;
-    margin-right: 300px;
-    margin-top: 350px;
-    width: 600px;
-    height: auto;
-    position: relative;
-    transform: scaleX(-1); 
-    animation: bounce4 4s infinite; 
+@keyframes bounce3 {
+    0%, 100% {
+        margin-top: 0px;
+    }
+    50% {
+        margin-top: -50px;
+    }
 }
 
 @keyframes bounce4 {
     0%, 100% {
         margin-top: 350px;
-        ;
     }
     50% {
-        margin-top: 300px; 
+        margin-top: 300px;
     }
 }
 
-.bouncerightmirrored {
-    position: absolute;
-    margin-left: 300px;
-    margin-right: 400px;
-    width: 1200px;
-    height: auto;
-    position: relative;
-    transform: scaleX(-1); 
-    animation: bounce3 4s infinite; 
-}
-
-@keyframes bounce3 {
-    0%, 100% {
-        margin-top: 0px;
-        ;
-    }
-    50% {
-        margin-top: -50px; 
-    }
-}
-
-.moveleft {
-    position: absolute;
-    transform: scaleX(-1); 
-    animation: slideleft 1.5s ease-out forwards;
-}
 @keyframes slideleft {
     0% {
         margin-left: 300px;
@@ -180,30 +142,19 @@
     }
 }
 
-.flyleftdisappear {
-    margin-right: 300px;
-    width: 600px;
-    height: auto;
-    position: relative;
-    transform: scaleX(-1); 
-    animation: flyleftdiasappear 1.5s ease-out forwards, fadeOut 1.5s ease-out forwards;
-    z-index: -1;
-}
-
 @keyframes flyleftdiasappear {
     0% {
-    margin-left: 550px;
-    margin-top: 350px;
-    
+        margin-left: 550px;
+        margin-top: 350px;
     }
     100% {
-    margin-top: 250px;
-    margin-left: 150px;
+        margin-top: 250px;
+        margin-left: 150px;
     }
 }
 
 @keyframes fadeOut {
-    0%{
+    0% {
         opacity: 1;
     }
     75% {
@@ -213,3 +164,152 @@
         opacity: 0;
     }
 }
+
+/* Klassen für Hover-Effekte */
+.hoverindoorclickable {
+    position: absolute;
+    margin-left: 130px;
+    margin-right: 400px;
+    margin-top: 90px;
+    width: 600px;
+    height: auto;
+    animation: bounce 4s infinite;
+}
+
+.hoverindoorclickable:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+.hoverinthecentre {
+    position: absolute;
+    margin-left: 1140px;
+    margin-right: 400px;
+    margin-top: 0px;
+    width: 1200px;
+    height: auto;
+    animation: bounce 4s infinite;
+}
+
+.hoverinthecentreappear {
+    position: absolute;
+    margin-left: 1140px;
+    margin-right: 400px;
+    margin-top: 0px;
+    width: 1200px;
+    height: auto;
+    animation: bounce 4s infinite, fadeInSlow 2s ease-in forwards;
+}
+
+.hoverinthecentreclickableappear {
+    position: absolute;
+    margin-left: 1140px;
+    margin-right: 400px;
+    margin-top: 0px;
+    width: 1200px;
+    height: auto;
+    animation: bounce 4s infinite, fadeInSlow 4s ease-in forwards;
+}
+
+.hoverinthecentreclickableappear:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+.hoverinthecenterdisappear {
+    position: absolute;
+    margin-left: 1140px;
+    margin-right: 400px;
+    margin-top: 0px;
+    width: 1200px;
+    height: auto;
+    animation: bounce 4s infinite, fadeOut 1s ease-in forwards;
+}
+
+/* Animationen für Bewegungen */
+.flyfromdoortomiddlepart {
+    position: absolute;
+    margin-left: 130px;
+    margin-right: 400px;
+    animation: slideIn 3.9s ease-out forwards, increase 3.9s ease-out forwards;
+}
+
+.moveright {
+    position: absolute;
+    animation: slideright 1.5s ease-out forwards;
+}
+
+.moveright2 {
+    position: absolute;
+    animation: slideright2 2s ease-out forwards, decrease 2s ease-out forwards;
+}
+.moveright3 {
+    position: absolute;
+    animation: slideright3 2s ease-out forwards;
+}
+
+.moveleft {
+    position: absolute;
+    transform: scaleX(-1);
+    animation: slideleft 1.5s ease-out forwards;
+}
+
+.moveleft2 {
+    position: absolute;
+    transform: scaleX(-1);
+    animation: slideleft 1.5s ease-out forwards;
+}
+
+.flyleftdisappear {
+    margin-right: 300px;
+    width: 600px;
+    height: auto;
+    position: relative;
+    transform: scaleX(-1);
+    animation: flyleftdiasappear 1.5s ease-out forwards, fadeOut 1.5s ease-out forwards;
+    z-index: -1;
+}
+
+/* Klassen für Spiegelungen und Bouncing */
+.bouncerightmirrored {
+    position: absolute;
+    margin-left: 300px;
+    margin-right: 400px;
+    width: 1200px;
+    height: auto;
+    transform: scaleX(-1);
+    animation: bounce3 4s infinite;
+}
+
+.bouncerightmirrored2 {
+    margin-left: 550px;
+    margin-right: 300px;
+    margin-top: 350px;
+    width: 600px;
+    height: auto;
+    position: relative;
+    transform: scaleX(-1);
+    animation: bounce4 4s infinite;
+}
+
+.bouncerightmirrored3 {
+    position: absolute;
+    margin-left: 1010px;
+    margin-right: 400px;
+    margin-top: 150px;
+    width: 800px;
+    height: auto;
+    transform: scaleX(-1);
+    animation: bounce3 4s infinite;
+}
+.bouncerightmirrored4 {
+    position: absolute;
+    margin-left: 350px;
+    margin-right: 400px;
+    width: 1200px;
+    height: auto;
+    transform: scaleX(-1);
+    animation: bounce3 4s infinite;
+}
+
+

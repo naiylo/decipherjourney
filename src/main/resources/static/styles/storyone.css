@@ -7,9 +7,22 @@ html {
     overflow: hidden;
     height: 100%;
     background-color: black;
+    position: relative;
+}
+
+html::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
     background-image: url('/images/AdvancedBackgroundPixel.png');
     background-size: 130%; 
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
+    z-index: -1; 
+    filter: blur(5px);  
     background-position: calc(50% + 325px) center; 
 }
 
@@ -17,10 +30,21 @@ html {
     overflow: hidden;
     height: 100%;
     background-color: black;
+    position: relative;
+}
+
+.html2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
     background-image: url('/images/AdvancedBackgroundPixel.png');
-    background-size: 130%; 
+    background-size: 130%;
+    filter: blur(5px);  
     background-repeat: no-repeat; 
-    
     animation: shiftBackground 2.5s ease-in forwards; 
 }
 @keyframes shiftBackground {

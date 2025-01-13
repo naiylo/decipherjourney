@@ -38,7 +38,7 @@ public class StoryModeService {
             "Kip: Die einzelnen Türen des Tresors lassen sich durch das Lösen von Chiffren öffnen.",
             "Kip: Was Chiffren sind? Okay ich probiere es dir zu erklären!",
             "Kip: Chiffren sind dafür da um Texte zu verschlüsseln beziehungsweise zu entschlüsseln.",
-            "Kip: Stell dir vor du hast das Wort ROBOTER. Wenn wir jetzt jeden einzelnen Buchstaben um zwei verschieben. Wird das R zu einem T und immer so weiter.",
+            "Kip: Stell dir vor du hast das Wort ROBOTER. Wenn wir jetzt jeden einzelnen Buchstaben um zwei Buchstaben im Alphabet nach hinten verschieben. Wird das R zu einem T und immer so weiter.",
             "Kip: Wir haben dann das Wort ROBOTER mit TQDQVDT ersetzt und es nicht mehr so leicht erkennbar welches Wort wohl dahinter steckt.",
             "Kip: Unsere erste Station ist das alte Rom. Dort liegt der Ursprung einer der faszinierendsten Verschlüsselungsmethoden: der Caesar-Chiffre.",
             "Kip: Bist du bereit, in die Welt der alten Römer einzutauchen und die Geheimnisse zu entschlüsseln, die Julius Caesar selbst genutzt hat?",
@@ -64,20 +64,27 @@ public class StoryModeService {
         storyTwo.setDialogs(List.of(List.of(
             "Kip: Willkommen im antiken Rom, Reisender! Ist es nicht atemberaubend?",
             "Kip: Diese Stadt ist das Herz einer der einflussreichsten Kulturen der Geschichte. Hier begann das Abenteuer der Caesar-Chiffre!",
-            "Kip: Schaue dich doch erstmal kurz um, bevor wir weiterlaufen."
-        ), List.of(
+            "Kip: Schaue dich doch erstmal kurz um, bevor wir weiterlaufen.",
+            "...",
             "Fremder Verkäufer: Salve, du hast aber lustige Sachen an. Du kommst wohl aus einem fernen Land?",
-            "Fremder Verkäufer: Dir kann ich wohl keine meiner Waren verkaufen also geh bitte weiter."
-        ), List.of(
+            "Fremder Verkäufer: Dir kann ich wohl keine meiner Waren verkaufen also geh bitte weiter.",
+            "...",
             "Kip: Das ist die Statue vom römischen Gott Zeus!",
-            "Kip: Zeus ist der Gott der Blitze und des Donners und nebenbei auch noch der oberste Gott in der römischen Mythologie."
-        )));
+            "Kip: Zeus ist der Gott der Blitze und des Donners und nebenbei auch noch der oberste Gott in der römischen Mythologie.",
+            "Kip: Hey lass uns doch irgendwo hingehen, wo es etwas ruhiger ist, oder?",
+            "Kip: Dort kann ich dir mehr zur Caesar Chiffre erzählen",
+            "Kip: Die Caesar-Chiffre war eine der ersten Verschlüsselungstechniken. Julius Caesar selbst nutzte sie, um seine Botschaften zu sichern.",
+            "Kip: Lass mich dir zeigen, wie sie funktioniert!",
+            "Kip: Eigentlich ist es ganz einfach. Jeder Buchstabe wird um eine feste Zahl verschoben, wie man es an der Schiebetafel sieht.",
+            "Kip: Bei einem Schlüssel von drei also einer Verschiebung von 3. Rotiert das R zu einem U das O zu einem R und das M zu einem P. ",
+            "Kip: Aus dem Wort R O M wird dann U R P und die eigentliche Stadt ist nicht mehr so leicht zu erkenne,",
+            "Kip: Um eben solche wichtigen Aspekte in Nachrichten und Briefen zu verschlüsseln wurde die Caesar Chiffre genutzt.",
+            "Kip: Jetzt wo du weißt wie sie funktioniert kannst du es ja selber kurz ausprobieren. Hier schau auf diese Tafel und löse das Rätsel.",
+            ""
+            )));
 
         storyTwo.setStoryParts(List.of(
-            "Kapitel 2: Das antike Reich",
-            "Kapitel 2.1: Die Caesar Chiffre",
-            "Kapitel 2.2: Die Herausforderung",
-            "Kapitel 2.3: Die Finale Prüfung"
+            "Kapitel 2: Das antike Reich"
         ));
 
         storyTwo.setCheckpoint("Kapitel 2: Das antike Reich");
