@@ -69,8 +69,9 @@ public class StoryTwoController {
             case "Kapitel 2: Das antike Reich":
                 System.out.println("Story 2 Part 0.");
                 model.addAttribute("dialogs", storyTwo.getDialogs().get(0));
+                model.addAttribute("part", 0);
                 System.out.println(storyTwo.getDialogs().get(0));
-            return "storyTwo";
+                return "storyTwo";
 
             default:
             return "storyTwo";

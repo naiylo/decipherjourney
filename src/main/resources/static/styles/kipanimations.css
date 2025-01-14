@@ -189,6 +189,8 @@
     width: 1200px;
     height: auto;
     animation: bounce 4s infinite;
+    user-select: none;
+    pointer-events: none;
 }
 
 .hoverinthecentreappear {
@@ -198,7 +200,7 @@
     margin-top: 0px;
     width: 1200px;
     height: auto;
-    animation: bounce 4s infinite, fadeInSlow 2s ease-in forwards;
+    animation: bounce 4s infinite, fadeInSlow 3s ease-in forwards;
 }
 
 .hoverinthecentreclickableappear {
@@ -224,6 +226,8 @@
     width: 1200px;
     height: auto;
     animation: bounce 4s infinite, fadeOut 1s ease-in forwards;
+    user-select: none;
+    pointer-events: none;
 }
 
 /* Animationen für Bewegungen */
@@ -243,9 +247,15 @@
     position: absolute;
     animation: slideright2 2s ease-out forwards, decrease 2s ease-out forwards;
 }
+
 .moveright3 {
     position: absolute;
     animation: slideright3 2s ease-out forwards;
+}
+
+.moverightdisappear {
+    position: absolute;
+    animation: slideright3 2s ease-out forwards, fadeOut 1.5s ease-out forwards;
 }
 
 .moveleft {

@@ -67,9 +67,9 @@ public class StoryModeService {
             "Kip: Schaue dich doch erstmal kurz um, bevor wir weiterlaufen.",
             "...",
             "Fremder Verkäufer: Salve, du hast aber lustige Sachen an. Du kommst wohl aus einem fernen Land?",
-            "Fremder Verkäufer: Dir kann ich wohl keine meiner Waren verkaufen also geh bitte weiter.",
+            "Fremder Verkäufer: Dir kann ich wohl keine meiner 12 Ziegen verkaufen also geh bitte weiter.",
             "...",
-            "Kip: Das ist die Statue vom römischen Gott Zeus!",
+            "Kip: Das ist die Statue vom römischen Gott Zeus einem der 12 wichtigsten Götter!",
             "Kip: Zeus ist der Gott der Blitze und des Donners und nebenbei auch noch der oberste Gott in der römischen Mythologie.",
             "Kip: Hey lass uns doch irgendwo hingehen, wo es etwas ruhiger ist, oder?",
             "Kip: Dort kann ich dir mehr zur Caesar Chiffre erzählen",
@@ -77,10 +77,19 @@ public class StoryModeService {
             "Kip: Lass mich dir zeigen, wie sie funktioniert!",
             "Kip: Eigentlich ist es ganz einfach. Jeder Buchstabe wird um eine feste Zahl verschoben, wie man es an der Schiebetafel sieht.",
             "Kip: Bei einem Schlüssel von drei also einer Verschiebung von 3. Rotiert das R zu einem U das O zu einem R und das M zu einem P. ",
-            "Kip: Aus dem Wort R O M wird dann U R P und die eigentliche Stadt ist nicht mehr so leicht zu erkenne,",
+            "Kip: Aus dem Wort R O M wird dann U R P und die eigentliche Stadt ist nicht mehr so leicht zu erkennen.",
             "Kip: Um eben solche wichtigen Aspekte in Nachrichten und Briefen zu verschlüsseln wurde die Caesar Chiffre genutzt.",
-            "Kip: Jetzt wo du weißt wie sie funktioniert kannst du es ja selber kurz ausprobieren. Hier schau auf diese Tafel und löse das Rätsel.",
-            ""
+            "[Klicke eins weiter um das Tutorial zu schließen und zu einem Testlauf der Caesar Chiffre fortzufahren]",
+            "Kip: Jetzt wo du weißt wie sie funktioniert kannst du es ja selber kurz ausprobieren. Hier schau auf diese Tafel und verschlüssele das Wort Kolosseum, indem du einen Verschiebung von 3 nutzt.",
+            "Kip: Lass dir ruhig Zeit. ≧◉◡◉≦ ",
+            "...",
+            "Kip: Sehr gut gemacht jetzt wo du verstanden hast, wie man damit Wörter Verschlüsselt, solltest du Versuchen ein Wort zu Entschlüsseln.",
+            "Kip: Während unserer Zeit hier hast du schon einen Hinweis auf die Schlüsselgröße bekommen, aber probier dich ruhig aus. ≧◉◡◉≦",
+            "...",
+            "Kip: Toll du hast die Caesar Chiffre damit vollständig verstanden. Wir haben den ersten Schritt auf unserer Reise geschafft. ≧◉◡◉≦",
+            "Kip: Der nächste Halt ist die Viginere Chiffre. Sie führt uns direkt in das Herz von London!",
+            "Kip: Auf durch das Portal. Folge mir einfach!!",
+            "..."
             )));
 
         storyTwo.setStoryParts(List.of(
@@ -92,7 +101,7 @@ public class StoryModeService {
         System.out.println("Added Part 2.");
 
         storyMode.setStoryParts(partList);
-        storyMode.setPart("1");
+        storyMode.setPart("2");
 
         return storyMode;
     }

@@ -201,7 +201,6 @@ header {
     margin-top: 100px;
 }
 
-
 .textbubble {
     position: relative;
     margin-top: 20px; 
@@ -292,6 +291,168 @@ header {
     width: 675px;
     height: auto;
     animation: fadeIn 1s ease-in forwards;
-    background-color: hsla(0, 0%, 25%, 0.4);
     border-radius: 15px; 
+}
+
+.video2 {
+    position: absolute;
+    margin-top: 200px;
+    width: 675px;
+    height: auto;
+    animation: fadeOut 1s ease-in forwards;
+    border-radius: 15px; 
+}
+
+.testcipher {
+    padding: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: hsla(0, 0%, 0%, 0.5);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: fadeIn 1s ease-in forwards, moveUp 2s ease-in forwards;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+    text-align: center;
+    border-radius: 15px;
+    border: 2px solid #fff;
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(300px);
+    }
+    100% {
+        transform: translateY(75px);
+    }
+}
+
+.disk-container {
+    margin-left: -450px;
+    padding-top: 50px;
+    position: relative;
+    width: 1000px;
+    height: 500px;
+}
+  
+  .outer-disk {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+}
+  
+  .inner-disk {
+    margin-top: 54px;
+    margin-left: 54px;
+    cursor: pointer;
+    width: 393px;
+    height: 393px;
+    position: absolute; 
+    transform-origin: center; 
+    z-index: 1; 
+    transition: transform 0.2s ease-out;
+    user-select: none;
+    pointer-events: none;
+}
+
+.testcipher p {
+    padding: 20px;
+    padding-bottom: 40px;
+    font-size: 1.4rem;
+    color: white;
+    margin-top: 60px;
+    text-align: justify;
+}
+
+.texttodecipher {
+    margin-left: 700px;
+    margin-top: -400px;
+    position: absolute;
+    height: 100px;
+    width: 500px;
+    border-radius: 15px;
+    border: 2px solid #fff;
+    color: white;
+    font-family: 'PixelFont';
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.decipherspace {
+    padding: 20px;
+    font-family: 'PixelFont';
+    font-size: 2rem;
+    margin-left: 55px;
+    margin-top: -270px;
+    position: absolute;
+    height: 100px;
+    width: 500px;
+    border-radius: 15px;
+    border: 2px solid #fff;
+    letter-spacing: 20px;
+    white-space: nowrap;
+    overflow: hidden; 
+}
+
+.submitbutton {
+    margin-left: 100px;
+    margin-top: -150px;
+    position: absolute;
+    font-family: 'PixelFont';
+    height: 60px;
+    width: 400px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    border: 2px solid #fff;
+    cursor: pointer;
+}
+
+.submitbutton:hover {
+    background-color: rgba(196, 196, 196, 0.3);
+}
+
+.result {
+    position: absolute;
+    margin-left: 690px;
+    margin-top: -70px;
+}
+
+.portal {
+    position: absolute;
+    pointer-events: none;
+    background: url('/images/portalblue.gif') no-repeat center center;
+    background-size: contain;
+    width: 1200px; 
+    height: 1000px; 
+    border: none; 
+    cursor: pointer;
+    outline: none; 
+    display: block; 
+    cursor: pointer;
+    margin-top: -60px;
+    margin-left: 600px;
+    animation: fadeIn 2s ease-in forwards; 
+}
+
+.portal2 {
+    position: absolute;
+    background: url('/images/portalblue.gif') no-repeat center center;
+    background-size: contain;
+    width: 1200px; 
+    height: 1000px;  
+    border: none; 
+    cursor: pointer;
+    outline: none; 
+    display: block; 
+    margin-top: -60px;
+    margin-left: 600px;
+}
+
+.portal2:hover {
+    filter: brightness(1.5);
 }

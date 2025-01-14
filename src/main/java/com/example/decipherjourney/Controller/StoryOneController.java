@@ -76,23 +76,5 @@ public class StoryOneController {
             return "storyOne";
         }
   
-    }
-
-    /**
-     * Function to switch to the next story part
-     * 
-     * @param request HTTP request made by a client.
-     * 
-     * @return Reload the StoryMode to switch to next story part.
-     */
-    @RequestMapping("storyOne/nextPart")
-    public String nextPart(HttpServletRequest request) {
-
-        User currentUser = userService.getCurrentUser(request);
-        StoryMode storyMode = currentUser.getStoryMode();
-        StoryMode newStoryMode = storyModeService.nextStoryPart(storyMode);
-        userService.changeStoryMode(currentUser.getUsername(), newStoryMode);
-
-        return "redirect:/story/play";
-    }    
+    }   
 }

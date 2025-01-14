@@ -39,6 +39,23 @@
                     <source src="/video/Tutorial.webm">
                     Ihr Browser unterstützt dieses Videoformat nicht.
                 </video>
+                <div id="testciphercontainter" class="hidden">
+                    <div id="disk-container" class="disk-container">
+                      <img id="outer-disk" class="outer-disk" src="/images/outerdisk.png" alt="Outer Disk">
+                      <img id="inner-disk" class="inner-disk" src="/images/innerdisk.png" alt="Inner Disk">
+                    </div>
+                    <div id="texttodecipher" class="texttodecipher">K O L O S S E U M</div>
+                    <input id="input" class="decipherspace" placeholder="_________">
+                    <button class="submitbutton">Übersetzung Testen</button>
+                    <div class="result" id="result"></div>
+                    <p id="helptext">Gehe mit der Maus über den inneren Kreis halte die Taste gedrückt und ziehe die Maus nach oben oder unten um den Kreis zu verschieben und
+                        wiederhole bis die Buchstaben nach deiner Vorstellung verschoben sind. Denk daran wenn du den inneren Kreis um einen Buchstaben nach hinten verschiebst,
+                        heißt das, dass es eine Verschiebung von 1 ist da ein R nun ein S ein W nun ein X und so weiter darstellt.
+                    </p>
+                </div>
+                <form id="storyOneNextPart" action="/nextPart" method="post">
+                    <button id="portal"  class="hidden"  aria-label="Ein klickbares Portal"></button>
+                </form>
             </div>
             <div class="hidden" id="textbubble">
                 <div class="text-container">
