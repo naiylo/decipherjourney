@@ -130,7 +130,7 @@ async function showNextDialog() {
             texttodecipher.textContent = "W A X A E E Q G Y";
             inputField.value = "";
             resultDiv.textContent = "";
-            helptext.textContent = "Denk daran wenn du denkst das ein W ein K ist heißt das du musst di untere scheibe so lange Uhrzeigerverkehrt bis das W unter dem K steht.";
+            helptext.textContent = "Denk daran wenn du denkst das ein W ein K ist heißt das du musst die untere scheibe so lange Uhrzeigerverkehrt bis das W unter dem K steht.";
             switchClasses(testcipher, 'hidden', 'testcipher'); 
         }
 
