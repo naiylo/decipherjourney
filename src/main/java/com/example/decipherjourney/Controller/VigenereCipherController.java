@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 /**
  * VigenereCipherController is a controller that allows users to learn and train the vigenere cipher with different random generated examples.
  * 
- * Author: Oskar Schiedewitz
+ * @author Oskar Schiedewitz
  */
 @Controller
 public class VigenereCipherController {
