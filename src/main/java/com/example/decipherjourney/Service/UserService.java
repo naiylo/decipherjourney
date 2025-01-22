@@ -56,6 +56,7 @@ public class UserService {
 
             // Set the ciphers of free play mode
             newUser.setCaesarCipher(null);
+            newUser.setVigenereCipher(null);
 
             // Set the storymode of the user 
             newUser.setStoryMode(null);
@@ -217,6 +218,20 @@ public class UserService {
             return;
         }
         updateField(username, "caesarCipher", cipher, "Updated caesar cipher succesfully.");
+    }
+
+    /**
+     * Updates the vigenere cipher of the user identified by the username
+     * 
+     * @param username      The current username of the user
+     * @param cipher        The new vigenere cipher
+     */
+    public void changeVigenereCipher(String username, VigenereCipher cipher) {
+        if (username == null || username.isEmpty()) {
+            System.out.println("Username can not be empty.");
+            return;
+        }
+        updateField(username, "vigenereCipher", cipher, "Updated vigenere cipher succesfully.");
     }
 
     /**

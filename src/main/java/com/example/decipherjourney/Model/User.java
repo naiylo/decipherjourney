@@ -43,6 +43,11 @@ public class User {
      */
     private CaesarCipher caesarCipher;
 
+    /**
+     * The current vigenere cipher the user is working with in free play
+     */
+    private VigenereCipher vigenereCipher;
+
     // Getter and Setter methods
 
     /**
@@ -151,6 +156,24 @@ public class User {
      */
     public void setCaesarCipher(CaesarCipher cipher) {
         this.caesarCipher = cipher;
+    }
+
+    /**
+     * Getter for the vigenere cipher of the user.
+     * 
+     * @return  The vigenere cipher of the user.
+     */
+    public VigenereCipher getVigenereCipher() {
+        return vigenereCipher;
+    }
+
+    /**
+     * Setter for the vigenere cipher of the user.
+     * 
+     * @param cipher The vigenere cipher to set for the user.
+     */
+    public void setVigenereCipher(VigenereCipher cipher) {
+        this.vigenereCipher = cipher;
     }
     
 }

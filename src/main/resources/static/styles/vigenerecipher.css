@@ -1,0 +1,325 @@
+@font-face {
+    font-family: 'PixelFont';
+    src: url('../fonts/PixelFont.ttf') format('truetype');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    background: linear-gradient(to right, #2d2be4, #a22ffd);
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header {
+    position: relative; 
+    width: 100%;
+    padding: 100px 100px;
+    z-index: 100;
+}
+
+
+.back-arrow {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px;
+}
+
+.back-arrow:hover {
+    transform: scale(1.1);
+}
+
+.tutorial-container {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -100px;
+    max-width: 1200px; 
+    padding: 40px;
+    border-radius: 15px;
+    border-style: dotted;
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.tutorial-container h1 {
+    font-family: PixelFont;
+    font-size: 2rem;
+}
+
+.tutorial-container p {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.big-letter {
+    font-size: 1em;
+    font-weight: bold; 
+    color: #fff; 
+}
+
+.tutorial-animation {
+    font-size: 2rem;
+    font-family: PixelFont;
+    display: flex;
+    gap: 10px;
+}
+
+.tutorial-text {
+    opacity: 0; 
+    animation: tutorialText 5s ease-in-out infinite;
+    padding-left: 180px; 
+}
+
+
+.help-container {
+    position: absolute;
+    top: 100px;
+    right: 150px;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    width: 275px;
+}
+
+.help-icon {
+    font-size: 3rem;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.help-text {
+    display: none;
+    position: absolute;
+    top: 65px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    font-size: 0.9rem;
+    z-index: 1000;
+}
+
+.help-text h3 {
+    font-family: PixelFont;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.help-container:hover .help-text {
+    display: block;
+}
+
+.help-container:hover .help-icon {
+    transform: scale(1.1); 
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    padding: 50px 20px;
+    margin-top: -125px;
+}
+
+.cipher-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 50px; 
+    border-radius: 15px;
+}
+
+.notes-container {
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    width: 375px;
+    height: 650px;
+}
+
+.notes-text h1 {
+    font-family: PixelFont;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.notes-text p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.key-container {
+    margin-top: 295px;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+    align-items: center; 
+    width: 100%; 
+}
+
+.key-input {
+    position: relative;
+    z-index: 10;
+    font-family: PixelFont;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.try-button {
+    font-family: PixelFont;
+    font-size: 0.75rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px 15px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.try-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.feedback-messages {
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.feedback-messages .alert {
+    font-family: 'PixelFont';
+    font-size: 0.75rem;
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+
+.feedback-messages .alert-danger {
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+.feedback-messages .alert-success {
+    background-color: rgba(0, 101, 0, 0.3);
+}
+
+.text-container {
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    width: 775px;
+    height: 650px;
+}
+
+.text-headline h1 {
+    font-family: PixelFont;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.question-container {
+    padding: 6px;    
+    margin-top: 20px;
+    height: 165px;
+    letter-spacing: 3px;
+    font-family: 'Monaco', monospace;
+}
+
+.question-container p {
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+.text-headline2 h1 {
+    margin-top: 20px;
+    font-family: PixelFont;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.answer-container {
+    margin-top: 20px;
+    padding: 6px;    
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    height: 165px;
+    letter-spacing: 3px;
+    font-family: 'Monaco', monospace;
+}
+
+.answer-container p {
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+.text-buttons-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 200px;
+}
+
+.task-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: -21px;
+    padding-top: 30px;
+}
+
+.task-buttons button{
+    font-family: PixelFont;
+    font-size: 0.75rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px 15px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.task-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+

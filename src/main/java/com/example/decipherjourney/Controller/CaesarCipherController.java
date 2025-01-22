@@ -41,7 +41,7 @@ public class CaesarCipherController {
     CaesarCipherService caesarCipherService;
 
     /**
-     * Function to freeplay the login view.
+     * Function to load the caesar cipher view.
      * 
      * @param request   HTTP request made by a client.
      * @param model     The model to set attributes for the view.
@@ -196,7 +196,7 @@ public class CaesarCipherController {
     }
 
     /**
-     * Function to reveal the original Text nad load the congrats and disclaimer.
+     * Function to reveal the original Text and load the congrats and disclaimer.
      * 
      * @param request               HTTP request made by a client.
      * @param redirectAttributes    Object to redirect Attributes.

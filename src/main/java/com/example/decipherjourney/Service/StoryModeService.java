@@ -87,7 +87,7 @@ public class StoryModeService {
             "Kip: Während unserer Zeit hier hast du schon einen Hinweis auf die Schlüsselgröße bekommen, aber probier dich ruhig aus. ≧◉◡◉≦",
             "...",
             "Kip: Toll du hast die Caesar Chiffre damit vollständig verstanden. Wir haben den ersten Schritt auf unserer Reise geschafft. ≧◉◡◉≦",
-            "Kip: Der nächste Halt ist die Viginere Chiffre. Sie führt uns direkt in das Herz von London!",
+            "Kip: Der nächste Halt ist die Vigenère Chiffre. Sie führt uns direkt in das Herz von London!",
             "Kip: Auf durch das Portal. Folge mir einfach!!",
             "..."
             )));
@@ -101,7 +101,7 @@ public class StoryModeService {
         System.out.println("Added Part 2.");
 
         storyMode.setStoryParts(partList);
-        storyMode.setPart("2");
+        storyMode.setPart("1");
 
         return storyMode;
     }

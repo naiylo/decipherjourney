@@ -100,7 +100,7 @@ main {
     transition: background-image 0s, text-shadow 0s;
 }
 
-.caesarbtn {
+.menu-container .btn {
     height: 70px;
     width: 100%;
     max-width: 350px;
@@ -112,7 +112,7 @@ main {
     transition: background-image 0s, text-shadow 0s;
 }
 
-.caesarbtn::after {
+.menu-container .btn::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -125,7 +125,7 @@ main {
     transition: transform 0.3s ease;
 }
 
-.caesarbtn:hover::after {
+.menu-container .btn:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
@@ -138,4 +138,11 @@ main {
     background-blend-mode: color-dodge;
 }
 
+.vigenerebtn:hover {
+    background-image: url('/images/vigenerebutton.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: color-dodge;
+}
 

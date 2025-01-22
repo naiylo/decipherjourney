@@ -59,5 +59,23 @@ public class CreatorService {
 
         return text;
     }
+
+    /**
+     * Function to get a random keyword out of the examples.
+     * 
+     * @return A randomly chosen keyword from the list of example keywords.
+     */
+    public String getRandomKeyword() {
+
+        // List of example keywords
+        //List<String> keywords = List.of("SECRET", "KEYWORD", "ENCRYPT", "CIPHER", "CODE", "PUZZLE", "ABC", "WORD");
+        List<String> keywords = List.of("A");
+
+        int numberOfKeywords = keywords.size();
+        int randomIndex = getRandomNumber(numberOfKeywords); // Generate a random index
+        String keyword = keywords.get(randomIndex); // Retrieve the keyword at the random index
+
+        return keyword;
+    }
     
 }
