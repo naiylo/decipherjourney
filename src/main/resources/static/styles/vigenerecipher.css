@@ -71,6 +71,64 @@ header {
     font-size: 1.25rem;
 }
 
+.tutorial-button {
+    font-family: PixelFont;
+    width: 450px;
+    height: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    z-index: 1;
+}
+
+.tutorial-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.modal {
+    margin-top: 100px;
+    margin-left: 550px;
+    display: none;
+    position: fixed;
+    width: 1000px;
+    height: auto;
+    overflow: auto;
+    background-color: hsla(0, 0%, 0%, 0.9);
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+    border-radius: 15px; 
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    background-color: hsla(0, 0%, 0%, 0);
+    border-radius: 8px;
+    max-width: 600px;
+    text-align: center;
+}
+
+.close {
+    margin-top: -100px;
+    margin-left: 700px;
+    position: absolute;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}
+
 .big-letter {
     font-size: 1em;
     font-weight: bold; 
