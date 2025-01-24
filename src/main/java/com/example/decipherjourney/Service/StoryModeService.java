@@ -67,7 +67,7 @@ public class StoryModeService {
             "Kip: Schaue dich doch erstmal kurz um, bevor wir weiterlaufen.",
             "...",
             "Fremder Verkäufer: Salve, du hast aber lustige Sachen an. Du kommst wohl aus einem fernen Land?",
-            "Fremder Verkäufer: Dir kann ich wohl keine meiner 12 Ziegen verkaufen also geh bitte weiter.",
+            "Fremder Verkäufer: Dir kann ich wohl keine meiner 12 Ziegen verkaufen, aber hier hast du eine alte Scheibe die wir früher als Kinder benutzt haben um Texte zu verschlüsseln und jetzt geh weiter!",
             "...",
             "Kip: Das ist die Statue vom römischen Gott Zeus einem der 12 wichtigsten Götter!",
             "Kip: Zeus ist der Gott der Blitze und des Donners und nebenbei auch noch der oberste Gott in der römischen Mythologie.",
@@ -75,7 +75,7 @@ public class StoryModeService {
             "Kip: Dort kann ich dir mehr zur Caesar Chiffre erzählen",
             "Kip: Die Caesar-Chiffre war eine der ersten Verschlüsselungstechniken. Julius Caesar selbst nutzte sie, um seine Botschaften zu sichern.",
             "Kip: Lass mich dir zeigen, wie sie funktioniert!",
-            "Kip: Eigentlich ist es ganz einfach. Jeder Buchstabe wird um eine feste Zahl verschoben, wie man es an der Schiebetafel sieht.",
+            "Kip: Eigentlich ist es ganz einfach. Jeder Buchstabe wird um eine feste Zahl verschoben, wie man es an der Schiebetafel sieht, die du geschenkt bekommen hast.",
             "Kip: Bei einem Schlüssel von drei also einer Verschiebung von 3. Rotiert das R zu einem U das O zu einem R und das M zu einem P. ",
             "Kip: Aus dem Wort R O M wird dann U R P und die eigentliche Stadt ist nicht mehr so leicht zu erkennen.",
             "Kip: Um eben solche wichtigen Aspekte in Nachrichten und Briefen zu verschlüsseln wurde die Caesar Chiffre genutzt.",
@@ -101,7 +101,7 @@ public class StoryModeService {
         System.out.println("Added Part 2.");
 
         storyMode.setStoryParts(partList);
-        storyMode.setPart("1");
+        storyMode.setPart("2");
 
         return storyMode;
     }

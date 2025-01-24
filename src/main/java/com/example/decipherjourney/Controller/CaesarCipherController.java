@@ -81,6 +81,10 @@ public class CaesarCipherController {
                 System.out.println("Cookie was not succesful.");
             }
         }
+
+        if (!model.containsAttribute("spindegree")) {
+            model.addAttribute("spindegree", 0);
+        }
         
         return "caesarcipher";
     }
@@ -113,6 +117,29 @@ public class CaesarCipherController {
 
             redirectAttributes.addFlashAttribute("tryoutText", shiftedText);
             redirectAttributes.addFlashAttribute("shift", shift);
+
+            if (shiftedText.equals(cipher.getOriginalText())) {
+                redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, deine Übersetzung ist korrekt!");
+            } else {
+                userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseErrorCounter(cipher));
+                Integer errors = cipher.getErrorCounter();
+
+                if (errors < 3) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider ist das nicht korrekt!");
+                } else if (errors == 3) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, probiere Häufige Buchstaben zu vergleichen.");
+                } else if (errors == 4) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suce nach der passenden Verschiebung.");
+                } else if (errors == 5) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suce nach der passenden Verschiebung."); 
+                } else if (errors == 6) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suce nach der passenden Verschiebung.");   
+                } else if (errors > 7) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Der leichteste Weg ist alle 25 Möglichkeiten zu Testen. DArunter leidet aber dein Highscore!");
+                }
+            }
+
+            redirectAttributes.addFlashAttribute("spindegree", 13.8461538462*shift);
 
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", "Der Verschiebewert kann nur zwischen 0-25 liegen.");
@@ -174,6 +201,13 @@ public class CaesarCipherController {
 
         // Redirect with the deciphered result
         redirectAttributes.addFlashAttribute("tryoutText", decipheredText);
+        if (decipheredText.equals(cipher.getOriginalText())) {
+            redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, deine Übersetzung ist korrekt!");
+        } else {
+            userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseErrorCounter(cipher));
+            System.out.println(cipher.getErrorCounter());
+        }
+
         return "redirect:/freeplay/caesarcipher";
     }
 

@@ -59,6 +59,8 @@ header {
     border-color: #fff;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    user-select: none;
+    pointer-events: none;
 }
 
 .tutorial-container h1 {
@@ -112,13 +114,13 @@ header {
 .help-container {
     position: absolute;
     top: 100px;
-    right: 150px;
+    right: 0px;
     z-index: 200;
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    width: 275px;
+    width: 300px;
 }
 
 .help-icon {
@@ -169,6 +171,49 @@ main {
     flex-direction: row;
     gap: 50px; 
     border-radius: 15px;
+}
+
+.disk-container{
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    width: 500px;
+    height: 650px;
+    position: relative;
+}
+
+.disk-headline h1 {
+    font-family: PixelFont;
+    font-size: 2rem;
+    text-align: center;
+    user-select: none;
+    pointer-events: none;
+}
+
+.outer-disk {
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 400px;
+    height: auto;
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+}
+  
+.inner-disk {
+    margin-top: 74px;
+    margin-left: 74px;
+    cursor: pointer;
+    width: 313px;
+    height: auto;
+    position: absolute; 
+    transform-origin: center; 
+    z-index: 1; 
+    transform-origin: center center;
+    transition: transform 0.2s ease-out;
+    user-select: none;
+    pointer-events: none;
 }
 
 .notes-container {
@@ -311,6 +356,10 @@ main {
 
 .feedback-messages .alert-success {
     background-color: rgba(0, 101, 0, 0.3);
+}
+
+.errorMessage2 {
+    margin-top: -30px;
 }
 
 .text-container {

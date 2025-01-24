@@ -16,7 +16,11 @@ html {
     overflow: hidden;
     height: 100%;
     background-color: black;
-    position: relative;
+    position: absolute;
+    transform: scale(1);
+    transform-origin: top left;
+    width: 100vw; 
+    height: 100vh;
 }
 
 html::before {
@@ -39,7 +43,11 @@ html::before {
     overflow: hidden;
     height: 100%;
     background-color: black;
-    position: relative;
+    position: absolute;
+    transform-origin: top left;
+    width: 100vw; 
+    height: 100vh;
+    overflow: hidden;
 }
 
 .html2::before {
@@ -70,7 +78,11 @@ html::before {
     overflow: hidden;
     height: 100%;
     background-color: black;
-    position: relative;
+    position: absolute;
+    transform-origin: top left;
+    width: 100vw; 
+    height: 100vh;
+    overflow: hidden;
 }
 
 .html3::before {
@@ -305,8 +317,9 @@ header {
 
 .testcipher {
     padding: 0;
-    width: 100%; 
-    height: 100%; 
+    margin-left: -200px;
+    width: 1600px; 
+    height: 700px; 
     background-color: hsla(0, 0%, 0%, 0.5);
     background-size: cover;
     background-position: center;
@@ -317,6 +330,10 @@ header {
     text-align: center;
     border-radius: 15px;
     border: 2px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
 }
 
 @keyframes moveUp {
@@ -329,14 +346,14 @@ header {
 }
 
 .disk-container {
-    margin-left: -450px;
-    padding-top: 50px;
-    position: relative;
+    margin-right: 1500px;
+    padding-top: 10px;
+    position: absolute;
     width: 1000px;
     height: 500px;
 }
   
-  .outer-disk {
+.outer-disk {
     width: 500px;
     height: 500px;
     position: absolute;
@@ -344,7 +361,7 @@ header {
     pointer-events: none;
 }
   
-  .inner-disk {
+.inner-disk {
     margin-top: 54px;
     margin-left: 54px;
     cursor: pointer;
@@ -358,6 +375,115 @@ header {
     pointer-events: none;
 }
 
+.notes-container {
+    margin-left: 50px;
+    align-items: center;
+    padding: 20px;
+    width: 375px;
+    height: 650px;
+    position: absolute;
+}
+
+.notes-text {
+    color: white;
+    align-items: center;
+}
+
+.notes-text h1 {
+    color: white;
+    font-family: PixelFont;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.notes-letters {
+    margin-top: -10px;
+}
+
+.alphabet-pair {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 10px 
+}
+
+.letter-pair {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    padding-top: 20px;
+    gap: 10px;
+    font-family: PixelFont;
+}
+
+.letter {
+    font-size: 1.2rem;
+    color: #fff;
+    width: 20px;
+    text-align: center;
+}
+
+.cipher-input {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.notes-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding-top: 30px;
+}
+
+.shift-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    margin-left: 40px;
+    z-index: 1;
+}
+
+.notes-buttons button {
+    font-family: PixelFont;
+    font-size: 0.75rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px 15px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.notes-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.shift-input {
+    font-family: PixelFont;
+    width: 48px;
+    height: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    z-index: 1;
+}
+
 .testcipher p {
     padding: 20px;
     padding-bottom: 40px;
@@ -368,43 +494,43 @@ header {
 }
 
 .texttodecipher {
-    margin-left: 700px;
-    margin-top: -400px;
+    margin-top: 20px;
+    margin-left: 1000px;
     position: absolute;
-    height: 100px;
-    width: 500px;
+    height: 70px;
+    width: 380px;
     border-radius: 15px;
     border: 2px solid #fff;
     color: white;
     font-family: 'PixelFont';
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 15px;
 }
 
 .decipherspace {
+    margin-top: 110px;
+    margin-left: 1000px;
     padding: 20px;
     font-family: 'PixelFont';
-    font-size: 2rem;
-    margin-left: 55px;
-    margin-top: -270px;
+    font-size: 1.5rem;
     position: absolute;
-    height: 100px;
-    width: 500px;
+    height: 70px;
+    width: 380px;
     border-radius: 15px;
     border: 2px solid #fff;
-    letter-spacing: 20px;
+    letter-spacing: 13px;
     white-space: nowrap;
     overflow: hidden; 
 }
 
 .submitbutton {
-    margin-left: 100px;
-    margin-top: -150px;
+    margin-top: 210px;
+    margin-left: 1000px;
     position: absolute;
     font-family: 'PixelFont';
     height: 60px;
-    width: 400px;
+    width: 380px;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
@@ -418,8 +544,30 @@ header {
 
 .result {
     position: absolute;
-    margin-left: 690px;
-    margin-top: -70px;
+    height: 60px;
+    width: 380px;
+    font-size: 1.4rem;
+    margin-left: 1000px;
+    margin-top: 280px;
+}
+
+.explanation {
+    position: relative;
+    height: 100px;
+    width: 1550px;
+    margin-top: 340px;
+    color: white;
+}
+
+.task {
+    position: relative;
+    height: 100px;
+    width: 400px;
+    color: white;
+    margin-top: 20px;
+    margin-left: 1070px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .portal {

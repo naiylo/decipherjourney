@@ -23,6 +23,11 @@ public class VigenereCipher {
     private String cipheredText;
 
     /**
+     * The error counter for failed attempts
+     */
+    private Integer errorCouter;
+
+    /**
      * Gets the keyword used for the Vigenère cipher.
      * 
      * @return The keyword for this cipher instance.
@@ -74,6 +79,24 @@ public class VigenereCipher {
      */
     public void setCipheredText(String cipheredText) {
         this.cipheredText = cipheredText;
+    }
+
+    /**
+     * Gets the error counter for failed attempts.
+     * 
+     * @return The current value of the error counter.
+     */
+    public Integer getErrorCounter() {
+        return errorCouter;
+    }
+
+    /**
+     * Sets the error counter for failed attempts.
+     * 
+     * @param errorCounter The value to set for the error counter.
+     */
+    public void setErrorCounter(Integer errorCounter) {
+        this.errorCouter = errorCounter;
     }
 
 }

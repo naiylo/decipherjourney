@@ -58,10 +58,10 @@ public class VigenereCipherController {
                 User user = userService.getCurrentUser(request);
                 System.out.println("Cookie was succesful.");
 
-                // Check if user is currently working on a caesar cipher and load it if so
+                // Check if user is currently working on a vigenere cipher and load it if so
 
-                if (user.getCaesarCipher() == null) {
-                    System.out.println("Create new caesar cipher!");
+                if (user.getVigenereCipher() == null) {
+                    System.out.println("Create new vigenere cipher!");
                     VigenereCipher cipher = vigenereCipherService.createRandomVigenereCipher();
                     userService.changeVigenereCipher(user.getUsername(), cipher);;
                     model.addAttribute("cipher", cipher);

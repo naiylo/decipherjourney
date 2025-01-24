@@ -26,6 +26,11 @@ public class CaesarCipher {
     private String cipheredText;
 
     /**
+     * The error counter for failed attempts
+     */
+    private Integer errorCouter;
+
+    /**
      * The supposed dictionary to translate without the shift
      */
     private Map<String, String> map;
@@ -82,6 +87,24 @@ public class CaesarCipher {
      */
     public void setCipheredText(String cipheredText) {
         this.cipheredText = cipheredText;
+    }
+
+    /**
+     * Gets the error counter for failed attempts.
+     * 
+     * @return The current value of the error counter.
+     */
+    public Integer getErrorCounter() {
+        return errorCouter;
+    }
+
+    /**
+     * Sets the error counter for failed attempts.
+     * 
+     * @param errorCounter The value to set for the error counter.
+     */
+    public void setErrorCounter(Integer errorCounter) {
+        this.errorCouter = errorCounter;
     }
 
     /**

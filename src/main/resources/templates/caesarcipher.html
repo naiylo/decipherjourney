@@ -35,6 +35,9 @@
             <div class="help-text" id="help-text">
                 <h3>Erklärung:</h3>
                 <br>
+                <p>Im Verschiebedisk-Bereich können Sie die scheibe frei nach Vorstellung verschieben um ein Bild von verschiedenen shifts zu erhalten. Bei einer Verschiebung von eins nach hinten wäre das eine Verschiebung von 1.
+                   Eine Verschiebung von eins nach vorne wäre eine von 25.
+                </p>
                 <p>Im Notizen-Bereich können Sie die Buchstaben des Caesar-Verschlüsselten Textes anpassen. 
                                              Schreiben Sie einfach einen Buchstaben zwischen A-Z in das Feld neben dem Buchstaben und drücken 
                                              Sie den <strong>"Try out your combination"</strong> Button. So können sie sehen wie der Text aussieht wenn 
@@ -51,6 +54,17 @@
 
     <main>
         <div class="cipher-container">
+            <div id="disk-container" class="disk-container">
+                <div class="disk-headline">
+                    <h1>Verschiebedisk:</h1>
+                </div>
+                <div id="spin-container" class="spin-container">
+                    <!-- Hidden input to hold the spin degree -->
+                    <input type="hidden" name="spindegree" id="spindegree" th:value="${spindegree}">
+                    <img id="outer-disk" class="outer-disk" src="/images/outerdisk.png" alt="Outer Disk">
+                    <img id="inner-disk" class="inner-disk" src="/images/innerdisk.png" alt="Inner Disk">
+                  </div>
+            </div>
             <div class="notes-container">
                 <div class="notes-text">
                     <h1>Notizen:</h1>
@@ -191,7 +205,7 @@
                         <form action="/freeplay/caesarcipher/shift" method="post">
                             <button class="shift-button">Shift by:</button>
                         </div>
-                            <input name="shift" id="shift" type="text" maxlength="2" class="shift-input" placeholder="0">   
+                            <input name="shift" id="shift" type="text" maxlength="2" class="shift-input" th:value="${shift != null ? shift : ''}">   
                         </form>
                     </div>
                 </div>
@@ -227,6 +241,9 @@
                 <div class="feedback-messages">
                     <div class="alert alert-success" th:if="${successMessage}" th:text="${successMessage}"></div>
                 </div>
+                <div class="feedback-messages">
+                    <div class="alert alert-danger errorMessage2" th:if="${errorMessage2}" th:text="${errorMessage2}"></div>
+                </div>
             </div>
         </div>
     </main>
@@ -240,5 +257,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/scripts/caesarcipher.js"></script>
 </body>
 </html>

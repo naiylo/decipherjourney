@@ -120,4 +120,14 @@ public class VigenereCipherService {
 
         return cipher;
     }
+
+    /**
+     * Function to increase the error counter by one
+     * 
+     * @param vigenereCipher The cipher where the counter
+     */
+    public VigenereCipher increaseErrorCounter(VigenereCipher vigenereCipher) {
+        vigenereCipher.setErrorCounter(vigenereCipher.getErrorCounter() + 1);
+        return vigenereCipher;
+    } 
 }

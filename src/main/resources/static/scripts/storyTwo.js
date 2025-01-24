@@ -15,7 +15,7 @@ const video = document.getElementById('video');
 const testcipher = document.getElementById('testciphercontainter');
 const portal = document.getElementById('portal');
 const texttodecipher = document.getElementById('texttodecipher');
-const helptext = document.getElementById('helptext');
+const task = document.getElementById('task');
 
 // Function to animate Kip
 animatedKip.addEventListener('click', async () => {
@@ -130,7 +130,8 @@ async function showNextDialog() {
             texttodecipher.textContent = "W A X A E E Q G Y";
             inputField.value = "";
             resultDiv.textContent = "";
-            helptext.textContent = "Denk daran wenn du denkst das ein W ein K ist heißt das du musst die untere scheibe so lange Uhrzeigerverkehrt bis das W unter dem K steht.";
+            shift.value= "";
+            task.textContent = "Aufgabe: Versuche das Wort zu Entschlüsseln. Bei falschen Versuchen erhälst du Hinweise.";
             switchClasses(testcipher, 'hidden', 'testcipher'); 
         }
 
@@ -210,7 +211,8 @@ document.addEventListener('mouseup', () => {
 //--------------------------    Control the input of the player    ----------------------------------------
 
 let testnumber = 0;
-let guessnumber = 0;
+let guessnumber1 = 0;
+let guessnumber2 = 0;
 
 const button = document.querySelector('.submitbutton');
 const inputField = document.getElementById('input');
@@ -230,8 +232,30 @@ button.addEventListener('click', () => {
             textBubble.style.display = 'block';
             switchClasses(animatedKip, 'hoverinthecenterdisappear', 'hoverinthecentreappear');
         } else {
-            resultDiv.textContent = "Falsch! Versuche es noch einmal. Denk daran verschiebe das Wort um 3 Stellen.";
-            resultDiv.style.color = "red";
+            if (guessnumber1 === 0) {
+                resultDiv.textContent = "Falsch! Erinner dich, du musst das Wort um 3 Stellen Verschieben!";
+                resultDiv.style.color = "red";
+                guessnumber1 = 1;
+            }
+            else if (guessnumber1 === 1) {
+                resultDiv.textContent = "Falsch! Erinner dich, du musst das Wort um 3 Stellen Verschieben, also Verschlüsseln!";
+                resultDiv.style.color = "red";
+                guessnumber1 = 2;
+            }
+            else if (guessnumber1 === 2) {
+                resultDiv.textContent = "Falsch! Versuche es noch einmal. Bei einer Verschlüsselung wäre das -3.";
+                resultDiv.style.color = "red";
+                guessnumber1 = 3;
+            }
+            else if (guessnumber1 === 3) {
+                resultDiv.textContent = "Falsch! Probiere die Scheibe um -3 gegen Uhrzeigersinn zu drehen.";
+                resultDiv.style.color = "red";
+                guessnumber1 = 4;
+            }
+            else if (guessnumber1 === 4) {
+                resultDiv.textContent = "Falsch! Probiere die Scheibe um -3 gegen den Uhrzeigersinn zu drehen. Das W würde für Z stehen.";
+                resultDiv.style.color = "red";
+            }
         }
     }
 
@@ -243,25 +267,41 @@ button.addEventListener('click', () => {
             textBubble.style.display = 'block';
             switchClasses(animatedKip, 'hoverinthecenterdisappear', 'hoverinthecentreappear');
         } else {
-            if (guessnumber === 0) {
+            if (guessnumber2 === 0) {
                 resultDiv.textContent = "Falsch! Versuche es noch einmal.";
                 resultDiv.style.color = "red";
-                guessnumber = 1;
+                guessnumber2 = 1;
             }
-            else if (guessnumber === 1) {
-                resultDiv.textContent = "Falsch! Versuche es noch einmal. Denk daran häufige Buchstaben zu vergleichen und mit häufig auftretenden zu ersetzten.";
+            else if (guessnumber2 === 1) {
+                resultDiv.textContent = "Falsch! Versuche es noch einmal. Denke daran häufige Buchstaben zu vergleichen und mit häufig auftretenden zu ersetzten.";
                 resultDiv.style.color = "red";
-                guessnumber = 2;
+                guessnumber2 = 2;
             }
-            else if (guessnumber === 2) {
-                resultDiv.textContent = "Falsch! Versuche es noch einmal. Denk zurück an die Anzahl der Götter und der Ziegen?";
+            else if (guessnumber2 === 2) {
+                resultDiv.textContent = "Falsch! Versuche es noch einmal. Denke zurück an die Anzahl der Götter und der Ziegen?";
                 resultDiv.style.color = "red";
-                guessnumber = 3;
+                guessnumber2 = 3;
             }
-            else if (guessnumber === 3) {
+            else if (guessnumber2 === 3) {
                 resultDiv.textContent = "Falsch! Versuche es noch einmal. Probiere das W als K zu ersetzen.";
                 resultDiv.style.color = "red";
             }
         }
     }
 });
+
+// Shift the disc according to shift value provided by user
+
+const shiftButton = document.getElementById('shift-button');
+const shift = document.getElementById('shift');
+
+// Apply the initial rotation
+shiftButton.addEventListener('click', () => {
+    const spinDegree = parseFloat(shift.value * 13.8461538462) || 0;
+    const innerDisk = document.getElementById('inner-disk');
+    console.log(spinDegree);
+  
+    // Apply the initial rotation
+    const currentAngle = spinDegree;
+    innerDisk.style.transform = `rotate(${currentAngle}deg)`;
+  });

@@ -39,20 +39,155 @@
                     <source src="/video/Tutorial.webm">
                     Ihr Browser unterstützt dieses Videoformat nicht.
                 </video>
-                <div id="testciphercontainter" class="hidden">
+                <div id="testciphercontainter" class="testcipher">
                     <div id="disk-container" class="disk-container">
-                      <img id="outer-disk" class="outer-disk" src="/images/outerdisk.png" alt="Outer Disk">
-                      <img id="inner-disk" class="inner-disk" src="/images/innerdisk.png" alt="Inner Disk">
+                        <img id="outer-disk" class="outer-disk" src="/images/outerdisk.png" alt="Outer Disk">
+                        <img id="inner-disk" class="inner-disk" src="/images/innerdisk.png" alt="Inner Disk">
                     </div>
-                    <div id="texttodecipher" class="texttodecipher">K O L O S S E U M</div>
-                    <input id="input" class="decipherspace" placeholder="_________">
-                    <button class="submitbutton">Übersetzung Testen</button>
-                    <div class="result" id="result"></div>
-                    <p id="helptext">Gehe mit der Maus über den inneren Kreis halte die Taste gedrückt und ziehe die Maus nach oben oder unten um den Kreis zu verschieben und
-                        wiederhole bis die Buchstaben nach deiner Vorstellung verschoben sind. Denk daran wenn du den inneren Kreis um einen Buchstaben nach hinten verschiebst,
-                        heißt das, dass es eine Verschiebung von 1 ist da ein R nun ein S ein W nun ein X und so weiter darstellt.
-                    </p>
-                </div>
+                    <div class="notes-container">
+                        <div class="notes-text">
+                            <h1>Notizen:</h1>
+                        </div>
+                        <div class="notes-letters">
+                            <div class="alphabet-pair">
+                                <div class="letter-pair">
+                                    <span class="letter">A</span>
+                                    <input type="text" maxlength="1" name="mapA" id="mapA" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">B</span>
+                                    <input type="text" maxlength="1" name="mapB" id="mapB" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">C</span>
+                                    <input type="text" maxlength="1" name="mapC" id="mapC" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">D</span>
+                                    <input type="text" maxlength="1" name="mapD" id="mapD" class="cipher-input" placeholder="">
+                                </div>
+                            </div>
+                            <div class="alphabet-pair">
+                                <div class="letter-pair">
+                                    <span class="letter">E</span>
+                                    <input type="text" maxlength="1" name="mapE" id="mapE" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">F</span>
+                                    <input type="text" maxlength="1" name="mapF" id="mapF" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">G</span>
+                                    <input type="text" maxlength="1" name="mapG" id="mapG" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">H</span>
+                                    <input type="text" maxlength="1" name="mapH" id="mapH" class="cipher-input" placeholder="">
+                                </div>
+                            </div>
+                            <div class="alphabet-pair">
+                                <div class="letter-pair">
+                                    <span class="letter">I</span>
+                                    <input type="text" maxlength="1"  name="mapI" id="mapI" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">J</span>
+                                    <input type="text" maxlength="1" name="mapJ" id="mapJ" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">K</span>
+                                    <input type="text" maxlength="1" name="mapK" id="mapK" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">L</span>
+                                    <input type="text" maxlength="1" name="mapL" id="mapL" class="cipher-input" placeholder="">
+                                </div>
+                            </div>
+                            <div class="alphabet-pair">
+                                <div class="letter-pair">
+                                    <span class="letter">M</span>
+                                    <input type="text" maxlength="1" name="mapM" id="mapM" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">N</span>
+                                    <input type="text" maxlength="1" name="mapN" id="mapN" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">O</span>
+                                    <input type="text" maxlength="1" name="mapO" id="mapO" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">P</span>
+                                    <input type="text" maxlength="1" name="mapP" id="mapP" class="cipher-input" placeholder="">
+                                </div>
+                            </div>
+                            <div class="alphabet-pair">
+                                <div class="letter-pair">
+                                    <span class="letter">Q</span>
+                                    <input type="text" maxlength="1" name="mapQ" id="mapQ" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">R</span>
+                                    <input type="text" maxlength="1" name="mapR" id="mapR" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">S</span>
+                                    <input type="text" maxlength="1" name="mapS" id="mapS" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">T</span>
+                                    <input type="text" maxlength="1" name="mapT" id="mapT" class="cipher-input" placeholder="">
+                                </div>
+                            </div>
+                            <div class="alphabet-pair">
+                                <div class="letter-pair">
+                                    <span class="letter">U</span>
+                                    <input type="text" maxlength="1" name="mapU" id="mapU" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">V</span>
+                                    <input type="text" maxlength="1" name="mapV" id="mapV" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">W</span>
+                                    <input type="text" maxlength="1" name="mapW" id="mapW" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">X</span>
+                                    <input type="text" maxlength="1" name="mapX" id="mapX" class="cipher-input" placeholder="">
+                                </div>
+                            </div>
+                            <div class="alphabet-pair">
+                                <div class="letter-pair">
+                                    <span class="letter">Y</span>
+                                    <input type="text" maxlength="1" name="mapY" id="mapY" class="cipher-input" placeholder="">
+                                </div>
+                                <div class="letter-pair">
+                                    <span class="letter">Z</span>
+                                    <input type="text" maxlength="1" name="mapZ" id="mapZ" class="cipher-input" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notes-buttons">
+                            <div class="shift-button">
+                                    <button id="shift-button" name="shift-button" class="shift-button">Shift by:</button>
+                                </div>
+                                    <input name="shift" id="shift" type="text" maxlength="2" class="shift-input" th:value="${shift != null ? shift : ''}">   
+                                </div>
+                            </div>
+                        <div id="texttodecipher" class="texttodecipher">K O L O S S E U M</div>
+                            <input id="input" class="decipherspace" placeholder="_________">
+                            <button class="submitbutton">Übersetzung Testen</button>
+                            <div class="result" id="result"></div>
+                        <div class="explanation" id="helptext">
+                            <div class="task" name="task" id="task">Aufgabe: Verschlüssele das Wort KOLOSSEUM in dem du die Caesar Chiffre mit dem Schlüssel 3 nutzt.</div>
+                            <p> Im Verschiebedisk-Bereich können Sie die innere Scheibe frei nach Vorstellung verschieben. Eine Verschiebung von zwei im Uhrzeigersinn (+2) wäre eine Entschlüsselung
+                                in der Annahme, dass eine Verschiebung von 2 genutzt wurde somit stände ein W im Verschlüsselten Text für ein U im Entschlüsselten Text. Eine Verschiebung von 2 gegen den Uhrzeigersinn (-2)  
+                                wäre eine Verschlüsselung des Originaltextes um 2 Stellen W steht nun für Y. Der "Shift-by" Button lässt dich die Scheibe direkt richtig einstellen. dass. In den Notizen kannst du bestimmte Buchstaben 
+                                Kombinationen eintragen.
+                            </p>
+                        </div>
+                    </div>
                 <form id="storyOneNextPart" action="/nextPart" method="post">
                     <button id="portal"  class="hidden"  aria-label="Ein klickbares Portal"></button>
                 </form>
@@ -64,8 +199,7 @@
                     </ul>
                 </div>
                 <i id="nextButton" class="fa-solid fa-forward next-button" style="display: none;"></i>
-            </div>
-            
+            </div>    
         </div>
     </main>
 

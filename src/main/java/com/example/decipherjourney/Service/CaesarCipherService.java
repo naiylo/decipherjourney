@@ -102,6 +102,7 @@ public class CaesarCipherService {
 
         cipher.setOriginalText(originalText);
         cipher.setShiftNumber(shift);
+        cipher.setErrorCounter(0);
         
         // Cipher the text
         String cipheredText = cipherText(originalText, shift);
@@ -123,6 +124,7 @@ public class CaesarCipherService {
 
         cipher.setOriginalText(text);
         cipher.setShiftNumber(shift);
+        cipher.setErrorCounter(0);
         
         // Cipher the text
         String cipheredText = cipherText(text, shift);
@@ -130,5 +132,15 @@ public class CaesarCipherService {
 
         return cipher;
     }
+
+    /**
+     * Function to increase the error counter by one
+     * 
+     * @param caesarCipher The cipher where the counter
+     */
+    public CaesarCipher increaseErrorCounter(CaesarCipher caesarCipher) {
+        caesarCipher.setErrorCounter(caesarCipher.getErrorCounter() + 1);
+        return caesarCipher;
+    } 
 
 }
