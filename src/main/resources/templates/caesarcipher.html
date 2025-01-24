@@ -24,11 +24,7 @@
                 <span class="big-letter">X</span> wird <span class="big-letter">A</span> und
                 <span class="big-letter">Z</span> wird <span class="big-letter">C</span>.
             </p>
-            <div class="tutorial-animation">
-                <span class="tutorial-text">A → D</span>
-                <span class="tutorial-text">B → E</span>
-                <span class="tutorial-text">C → F</span>
-            </div>
+            <button id="open-modal-btn" name="open-modal-btn" class="tutorial-button">Tutorial ansehen</button>
         </div>
         <div class="help-container">
             <i class="fas fa-question-circle help-icon" id="help-icon"></i>
@@ -51,6 +47,17 @@
                                                     komplett neu verschlüsselte Nachricht erhalten.                    
         </div>
     </header>
+
+    <!-- Modal -->
+    <div id="tutorial-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal-btn" name="close-modal-btn" class="close">&times;</span>
+            <video id="video" name="video" autoplay muted loop>
+                <source src="/video/TutorialCaesarCipher.webm" type="video/webm">
+                Ihr Browser unterstützt dieses Videoformat nicht.
+            </video>
+        </div>
+    </div>
 
     <main>
         <div class="cipher-container">
