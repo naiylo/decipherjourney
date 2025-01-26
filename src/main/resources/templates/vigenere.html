@@ -48,6 +48,18 @@
 
     <main>
         <div class="cipher-container">
+            <div id="hint-container" class="hint-container">
+                <div class="hint-headline">
+                    <h1>Hilfe:</h1>
+                </div>
+                <hr class="custom-line">
+                <div class="hint-highscore">
+                    <h1>Highscore:</h1>
+                    <div>
+                        <p th:text="${highscore != null ? highscore : '000'}"></p>
+                    </div>
+                </div>
+            </div>
             <div class="notes-container"> 
                 <div class="notes-text">   
                     <h1>Notizen:</h1>

@@ -130,4 +130,14 @@ public class VigenereCipherService {
         vigenereCipher.setErrorCounter(vigenereCipher.getErrorCounter() + 1);
         return vigenereCipher;
     } 
+
+    /**
+     * Function to increase the hints counter by one
+     * 
+     * @param vigenereCipher The cipher where the hints are increased
+     */
+    public VigenereCipher increaseHints(VigenereCipher vigenereCipher) {
+        vigenereCipher.setHints(vigenereCipher.getHints() + 1);
+        return vigenereCipher;
+    } 
 }

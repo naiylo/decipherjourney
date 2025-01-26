@@ -28,6 +28,11 @@ public class VigenereCipher {
     private Integer errorCouter;
 
     /**
+     * The counter for the amount of hints
+     */
+    private Integer hints;
+
+    /**
      * Gets the keyword used for the Vigenère cipher.
      * 
      * @return The keyword for this cipher instance.
@@ -97,6 +102,24 @@ public class VigenereCipher {
      */
     public void setErrorCounter(Integer errorCounter) {
         this.errorCouter = errorCounter;
+    }
+
+    /**
+     * Gets the counter for the amount of hints.
+     * 
+     * @return The current value of the hints counter.
+     */
+    public Integer getHints() {
+        return hints;
+    }
+
+    /**
+     * Sets the counter for the amount of hints.
+     * 
+     * @param hints The value to set for the hints counter.
+     */
+    public void setHints(Integer hints) {
+        this.hints = hints;
     }
 
 }

@@ -41,6 +41,12 @@ public class CaesarCipherController {
     CaesarCipherService caesarCipherService;
 
     /**
+     * Attribute to safe the current highscore
+     */
+    @Autowired
+    HighscoreService highscoreService;
+
+    /**
      * Function to load the caesar cipher view.
      * 
      * @param request   HTTP request made by a client.
@@ -85,6 +91,8 @@ public class CaesarCipherController {
         if (!model.containsAttribute("spindegree")) {
             model.addAttribute("spindegree", 0);
         }
+
+        model.addAttribute("highscore", userService.getCurrentUser(request).getHighscore().getCaesarHighscore());
         
         return "caesarcipher";
     }
@@ -118,29 +126,41 @@ public class CaesarCipherController {
             redirectAttributes.addFlashAttribute("tryoutText", shiftedText);
             redirectAttributes.addFlashAttribute("shift", shift);
 
+            // If correct update highscore and return feedback
             if (shiftedText.equals(cipher.getOriginalText())) {
                 redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, deine Übersetzung ist korrekt!");
+                Highscore currentHighscore = userService.getCurrentUser(request).getHighscore();
+                userService.changeHighscore(userService.getCurrentUser(request).getUsername(), highscoreService.updateCaesarHighscore(currentHighscore, cipher.getErrorCounter(), cipher.getErrorCounter()));
+
+            // If incorrect update error counter and reveal hints
             } else {
                 userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseErrorCounter(cipher));
                 Integer errors = cipher.getErrorCounter();
-
+                System.out.println(errors);
+ 
+                // Give Feedback and hints and update the hints counter
                 if (errors < 3) {
                     redirectAttributes.addFlashAttribute("errorMessage2", "Leider ist das nicht korrekt!");
                 } else if (errors == 3) {
                     redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, probiere Häufige Buchstaben zu vergleichen.");
+                    userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
                 } else if (errors == 4) {
                     redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suce nach der passenden Verschiebung.");
+                    userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
                 } else if (errors == 5) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suce nach der passenden Verschiebung."); 
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suce nach der passenden Verschiebung.");
+                    userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher)); 
                 } else if (errors == 6) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suce nach der passenden Verschiebung.");   
-                } else if (errors > 7) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Der leichteste Weg ist alle 25 Möglichkeiten zu Testen. DArunter leidet aber dein Highscore!");
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suce nach der passenden Verschiebung.");
+                    userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));   
+                } else if (errors == 7) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Der leichteste Weg ist alle 25 Möglichkeiten zu Testen. Darunter leidet aber dein Highscore!");
+                    userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
+                } else if (errors > 7){
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Der leichteste Weg ist alle 25 Möglichkeiten zu Testen. Darunter leidet aber dein Highscore!");
                 }
             }
-
             redirectAttributes.addFlashAttribute("spindegree", 13.8461538462*shift);
-
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", "Der Verschiebewert kann nur zwischen 0-25 liegen.");
         }
@@ -203,6 +223,8 @@ public class CaesarCipherController {
         redirectAttributes.addFlashAttribute("tryoutText", decipheredText);
         if (decipheredText.equals(cipher.getOriginalText())) {
             redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, deine Übersetzung ist korrekt!");
+            Highscore currentHighscore = userService.getCurrentUser(request).getHighscore();
+            userService.changeHighscore(userService.getCurrentUser(request).getUsername(), highscoreService.updateCaesarHighscore(currentHighscore, cipher.getErrorCounter(), cipher.getErrorCounter()));
         } else {
             userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseErrorCounter(cipher));
             System.out.println(cipher.getErrorCounter());

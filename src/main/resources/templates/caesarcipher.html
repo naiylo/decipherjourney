@@ -70,7 +70,14 @@
                     <input type="hidden" name="spindegree" id="spindegree" th:value="${spindegree}">
                     <img id="outer-disk" class="outer-disk" src="/images/outerdisk.png" alt="Outer Disk">
                     <img id="inner-disk" class="inner-disk" src="/images/innerdisk.png" alt="Inner Disk">
-                  </div>
+                </div>
+                <hr class="custom-line">
+                <div class="disk-highscore">
+                    <h1>Highscore:</h1>
+                    <div>
+                        <p th:text="${highscore != null ? highscore : '000'}"></p>
+                    </div>
+                </div>
             </div>
             <div class="notes-container">
                 <div class="notes-text">

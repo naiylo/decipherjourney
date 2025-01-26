@@ -31,6 +31,11 @@ public class CaesarCipher {
     private Integer errorCouter;
 
     /**
+     * The counter for the amount of hints
+     */
+    private Integer hints;
+
+    /**
      * The supposed dictionary to translate without the shift
      */
     private Map<String, String> map;
@@ -105,6 +110,24 @@ public class CaesarCipher {
      */
     public void setErrorCounter(Integer errorCounter) {
         this.errorCouter = errorCounter;
+    }
+
+    /**
+     * Gets the counter for the amount of hints.
+     * 
+     * @return The current value of the hints counter.
+     */
+    public Integer getHints() {
+        return hints;
+    }
+
+    /**
+     * Sets the counter for the amount of hints.
+     * 
+     * @param hints The value to set for the hints counter.
+     */
+    public void setHints(Integer hints) {
+        this.hints = hints;
     }
 
     /**

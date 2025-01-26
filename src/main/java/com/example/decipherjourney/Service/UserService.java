@@ -33,6 +33,12 @@ public class UserService {
     @Autowired
     private CookieService cookieService;
 
+    /**
+     * Service to manage highscore.
+     */
+    @Autowired
+    private HighscoreService highscoreService;
+
 
     /**
      * Creates a new user in the database.
@@ -57,6 +63,9 @@ public class UserService {
             // Set the ciphers of free play mode
             newUser.setCaesarCipher(null);
             newUser.setVigenereCipher(null);
+
+            // Set the highscore for the free play mode
+            newUser.setHighscore(highscoreService.initializeHighscore());
 
             // Set the storymode of the user 
             newUser.setStoryMode(null);
@@ -246,6 +255,20 @@ public class UserService {
             return;
         }
         updateField(username, "storyMode", storyMode, "Updated storyMode succesfully.");
+    }
+
+    /**
+     * Updates the highscore of the user identified by the username
+     * 
+     * @param username      The current highscore of the user
+     * @param storyMode     The new highscore of the user
+     */
+    public void changeHighscore(String username, Highscore highscore) {
+        if (username == null || username.isEmpty()) {
+            System.out.println("Username can not be empty.");
+            return;
+        }
+        updateField(username, "highscore", highscore, "Updated highscore succesfully.");
     }
 
 }

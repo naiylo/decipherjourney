@@ -39,6 +39,11 @@ public class User {
     private StoryMode storyMode;
 
     /**
+     * The Highscore in the free play mode
+     */
+    private Highscore highscore;
+
+    /**
      * The current caesar cipher the user is working with in free play
      */
     private CaesarCipher caesarCipher;
@@ -138,6 +143,24 @@ public class User {
      */
     public void setStoryMode(StoryMode storyMode) {
         this.storyMode = storyMode;
+    }
+
+    /**
+     * Gets the highscore in the free play mode.
+     * 
+     * @return The highscore of the user.
+     */
+    public Highscore getHighscore() {
+        return highscore;
+    }
+
+    /**
+     * Sets the highscore in the free play mode.
+     * 
+     * @param highscore The new highscore to set for the user.
+     */
+    public void setHighscore(Highscore highscore) {
+        this.highscore = highscore;
     }
 
     /**

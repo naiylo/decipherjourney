@@ -37,6 +37,12 @@ public class VigenereCipherController {
     VigenereCipherService vigenereCipherService;
 
     /**
+     * Attribute to safe the current highscore
+     */
+    @Autowired
+    HighscoreService highscoreService;
+
+    /**
      * Function to load the vigenere cipher view.
      * 
      * @param request   HTTP request made by a client.
@@ -75,6 +81,8 @@ public class VigenereCipherController {
                 System.out.println("Cookie was not succesful.");
             }
         }
+
+        model.addAttribute("highscore", userService.getCurrentUser(request).getHighscore().getVigenereHighscore());
         
         return "vigenere";
     }

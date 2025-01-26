@@ -136,11 +136,20 @@ public class CaesarCipherService {
     /**
      * Function to increase the error counter by one
      * 
-     * @param caesarCipher The cipher where the counter
+     * @param caesarCipher The cipher where the counter is increased
      */
     public CaesarCipher increaseErrorCounter(CaesarCipher caesarCipher) {
         caesarCipher.setErrorCounter(caesarCipher.getErrorCounter() + 1);
         return caesarCipher;
     } 
 
+    /**
+     * Function to increase the hints counter by one
+     * 
+     * @param caesarCipher The cipher where the hints are increased
+     */
+    public CaesarCipher increaseHints(CaesarCipher caesarCipher) {
+        caesarCipher.setHints(caesarCipher.getHints() + 1);
+        return caesarCipher;
+    } 
 }
