@@ -3,6 +3,7 @@ package com.example.decipherjourney.Service;
 import com.example.decipherjourney.Model.StoryMode;
 import com.example.decipherjourney.Model.StoryOne;
 import com.example.decipherjourney.Model.StoryTwo;
+import com.example.decipherjourney.Model.StoryThree;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ public class StoryModeService {
 
         StoryOne storyOne = new StoryOne();
         StoryTwo storyTwo = new StoryTwo();
+        StoryThree storyThree = new StoryThree();
 
         // Initialize all of story one
         
@@ -100,8 +102,34 @@ public class StoryModeService {
         partList.add(storyTwo);
         System.out.println("Added Part 2.");
 
+        // Initialize all of story three
+
+        storyThree.setDialogs(List.of(List.of(
+            "Kip: Willkommen in London, einer Stadt voller Geschichte und Geheimnisse! Hier werden wir die Vigenère-Chiffre kennenlernen, eine der raffiniertesten Verschlüsselungstechniken.",
+            "Kip: Schau dich doch erstmal kurz um, bevor wir weiterlaufen.",
+            "Kip: Sprich vielleicht mit dieser Person da. Vielleicht kann sie dir etwas über die Chiffre erzählen?",
+            "...",
+            "Fremder: Guten Tag! Du siehst aus, als wärst du auf einer spannenden Reise. Kann ich dir vielleicht etwas anbieten? Vielleicht eine Zeitung, da sind lustige Rätsel drin?",
+            "Fremder: Du interessierst dich für die Vigenere Chiffre, mmh dann schau doch mal in die Zeitung, ich gebe sie dir umsonst. Übrigens mein Name ist Sherlock.",
+            "Sherlock: Leider muss ich jetzt weiter, ich stecke mitten in einem Fall. Viel Glück dir bei deinem Rätsel.",
+            "...",
+            "Kip: Mit der Zeitung lässt sich doch arbeiten.",
+            "Kip: Das hir hinter mir ist der berühmte Big Ben! Ein Wahrzeichen Londons und ein Symbol für Präzision und Beständigkeit.",
+            "Kip: Schau mal was da vorne liegt, diese Tafel sieht ja fast so aus wie die, aus dem alten Rom.",
+            "Kip: Das hängt wohl damit zusammen, dass die Caesar Chiffre eine einfache Version der Vigenere CHiffre ist.  ≧◉◡◉≦",
+            "Kip: Lass uns doch mal hier rüber gehen, dann erzähle ich dir was ich erfahren habe über die Vigenere Chiffre."
+            )));
+
+        storyThree.setStoryParts(List.of(
+            "Kapitel 3: London im 16ten Jahrhundert"
+        ));
+
+        storyThree.setCheckpoint("Kapitel 3: London im 16ten Jahrhundert");
+        partList.add(storyThree);
+        System.out.println("Added Part 3.");
+
         storyMode.setStoryParts(partList);
-        storyMode.setPart("2");
+        storyMode.setPart("3");
 
         return storyMode;
     }

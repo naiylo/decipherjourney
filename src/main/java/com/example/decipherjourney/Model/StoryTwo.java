@@ -9,25 +9,25 @@ package com.example.decipherjourney.Model;
 public class StoryTwo extends Story {
 
     /**
-     * The Caesar cipher specific to StoryOne.
+     * The Caesar cipher specific to StoryTwo.
      */
     private CaesarCipher caesarCipher;
 
     // Getter and Setter methods
 
     /**
-     * Gets the Caesar cipher associated with StoryOne.
+     * Gets the Caesar cipher associated with StoryTwo.
      * 
-     * @return The Caesar cipher of StoryOne.
+     * @return The Caesar cipher of StoryTwo.
      */
     public CaesarCipher getCaesarCipher() {
         return caesarCipher;
     }
 
     /**
-     * Sets the Caesar cipher associated with StoryOne.
+     * Sets the Caesar cipher associated with StoryTwo.
      * 
-     * @param caesarCipher The new Caesar cipher to set for StoryOne.
+     * @param caesarCipher The new Caesar cipher to set for StoryTwo.
      */
     public void setCaesarCipher(CaesarCipher caesarCipher) {
         this.caesarCipher = caesarCipher;

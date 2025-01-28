@@ -13,7 +13,7 @@ import com.example.decipherjourney.Service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 
 /**
- * StoryTwoController implements all neede functions for the second story part.
+ * StoryTwoController implements all needed functions for the second story part.
  * 
  * Author: Oskar Schiedewitz
  */

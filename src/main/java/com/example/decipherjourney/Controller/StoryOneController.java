@@ -14,7 +14,7 @@ import com.example.decipherjourney.Service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 
 /**
- * StoryOneController implements all neede functions for the first story part.
+ * StoryOneController implements all needed functions for the first story part.
  * 
  * Author: Oskar Schiedewitz
  */

@@ -69,9 +69,10 @@ async function showNextDialog() {
 
         if (currentDialogIndex === 4) {
             switchClasses(animatedKip, 'hoverinthecentre', 'hoverinthecenterdisappear');
-            switchClasses(html, 'html', 'html2');
             nextButton.style.display = 'none';
             textBubble.style.display = 'none'; 
+            await waitForNSeconds(1);
+            switchClasses(html, 'html', 'html2');
             await waitForNSeconds(2.7);
             /* The statue and salesman will now appear */
             switchClasses(salesman, 'hidden', 'romanSalesman');

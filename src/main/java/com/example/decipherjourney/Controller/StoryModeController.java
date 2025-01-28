@@ -65,6 +65,10 @@ public class StoryModeController {
             System.out.println("Part 2. Redirecting to the StoryTwoController.");
             return "redirect:/storyTwo";
 
+            case 3:
+            System.out.println("Part3. Redirecting to the StoryThreeController.");
+            return "redirect:/storyThree";
+
             default:
             return "redirect:/storyOne";
         }
