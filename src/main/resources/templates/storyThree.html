@@ -34,6 +34,42 @@
             <div class="video-container">
                 <img id="animatedKip" src="/images/kip.png" class="hoverinthecentreclickableappear" alt="Der Roboter Kip.">
                 <img id="sherlockHolmes" src="/images/sherlockholmes.png" class="hidden" alt="Sherlock Holmes.">
+                <video id="video" class="hidden" autoplay muted loop>
+                    <source src="/video/TutorialVigenereCipher.webm">
+                    Ihr Browser unterstützt dieses Videoformat nicht.
+                </video>
+                <div id="testciphercontainter" name="testciphercontainter" class="hidden">
+                    <div class="notes-text">
+                        <h1>Notizen:</h1>
+                    </div>
+                    <div class="notes-container">
+                        <img id="alphabet" src="/images/alphabet.png" class="alphabet" alt="Alphabet mit passenden Indizes.">
+                        <div class="modulo-container">
+                            <input class="modulo-input" id="number1" name="number1" placeholder="0" maxlength="2">
+                            <span id="sign" name="sign"> + </span>
+                            <input class="modulo-input" id="number2" name="number2" placeholder="0" maxlength="2">
+                            <span> mod 26 = </span>
+                            <span id="moduloResult" name="moduloResult">?</span>
+                            <button class="modulo-button" id="modulo-button" name="modulo-button">Berechnen</button>
+                            <div id="calculationSteps"></div>
+                        </div>
+                        <div id="texttodecipher" class="texttodecipher">L O N D O N</div>
+                            <input id="input" name="input" class="decipherspace" placeholder="______">
+                            <button class="submitbutton" id="submitbutton" name="submitbutton">Übersetzung Testen</button>
+                            <div class="result" id="result" name="result"></div>
+                        <div class="explanation" id="helptext">
+                            <div class="task" name="task" id="task">Aufgabe: Verschlüssele das Wort LONDON mit dem Schlüsselwort ABC.</div>
+                            <p> In dem Indexbereich hast du eine Übersicht welcher Buchstabe durch welche Zahl dargestellt wird und 
+                                mit dem Modulo Rechner kannst du zwei Zahlen im Modulo des Alphabetes mit einander verrechnen. Da A die 1 darstellt wäre bei einem Schlüssel von ABC das Wort AAA mit ABC zu 
+                                verrechnen und es würde BCD herauskommen, da A(1) + A(1) = B(2)  A(1) + B(2) = C(3)  A(1) + C(3) = D(4). Beim Entschlüsseln rechnest du Minus wenn das Wort ABC ist und du 
+                                denkst der Schlüssel ist KIP dann also A(1) - K(11) = P(16) B(2) - I(9) = S(19) C(3) - P(16) = M. Der Rechner macht das direkt für dich.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <form id="storyOneNextPart" action="/nextPart" method="post">
+                    <button id="portal"  class="hidden"  aria-label="Ein klickbares Portal"></button>
+                </form>
             </div>
             <div class="hidden" id="textbubble">
                 <div class="text-container">
@@ -42,7 +78,7 @@
                     </ul>
                 </div>
                 <i id="nextButton" class="fa-solid fa-forward next-button" style="display: none;"></i>
-            </div>    
+            </div> 
         </div>
     </main>
 

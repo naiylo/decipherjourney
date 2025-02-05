@@ -93,6 +93,7 @@ html::before {
     width: 100%;
     height: 100%;
     background-image: url('/images/BackgroundPartTwo.png');
+    background-position: calc(50% + 0%) center;
     background-repeat: no-repeat;
     z-index: -1;
     animation: zoomBackground2 3s ease-in forwards;
