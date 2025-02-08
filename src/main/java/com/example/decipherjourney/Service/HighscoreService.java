@@ -24,6 +24,8 @@ public class HighscoreService {
         Highscore highscore = new Highscore();
         highscore.setCaesarHighscore(0);
         highscore.setVigenereHighscore(0);
+        highscore.setCaesarDecipherHighscore(0);
+        highscore.setVigenereDecipherHighscore(0);
         return highscore;
     }
 
@@ -39,7 +41,7 @@ public class HighscoreService {
      */
     public int calculateHighscore(int errors, int hints) {
         int deduction = (errors * 10) + (hints * 20);
-        return Math.max(0, MAX_HIGHSCORE - deduction);
+        return Math.max(1, MAX_HIGHSCORE - deduction);
     }
 
     /**
@@ -53,10 +55,9 @@ public class HighscoreService {
      */
     public Highscore updateCaesarHighscore(Highscore highscore, Integer errors, Integer hints) {
         int newHighscore = calculateHighscore(errors, hints);
-        Integer currentHighscore = highscore.getCaesarHighscore();
 
         // Update the highscore only if the new one is higher
-        highscore.setCaesarHighscore(Math.max(newHighscore, currentHighscore));
+        highscore.setCaesarHighscore(newHighscore);
 
         return highscore;
     }
@@ -72,10 +73,45 @@ public class HighscoreService {
      */
     public Highscore  updateVigenereHighscore(Highscore highscore, Integer errors, Integer hints) {
         int newHighscore = calculateHighscore(errors, hints);
-        Integer currentHighscore = highscore.getVigenereHighscore();
 
         // Update the highscore only if the new one is higher
-        highscore.setVigenereHighscore(Math.max(newHighscore, currentHighscore));
+        highscore.setVigenereHighscore(newHighscore);
+
+        return highscore;
+    }
+
+    /**
+     * Calculate the Caesar Decipher highscore for the user.
+     * 
+     * @param highscore The Highscore object of the user.
+     * @param errors The number of errors made by the user.
+     * @param hints The number of hints used by the user.
+     * 
+     * @return The new highest highscore.
+     */
+    public Highscore updateCaesarDecipherHighscore(Highscore highscore, Integer errors, Integer hints) {
+        int newHighscore = calculateHighscore(errors, hints);
+
+        // Update the highscore only if the new one is higher
+        highscore.setCaesarDecipherHighscore(newHighscore);
+
+        return highscore;
+    }
+
+    /**
+     * Calculate the Viginere Decipher highscore for the user.
+     * 
+     * @param highscore The Highscore object of the user.
+     * @param errors The number of errors made by the user.
+     * @param hints The number of hints used by the user.
+     * 
+     * @return The new highest highscore.
+     */
+    public Highscore  updateVigenereDecipherHighscore(Highscore highscore, Integer errors, Integer hints) {
+        int newHighscore = calculateHighscore(errors, hints);
+
+        // Update the highscore only if the new one is higher
+        highscore.setVigenereDecipherHighscore(newHighscore);
 
         return highscore;
     }

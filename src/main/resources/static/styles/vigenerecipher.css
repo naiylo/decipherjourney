@@ -54,6 +54,7 @@ header {
     margin-top: -100px;
     max-width: 1200px; 
     padding: 40px;
+    padding-bottom: 20px;
     border-radius: 15px;
     border-style: dotted;
     border-color: #fff;
@@ -64,11 +65,13 @@ header {
 .tutorial-container h1 {
     font-family: PixelFont;
     font-size: 2rem;
+    margin-top: -20px;
+    margin-bottom: 20px;
 }
 
 .tutorial-container p {
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }
 
 .tutorial-button {
@@ -87,6 +90,10 @@ header {
 .tutorial-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
     cursor: pointer;
+}
+
+.task {
+    font-weight: bold;
 }
 
 .modal {
@@ -147,7 +154,6 @@ header {
     animation: tutorialText 5s ease-in-out infinite;
     padding-left: 180px; 
 }
-
 
 .help-container {
     position: absolute;
@@ -227,6 +233,47 @@ main {
     text-align: center;
     user-select: none;
     pointer-events: none;
+}
+
+.modulo-container {
+    position: absolute;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 500px;
+    font-size: 2rem;
+}
+
+.modulo-input {
+    width: 70px;
+    font-family: 'PixelFont';
+    margin: 5px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+}
+
+.modulo-button {
+    font-family: PixelFont;
+    font-size: 0.75rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px 15px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.modulo-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.alphabet {
+    margin-top: 170px;
+    position: absolute;
+    height: 40%;
 }
 
 .custom-line {
@@ -428,5 +475,9 @@ main {
 
 .task-buttons button:hover {
     background-color: rgba(255, 255, 255, 0.3);
+}
+
+.errorMessage2 {
+    margin-top: -30px;
 }
 

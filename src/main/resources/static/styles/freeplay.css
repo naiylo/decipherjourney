@@ -60,7 +60,7 @@ main {
     align-items: center;
     gap: 20px;
     width: 100%;
-    max-width: 600px;
+    max-width: 1200px;
     padding: 60px;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -146,3 +146,30 @@ main {
     background-blend-mode: color-dodge;
 }
 
+.buttons-container {
+    display: flex;
+    align-items: row;
+    gap: 200px;
+    align-items: center;
+}
+
+.cipher-container {
+    align-items: center;
+    align-items: center;
+}
+
+.cipher-container h2 {
+    text-decoration: underline;
+    font-family: PixelFont;
+    text-align: center;
+    align-items: row;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cipher {
+    width: 60px;
+    height: auto;
+    position: relative;
+}

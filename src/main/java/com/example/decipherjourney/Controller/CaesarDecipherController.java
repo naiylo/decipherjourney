@@ -15,12 +15,12 @@ import com.example.decipherjourney.Service.*;
 import jakarta.servlet.http.HttpServletRequest;
 
 /**
- * CaesarcipherController is a controller that allows users to learn and train the ceasar cipher with different random generated examples.
+ * CaesardecipherController is a controller that allows users to learn and train the ceasar cipher with different random generated examples.
  * 
  * Author: Oskar Schiedewitz
  */
 @Controller
-public class CaesarCipherController {
+public class CaesarDecipherController {
 
     /**
      * Attribute to connect the view to the user database
@@ -54,9 +54,9 @@ public class CaesarCipherController {
      * 
      * @return The caesarcipher view.
      */
-    @RequestMapping("/freeplay/caesarcipher")
-    public String showCaesarCipher(HttpServletRequest request, Model model) {
-        System.out.println("Switched to caesarcipher page.");
+    @RequestMapping("/freeplay/caesardecipher")
+    public String showCaesarDecipher(HttpServletRequest request, Model model) {
+        System.out.println("Switched to caesardecipher page.");
         
         // Check if user is logged in if not switch to login page where he can login or register
 
@@ -70,16 +70,18 @@ public class CaesarCipherController {
 
                 // Check if user is currently working on a caesar cipher and load it if so
 
-                if (user.getCaesarCipher() == null) {
-                    System.out.println("Create new caesar cipher!");
-                    CaesarCipher cipher = caesarCipherService.createRandomCaesarCipher();
-                    userService.changeCaesarCipher(user.getUsername(), cipher);;
+                if (user.getCaesarDecipher() == null) {
+                    System.out.println("Create new caesar decipher!");
+                    CaesarCipher cipher = caesarCipherService.createRandomCaesarDecipher();
+                    userService.changeCaesarDecipher(user.getUsername(), cipher);
                     model.addAttribute("cipher", cipher);
                     model.addAttribute("mappingParams", cipher.getMap());
+                    model.addAttribute("shift", cipher.getShiftNumber());
                 } else {
-                    CaesarCipher cipher = user.getCaesarCipher();
+                    CaesarCipher cipher = user.getCaesarDecipher();
                     model.addAttribute("cipher", cipher);
                     model.addAttribute("mappingParams", cipher.getMap());
+                    model.addAttribute("shift", cipher.getShiftNumber());
                 }
                 
     
@@ -92,9 +94,9 @@ public class CaesarCipherController {
             model.addAttribute("spindegree", 0);
         }
 
-        model.addAttribute("highscore", userService.getCurrentUser(request).getHighscore().getCaesarHighscore());
+        model.addAttribute("highscore", userService.getCurrentUser(request).getHighscore().getCaesarDecipherHighscore());
         
-        return "caesarcipher";
+        return "caesardecipher";
     }
 
     /**
@@ -107,65 +109,59 @@ public class CaesarCipherController {
      * 
      * @return The updated caesarcipher view.
      */
-    @RequestMapping("/freeplay/caesarcipher/shift")
+    @RequestMapping("/freeplay/caesardecipher/shift")
     public String shiftCipher(@RequestParam("shift") String shiftValue,
                               RedirectAttributes redirectAttributes,
                               HttpServletRequest request, 
                               Model model) {
-
+                         
         String shiftString = (shiftValue.isEmpty()) ? "0" : shiftValue;
         try {
             int shift = Integer.parseInt(shiftString);
 
             // Get the existing cipher from the model
-            CaesarCipher cipher = userService.getCurrentUser(request).getCaesarCipher();
+            CaesarCipher cipher = userService.getCurrentUser(request).getCaesarDecipher();
 
             // Use the shift value to generate a new ciphered text
-            String shiftedText = caesarCipherService.decipherText(cipher.getCipheredText(), shift);
+            String shiftedText = caesarCipherService.cipherText(cipher.getCipheredText(), shift);
 
             redirectAttributes.addFlashAttribute("tryoutText", shiftedText);
             redirectAttributes.addFlashAttribute("shift", shift);
 
-            // If correct update highscore and return feedback
+           // If correct update highscore and return feedback
             if (shiftedText.equals(cipher.getOriginalText())) {
-                redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, deine Übersetzung ist korrekt!");
+                redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, deine Verschlüsselung ist korrekt!");
                 Highscore currentHighscore = userService.getCurrentUser(request).getHighscore();
-                userService.changeHighscore(userService.getCurrentUser(request).getUsername(), highscoreService.updateCaesarHighscore(currentHighscore, cipher.getErrorCounter(), cipher.getHints()));
-
+                System.out.println(currentHighscore.getCaesarDecipherHighscore());
+                userService.changeHighscore(userService.getCurrentUser(request).getUsername(), highscoreService.updateCaesarDecipherHighscore(currentHighscore, 100, 0));
+            
             // If incorrect update error counter and reveal hints
             } else {
-                userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseErrorCounter(cipher));
+                userService.changeCaesarDecipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseErrorCounter(cipher));
                 Integer errors = cipher.getErrorCounter();
-                System.out.println(errors);
- 
+                System.out.println(errors); 
+
                 // Give Feedback and hints and update the hints counter
                 if (errors < 3) {
                     redirectAttributes.addFlashAttribute("errorMessage2", "Leider ist das nicht korrekt!");
                 } else if (errors == 3) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, probiere Häufige Buchstaben zu vergleichen.");
-                    userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, Nutze die Disk und verschiebe sie.");
+                    userService.changeCaesarDecipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
                 } else if (errors == 4) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suche nach der passenden Verschiebung.");
-                    userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
-                } else if (errors == 5) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suche nach der passenden Verschiebung.");
-                    userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher)); 
-                } else if (errors == 6) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suche nach der passenden Verschiebung.");
-                    userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));   
-                } else if (errors == 7) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Der leichteste Weg ist alle 25 Möglichkeiten zu Testen. Darunter leidet aber dein Highscore!");
-                    userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
-                } else if (errors > 7){
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Der leichteste Weg ist alle 25 Möglichkeiten zu Testen. Darunter leidet aber dein Highscore!");
-                }
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, Nutze die Disk und verschiebe sie um die Zahl im Uhrzeigersinn.");
+                    userService.changeCaesarDecipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
+                } else if (errors >= 5) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, probiere den Shift aus das reduziert deine Punkte aber gibt dir eine Vorstellung für das nächste mal.");
+                    userService.changeCaesarDecipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher)); 
+                } 
             }
-            redirectAttributes.addFlashAttribute("spindegree", 13.8461538462*shift);
+            
+            redirectAttributes.addFlashAttribute("spindegree", 360-13.8461538462*shift);
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", "Der Verschiebewert kann nur zwischen 0-25 liegen.");
         }
 
-        return "redirect:/freeplay/caesarcipher";  
+        return "redirect:/freeplay/caesardecipher";  
     }
 
     /**
@@ -178,7 +174,7 @@ public class CaesarCipherController {
      * 
      * @return The updated caesarcipher view.
      */
-    @RequestMapping("/freeplay/caesarcipher/decipherMapping")
+    @RequestMapping("/freeplay/caesardecipher/decipherMapping")
     public String decipherWithMapping(@RequestParam Map<String, String> mappingParams,
                                       RedirectAttributes redirectAttributes,
                                       HttpServletRequest request,
@@ -208,12 +204,12 @@ public class CaesarCipherController {
         }
 
         // Update the current supposed map
-        CaesarCipher newCipher = userService.getCurrentUser(request).getCaesarCipher();
+        CaesarCipher newCipher = userService.getCurrentUser(request).getCaesarDecipher();
         newCipher.setMap(cipherMap);
-        userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), newCipher);
+        userService.changeCaesarDecipher(userService.getCurrentUser(request).getUsername(), newCipher);
 
         // Retrieve the current ciphered text from the user session
-        CaesarCipher cipher = userService.getCurrentUser(request).getCaesarCipher();
+        CaesarCipher cipher = userService.getCurrentUser(request).getCaesarDecipher();
         String cipheredText = cipher.getCipheredText();
 
         // Use the cipher map to decode the ciphered text
@@ -226,11 +222,11 @@ public class CaesarCipherController {
             Highscore currentHighscore = userService.getCurrentUser(request).getHighscore();
             userService.changeHighscore(userService.getCurrentUser(request).getUsername(), highscoreService.updateCaesarHighscore(currentHighscore, cipher.getErrorCounter(), cipher.getErrorCounter()));
         } else {
-            userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseErrorCounter(cipher));
+            userService.changeCaesarDecipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseErrorCounter(cipher));
             System.out.println(cipher.getErrorCounter());
         }
 
-        return "redirect:/freeplay/caesarcipher";
+        return "redirect:/freeplay/caesardecipher";
     }
 
     /**
@@ -240,15 +236,15 @@ public class CaesarCipherController {
      *  
      * @return The updated caesarcipher view.
      */
-    @RequestMapping("/freeplay/caesarcipher/clearMapping")
+    @RequestMapping("/freeplay/caesardecipher/clearMapping")
     public String clearMapping(HttpServletRequest request) {
 
         // Clear the current supposed map
-        CaesarCipher newCipher = userService.getCurrentUser(request).getCaesarCipher();
+        CaesarCipher newCipher = userService.getCurrentUser(request).getCaesarDecipher();
         newCipher.setMap(new HashMap<>());
-        userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), newCipher);
+        userService.changeCaesarDecipher(userService.getCurrentUser(request).getUsername(), newCipher);
 
-        return "redirect:/freeplay/caesarcipher";
+        return "redirect:/freeplay/caesardecipher";
     }
 
     /**
@@ -259,36 +255,36 @@ public class CaesarCipherController {
      * 
      * @return The updated caesarcipher view.
      */
-    @RequestMapping("/freeplay/caesarcipher/revealOriginal")
+    @RequestMapping("/freeplay/caesardecipher/revealOriginal")
     public String revealOriginal(HttpServletRequest request,
                                  RedirectAttributes redirectAttributes) {
 
-        CaesarCipher newCipher = userService.getCurrentUser(request).getCaesarCipher();
+        CaesarCipher newCipher = userService.getCurrentUser(request).getCaesarDecipher();
         newCipher.setCipheredText(newCipher.getOriginalText());
         
         redirectAttributes.addFlashAttribute("tryoutText", newCipher.getOriginalText());
         redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, hier siehst du den richtigen Text.");
 
-        return "redirect:/freeplay/caesarcipher";
+        return "redirect:/freeplay/caesardecipher";
     }
 
     /**
-     * Function to try out a new caesar cipher.
+     * Function to try out a new caesar decipher.
      * 
      * @param request  HTTP request made by a client.
      * 
-     * @return The updated caesarcipher view with a new casear cipher.
+     * @return The updated caesardecipher view with a new casear decipher.
      */
-    @RequestMapping("/freeplay/caesarcipher/tryNew")
+    @RequestMapping("/freeplay/caesardecipher/tryNew")
     public String tryNew(HttpServletRequest request,
                          RedirectAttributes redirectAttributes) {
 
-        CaesarCipher newCipher = caesarCipherService.createRandomCaesarCipher();
-        userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), newCipher);
+        CaesarCipher newCipher = caesarCipherService.createRandomCaesarDecipher();
+        userService.changeCaesarDecipher(userService.getCurrentUser(request).getUsername(), newCipher);
 
         redirectAttributes.addFlashAttribute("successMessage", "Hier ist dein neuer verschlüsselter Text. Viel Erfolg!");
 
-        return "redirect:/freeplay/caesarcipher";
+        return "redirect:/freeplay/caesardecipher";
     }
     
 }

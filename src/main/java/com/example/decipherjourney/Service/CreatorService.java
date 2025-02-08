@@ -15,7 +15,7 @@ public class CreatorService {
     /**
      * Attribute to save all the possible texts
      */
-    private List<String> exampleTexts = List.of(
+    private List<String> exampleTextsCaesar = List.of(
         "JEDER MENSCH HAT DAS RECHT SEIN LEBEN NACH SEINEN EIGENEN VORSTELLUNGEN ZU BESCHREITEN.", 
 
         "KINDER SPIEGELN MEIST DAS AUSSEHEN ODER DAS VERHALTEN IHRER ELTERN WIDER.",
@@ -31,6 +31,16 @@ public class CreatorService {
         "ICH KOMME WIEDER, IST EIN KLASSISCHES ZITAT AUS DEM FILM TERMINATOR.",
 
         "MEINE MUTTER HAT IMMER GESAGT, DAS LEBEN IST WIE EINE SCHACHTEL PRALINEN."
+    );
+
+    /**
+     * Attribute to save all the possible texts
+     */
+    private List<String> exampleTextsVigenere = List.of(
+        "ICH BIN EIN ROBOTER!", 
+
+        "MAN SPIELT NICHT MIT ESSEN."
+        
     );
 
 
@@ -51,11 +61,25 @@ public class CreatorService {
      * 
      * @return String out of the exampleText choosen by a random generator.
      */
-    public String getRandomText() {
+    public String getRandomTextCaesar() {
 
-        int number = this.exampleTexts.size();
+        int number = this.exampleTextsCaesar.size();
         int randomNumber = getRandomNumber(number);
-        String text = this.exampleTexts.get(randomNumber);
+        String text = this.exampleTextsCaesar.get(randomNumber);
+
+        return text;
+    }
+
+    /**
+     * Function to get a random text out of the examples
+     * 
+     * @return String out of the exampleText choosen by a random generator.
+     */
+    public String getRandomTextVigenere() {
+
+        int number = this.exampleTextsVigenere.size();
+        int randomNumber = getRandomNumber(number);
+        String text = this.exampleTextsVigenere.get(randomNumber);
 
         return text;
     }

@@ -25,13 +25,34 @@
                 <h1>Freies-Spiel</h1>
                 <p>Wähle eine Chiffre aus!</p>
             </div>
-            <div class="menu-container">
-                <a href="/freeplay/caesarcipher" class="btn caesarbtn">
-                    Caesar
-                </a>
-                <a href="/freeplay/vigenere" class="btn vigenerebtn">
-                    Vigenere
-                </a>
+                <div class="buttons-container">
+                    <div class="cipher-container">
+                        <h2> Verschlüsseln 
+                            <img id="decipher" class="cipher" src="/images/decipher.png" alt="Entschlüsselnicon"> 
+                        </h2>
+                        <div class="menu-container">
+                            <a href="/freeplay/caesardecipher" class="btn caesarbtn">
+                                Caesar
+                            </a>
+                            <a href="/freeplay/vigeneredecipher" class="btn vigenerebtn">
+                                Vigenere
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cipher-container">
+                        <h2>Entschlüsseln
+                            <img id="cipher" class="cipher" src="/images/cipher.png" alt="Verschlüsselnicon">
+                        </h2>
+                        <div class="menu-container">
+                            <a href="/freeplay/caesarcipher" class="btn caesarbtn">
+                                Caesar
+                            </a>
+                            <a href="/freeplay/vigenere" class="btn vigenerebtn">
+                                Vigenere
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

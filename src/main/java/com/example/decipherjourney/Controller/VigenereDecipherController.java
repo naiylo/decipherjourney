@@ -11,12 +11,12 @@ import com.example.decipherjourney.Service.*;
 import jakarta.servlet.http.HttpServletRequest;
 
 /**
- * VigenereCipherController is a controller that allows users to learn and train the vigenere cipher with different random generated examples.
+ * VigenereDecipherController is a controller that allows users to learn and train the vigenere cipher with different random generated examples.
  * 
  * @author Oskar Schiedewitz
  */
 @Controller
-public class VigenereCipherController {
+public class VigenereDecipherController {
 
     /**
      * Attribute to connect the view to the user database
@@ -43,16 +43,16 @@ public class VigenereCipherController {
     HighscoreService highscoreService;
 
     /**
-     * Function to load the vigenere cipher view.
+     * Function to load the vigenere decipher view.
      * 
      * @param request   HTTP request made by a client.
      * @param model     The model to set attributes for the view.
      * 
-     * @return The vigenere view.
+     * @return The vigenere decipher view.
      */
-    @RequestMapping("/freeplay/vigenere")
+    @RequestMapping("/freeplay/vigeneredecipher")
     public String showFreePlayMenu(HttpServletRequest request, Model model) {
-        System.out.println("Switched to vigenere page.");
+        System.out.println("Switched to vigenere decipher page.");
         
         // Check if user is logged in if not switch to login page where he can login or register
 
@@ -66,16 +66,18 @@ public class VigenereCipherController {
 
                 // Check if user is currently working on a vigenere cipher and load it if so
 
-                if (user.getVigenereCipher() == null) {
+                if (user.getVigenereDecipher() == null) {
                     System.out.println("Create new vigenere cipher!");
-                    VigenereCipher cipher = vigenereCipherService.createRandomVigenereCipher();
-                    userService.changeVigenereCipher(user.getUsername(), cipher);;
+                    VigenereCipher cipher = vigenereCipherService.createRandomVigenereDecipher();
+                    userService.changeVigenereDecipher(user.getUsername(), cipher);;
                     model.addAttribute("cipher", cipher);
-                    model.addAttribute("testnumber", 1);
+                    model.addAttribute("key", cipher.getKeyword());
+                    model.addAttribute("testnumber", 0);
                 } else {
-                    VigenereCipher cipher = user.getVigenereCipher();
+                    VigenereCipher cipher = user.getVigenereDecipher();
                     model.addAttribute("cipher", cipher);
-                    model.addAttribute("testnumber", 1);
+                    model.addAttribute("key", cipher.getKeyword());
+                    model.addAttribute("testnumber", 0);
                 }
                 
     
@@ -84,9 +86,9 @@ public class VigenereCipherController {
             }
         }
 
-        model.addAttribute("highscore", userService.getCurrentUser(request).getHighscore().getVigenereHighscore());
+        model.addAttribute("highscore", userService.getCurrentUser(request).getHighscore().getVigenereDecipherHighscore());
         
-        return "vigenere";
+        return "vigeneredecipher";
     }
 
     /**
@@ -97,9 +99,9 @@ public class VigenereCipherController {
      * @param redirectAttributes    Object to redirect Attributes 
      * @param model                 The model to set attributes for the view.    
      * 
-     * @return The updated vigenerecipher view.
+     * @return The updated vigeneredecipher view.
      */
-    @RequestMapping("/freeplay/vigenerecipher/tryKey")
+    @RequestMapping("/freeplay/vigeneredecipher/tryKey")
     public String tryKey(@RequestParam String newKey, HttpServletRequest request, RedirectAttributes redirectAttributes, Model model) {
 
         String key = newKey.toUpperCase();
@@ -107,21 +109,19 @@ public class VigenereCipherController {
         if (key != null && !key.isEmpty() && key.matches("^[A-Z]+$")) {
 
             User user = userService.getCurrentUser(request);
-            VigenereCipher cipher = user.getVigenereCipher();
+            VigenereCipher cipher = user.getVigenereDecipher();
             String cipheredText = cipher.getCipheredText();
-            String decipheredText = vigenereCipherService.decipherText(cipheredText, key);
-
-            System.out.println(decipheredText);
+            String decipheredText = vigenereCipherService.cipherText(cipheredText, key);
 
             // If correct update highscore and return feedback
             if (decipheredText.equals(cipher.getOriginalText())) {
                 redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, deine Übersetzung ist korrekt!");
                 Highscore currentHighscore = userService.getCurrentUser(request).getHighscore();
-                userService.changeHighscore(userService.getCurrentUser(request).getUsername(), highscoreService.updateVigenereHighscore(currentHighscore, cipher.getErrorCounter(), cipher.getHints()));
+                userService.changeHighscore(userService.getCurrentUser(request).getUsername(), highscoreService.updateVigenereDecipherHighscore(currentHighscore, cipher.getErrorCounter(), cipher.getHints()));
 
             // If incorrect update error counter and reveal hints
             } else {
-                userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseErrorCounter(cipher));
+                userService.changeVigenereDecipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseErrorCounter(cipher));
                 Integer errors = cipher.getErrorCounter();
                 System.out.println(errors);
                 System.out.println(cipher.getHints());
@@ -130,24 +130,14 @@ public class VigenereCipherController {
                 if (errors < 3) {
                     redirectAttributes.addFlashAttribute("errorMessage2", "Leider ist das nicht korrekt!");
                 } else if (errors == 3) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, probiere Häufige Buchstaben zu vergleichen.");
-                    userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher));
-                } else if (errors == 4) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, Suche ein typisches Schlüsselwort wie KEY oder einfach Buchstaben.");
-                    userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher));
-                } else if (errors == 5) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, Suche ein typisches Schlüsselwort wie KEY, TEST oder einfach Buchstaben.");
-                    userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher)); 
-                } else if (errors == 6) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, Suche ein typisches Schlüsselwort wie KEY, TEST, ABC, oder einfach Buchstaben.");
-                    userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher));   
-                } else if (errors == 7) {
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Nutze den Modulo um mit dem Schlüssel zu verschieben. Denk daran den Schlüssel an die Länge anzupassen.");
-                    userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher));
-                } else if (errors > 7){
-                    redirectAttributes.addFlashAttribute("errorMessage2", "Die Schlüssellänge ist: " + cipher.getKeyword().length());
-                }
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Denk daran den Schlüssel immer zu wiederholen, so dass die Länge passt.");
+                    userService.changeVigenereDecipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher));
+                } else if (errors >= 4) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Rechne die Buchstaben Stücl für Stück plus das passende Schlüsselzeichen mir dem Modulo Rechner.");
+                    userService.changeVigenereDecipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher));
+                } 
             }
+
         
             redirectAttributes.addFlashAttribute("tryoutText", decipheredText);
 
@@ -155,7 +145,7 @@ public class VigenereCipherController {
             redirectAttributes.addFlashAttribute("errorMessage", "Der Schlüssel darf nur aus Buchstaben ohne Leerzeichen bestehen.");
         }
 
-        return "redirect:/freeplay/vigenere";
+        return "redirect:/freeplay/vigeneredecipher";
     }
 
     /**
@@ -164,38 +154,38 @@ public class VigenereCipherController {
      * @param request               HTTP request made by a client.
      * @param redirectAttributes    Object to redirect Attributes.
      * 
-     * @return The updated vigenerecipher view.
+     * @return The updated vigeneredecipher view.
      */
-    @RequestMapping("/freeplay/vigenerecipher/revealOriginal")
+    @RequestMapping("/freeplay/vigeneredecipher/revealOriginal")
     public String revealOriginal(HttpServletRequest request,
                                  RedirectAttributes redirectAttributes) {
 
-        VigenereCipher newCipher = userService.getCurrentUser(request).getVigenereCipher();
+        VigenereCipher newCipher = userService.getCurrentUser(request).getVigenereDecipher();
         newCipher.setCipheredText(newCipher.getOriginalText());
         
         redirectAttributes.addFlashAttribute("tryoutText", newCipher.getOriginalText());
         redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, hier siehst du den richtigen Text.");
 
-        return "redirect:/freeplay/vigenere";
+        return "redirect:/freeplay/vigeneredecipher";
     }
 
     /**
-     * Function to try out a new vigenere cipher.
+     * Function to try out a new vigenere decipher.
      * 
      * @param request  HTTP request made by a client.
      * 
-     * @return The updated vigenerecipher view with a new vigenere cipher.
+     * @return The updated vigeneredecipher view with a new vigenere cipher.
      */
-    @RequestMapping("/freeplay/vigenerecipher/tryNew")
+    @RequestMapping("/freeplay/vigeneredecipher/tryNew")
     public String tryNew(HttpServletRequest request,
                          RedirectAttributes redirectAttributes) {
 
-        VigenereCipher newCipher = vigenereCipherService.createRandomVigenereCipher();
-        userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), newCipher);
+        VigenereCipher newCipher = vigenereCipherService.createRandomVigenereDecipher();
+        userService.changeVigenereDecipher(userService.getCurrentUser(request).getUsername(), newCipher);
 
         redirectAttributes.addFlashAttribute("successMessage", "Hier ist dein neuer verschlüsselter Text. Viel Erfolg!");
 
-        return "redirect:/freeplay/vigenere";
+        return "redirect:/freeplay/vigeneredecipher";
     }
     
 }

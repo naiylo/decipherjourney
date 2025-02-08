@@ -94,7 +94,7 @@ public class CaesarCipherService {
         cipher.setMap(new HashMap<>());
 
         // Get a random example text from CreatorService
-        String originalText = creatorService.getRandomText();
+        String originalText = creatorService.getRandomTextCaesar();
 
         // Generate a random shift value between 1 and 25 (not 26 because that would equal a shift of 0)
         int shift = creatorService.getRandomNumber(24) + 1;
@@ -107,6 +107,39 @@ public class CaesarCipherService {
         // Cipher the text
         String cipheredText = cipherText(originalText, shift);
         cipher.setCipheredText(cipheredText);
+
+        return cipher;
+    }
+
+    /**
+     * Function to create a random CaesarDecipher object with a random text and shift.
+     * 
+     * @return  A populated CaesarDecipher object.
+     */
+    public CaesarCipher createRandomCaesarDecipher() {
+        CaesarCipher cipher = new CaesarCipher();
+
+        // Initialize an empty mapping
+        cipher.setMap(new HashMap<>());
+
+        // Get a random example text from CreatorService
+        String originalText = creatorService.getRandomTextCaesar();
+
+        // Generate a random shift value between 1 and 25 (not 26 because that would equal a shift of 0)
+        int shift = creatorService.getRandomNumber(24) + 1;
+        System.out.println("The shift is: " + shift);
+
+        cipher.setShiftNumber(shift);
+        cipher.setErrorCounter(0);
+        
+        // Cipher the text
+        String cipheredText = cipherText(originalText, shift);
+        cipher.setCipheredText(originalText);
+        cipher.setOriginalText(cipheredText);
+
+        System.out.println(cipher.getCipheredText());
+        System.out.println(cipher.getOriginalText());
+
 
         return cipher;
     }

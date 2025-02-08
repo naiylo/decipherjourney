@@ -87,18 +87,45 @@ public class VigenereCipherService {
         VigenereCipher cipher = new VigenereCipher();
 
         // Get a random example text from CreatorService
-        String originalText = creatorService.getRandomText();
+        String originalText = creatorService.getRandomTextVigenere();
 
-        // Generate a random keyword of 5-10 characters
         String keyword = creatorService.getRandomKeyword();
         System.out.println("The keyword is: " + keyword);
 
         cipher.setOriginalText(originalText);
         cipher.setKeyword(keyword);
+        cipher.setErrorCounter(0);
+        cipher.setHints(0);
         
         // Cipher the text
         String cipheredText = cipherText(originalText, keyword);
         cipher.setCipheredText(cipheredText);
+
+        return cipher;
+    }
+
+    /**
+     * Function to create a random VigenereDecipher object with a random text and keyword.
+     * 
+     * @return  A populated VigenereDecipher object.
+     */
+    public VigenereCipher createRandomVigenereDecipher() {
+        VigenereCipher cipher = new VigenereCipher();
+
+        // Get a random example text from CreatorService
+        String originalText = creatorService.getRandomTextVigenere();
+
+        String keyword = creatorService.getRandomKeyword();
+        System.out.println("The keyword is: " + keyword);
+
+        cipher.setKeyword(keyword);
+        cipher.setErrorCounter(0);
+        cipher.setHints(0);
+        
+        // Cipher the text
+        String cipheredText = cipherText(originalText, keyword);
+        cipher.setCipheredText(originalText);
+        cipher.setOriginalText(cipheredText);
 
         return cipher;
     }

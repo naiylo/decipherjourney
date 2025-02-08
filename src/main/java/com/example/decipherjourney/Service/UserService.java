@@ -63,6 +63,8 @@ public class UserService {
             // Set the ciphers of free play mode
             newUser.setCaesarCipher(null);
             newUser.setVigenereCipher(null);
+            newUser.setCaesarDecipher(null);
+            newUser.setVigenereDecipher(null);
 
             // Set the highscore for the free play mode
             newUser.setHighscore(highscoreService.initializeHighscore());
@@ -241,6 +243,34 @@ public class UserService {
             return;
         }
         updateField(username, "vigenereCipher", cipher, "Updated vigenere cipher succesfully.");
+    }
+
+    /**
+     * Updates the caesar decipher of the user identified by the username
+     * 
+     * @param username      The current username of the user
+     * @param cipher        The new caesar decipher
+     */
+    public void changeCaesarDecipher(String username, CaesarCipher cipher) {
+        if (username == null || username.isEmpty()) {
+            System.out.println("Username can not be empty.");
+            return;
+        }
+        updateField(username, "caesarDecipher", cipher, "Updated caesar decipher succesfully.");
+    }
+
+    /**
+     * Updates the vigenere decipher of the user identified by the username
+     * 
+     * @param username      The current username of the user
+     * @param cipher        The new vigenere cipher
+     */
+    public void changeVigenereDecipher(String username, VigenereCipher cipher) {
+        if (username == null || username.isEmpty()) {
+            System.out.println("Username can not be empty.");
+            return;
+        }
+        updateField(username, "vigenereDecipher", cipher, "Updated vigenere decipher succesfully.");
     }
 
     /**
