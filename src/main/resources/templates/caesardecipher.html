@@ -32,20 +32,10 @@
             <div class="help-text" id="help-text">
                 <h3>Erklärung:</h3>
                 <br>
-                <p>Im Verschiebedisk-Bereich können Sie die scheibe frei nach Vorstellung verschieben um ein Bild von verschiedenen shifts zu erhalten. Bei einer Verschiebung von eins nach vorne wäre eine Verschiebung von 1.
-                   Eine Verschiebung von eins nach hinten wäre eine von 25.
-                </p>
-                <p>Im Notizen-Bereich können Sie die Buchstaben des Textes anpassen. 
-                                             Schreiben Sie einfach einen Buchstaben zwischen A-Z in das Feld neben dem Buchstaben und drücken 
-                                             Sie den <strong>"Try out your combination"</strong> Button. So können sie sehen wie der Text aussieht wenn 
-                                             bestimmte Buchstaben mit anderen ersetzt wurden und dadurch auf die Verschiebung schlussfolgern.
-                                             Leere Buchstabenfelder werden durch ein _ dargestellt. Der <strong>"Clear"</strong> Button löscht alle bis jetzt 
-                                             aufgestellten Vermutungen von Buchstaben Paaren. Mit dem <strong>"Shift By"</strong> Button können sie direkt eine Verschiebung
-                                             versuchen um einen festen Wert ausprobieren. Das gibt aber Minuspunkte.<br> 
-                        
-                <p>Unter verschlüsselter Text können sie den verschlüsselten Text sehen. Hier wird auch die Lösung angezeigt sollten sie sich dafür entscheiden aufzugeben
-                                                    und den <strong>"Reveal the original Text"</strong> Button zu klicken. Mit dem <strong>"Tryout a new cipher"</strong> Button können sie eine 
-                                                    komplett neu verschlüsselte Nachricht erhalten.                    
+                <p>Ein Tutorial und Erklärung zur Chiffre sind zentral oben nachzulesen. Die Verschiebedisk ist frei nutzbar und kann verschoben werden. Eine Verschiebung der inneren Disk um 1 im Uhrzeigersinn
+                    entspricht einer Verschiebung von 25 während eine Verschiebung von 1 gegen den Uhrzeigersinn eine Verschiebung von 1 darstellt. Im <strong>Notizen-Bereich</strong> kann leicht neben die Buchstaben ein anderer
+                    eingetragen werden um diesen mit <strong>Deine Kombination ausprobieren</strong> zu testen. Nicht ausgefüllte Buchstaben werden als _ markiert. Mit dem Verschieben Button lässt sich direkt eine Verschiebung nutzen
+                    ,dass reduziert jedoch den Highscore. Es ist freigestellt entweder direkt im Lösungsbereich zu schreiben, doer die Buttons zur Hiilfe zu nehmen.</p>                 
         </div>
     </header>
 
@@ -207,18 +197,18 @@
                 </div>
                 <div class="notes-buttons">
                     <div>
-                        <button type="submit" class="try-button">Try out your combination</button>
+                        <button type="submit" class="try-button">Deine Kombination ausprobiere</button>
                     </div>
                 </form>
                     <div class="clear-shift-buttons">
                         <form id="clear-mapping" action="/freeplay/caesardecipher/clearMapping" method="post">
                         <div class="clear-button">
-                            <button>Clear</button>
+                            <button>Leeren</button>
                         </div>
                         </form>
                         <div>
                         <form action="/freeplay/caesardecipher/shift" method="post">
-                            <button class="shift-button">Shift by:</button>
+                            <button class="shift-button">Verschieben:</button>
                         </div>
                             <input name="shift" id="shift" type="text" maxlength="2" class="shift-input" placeholder="0">   
                         </form>
@@ -238,18 +228,23 @@
                 <div class="text-headline2">
                     <h1>Verschlüsselter Text:</h1>
                 </div>
+                <form action="/freeplay/caesardecipher/trySolution" method="post">
                 <div class="answer-container" contenteditable="true">
-                    <p th:text="${tryoutText}"></p>
+                    <textarea id="tryOutText" name="tryOutText" th:text="${tryoutText}"></textarea>
                 </div>
                 <div class="text-buttons-container">
-                <form action="/freeplay/caesardecipher/revealOriginal" method="post">
                     <div class="task-buttons">
-                        <button class="reveal-button">Reveal the original Text</button>
+                        <button id="submit" name="submit" class="submit-button">Lösung probieren</button>
+                    </div>
+                    </form>
+                    <form action="/freeplay/caesardecipher/revealOriginal" method="post">
+                    <div class="task-buttons">
+                        <button class="reveal-button">Original anzeigen</button>
                     </div>
                     </form>
                     <form action="/freeplay/caesardecipher/tryNew" method="post">
                     <div class="task-buttons">
-                        <button class="reveal-button">Tryout a new cipher</button>
+                        <button class="reveal-button">Neue Chiffre anzeigen</button>
                     </div>
                     </form>
                 </div>

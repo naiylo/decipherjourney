@@ -132,7 +132,6 @@ public class CaesarDecipherController {
             if (shiftedText.equals(cipher.getOriginalText())) {
                 redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, deine Verschlüsselung ist korrekt!");
                 Highscore currentHighscore = userService.getCurrentUser(request).getHighscore();
-                System.out.println(currentHighscore.getCaesarDecipherHighscore());
                 userService.changeHighscore(userService.getCurrentUser(request).getUsername(), highscoreService.updateCaesarDecipherHighscore(currentHighscore, 100, 0));
             
             // If incorrect update error counter and reveal hints
@@ -260,10 +259,9 @@ public class CaesarDecipherController {
                                  RedirectAttributes redirectAttributes) {
 
         CaesarCipher newCipher = userService.getCurrentUser(request).getCaesarDecipher();
-        newCipher.setCipheredText(newCipher.getOriginalText());
         
         redirectAttributes.addFlashAttribute("tryoutText", newCipher.getOriginalText());
-        redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, hier siehst du den richtigen Text.");
+        redirectAttributes.addFlashAttribute("successMessage", "Hier siehst du den richtigen Text!");
 
         return "redirect:/freeplay/caesardecipher";
     }
@@ -286,5 +284,50 @@ public class CaesarDecipherController {
 
         return "redirect:/freeplay/caesardecipher";
     }
-    
+
+    /**
+     * Function to submit your own solution
+     *  
+     * @param redirectAttributes    Object to redirect Attributes.
+     * @param request               HTTP request made by a client.
+     * @param tryOutText            The submitted text to compare to the solution.
+     * 
+     * @return The updated caesarcipher view.
+     */
+    @RequestMapping("/freeplay/caesardecipher/trySolution")
+    public String trySolution(RedirectAttributes redirectAttributes,
+                              HttpServletRequest request,
+                              @RequestParam("tryOutText") String tryOutText) {
+
+
+            CaesarCipher cipher = userService.getCurrentUser(request).getCaesarDecipher();
+
+            if (cipher.getOriginalText().equals(tryOutText)) {
+                redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, deine Verschlüsselung ist korrekt!");
+                Highscore currentHighscore = userService.getCurrentUser(request).getHighscore();
+                System.out.println(currentHighscore.getCaesarDecipherHighscore());
+                userService.changeHighscore(userService.getCurrentUser(request).getUsername(), highscoreService.updateCaesarDecipherHighscore(currentHighscore, cipher.getErrorCounter(), cipher.getErrorCounter()));
+
+            } else {
+                userService.changeCaesarDecipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseErrorCounter(cipher));
+                Integer errors = cipher.getErrorCounter();
+                System.out.println(errors); 
+
+                // Give Feedback and hints and update the hints counter
+                if (errors < 3) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider ist das nicht korrekt!");
+                } else if (errors == 3) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, Nutze die Disk und verschiebe sie.");
+                    userService.changeCaesarDecipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
+                } else if (errors == 4) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, Nutze die Disk und verschiebe sie um die Zahl im Uhrzeigersinn.");
+                    userService.changeCaesarDecipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
+                } else if (errors >= 5) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, probiere den Shift aus das reduziert deine Punkte aber gibt dir eine Vorstellung für das nächste mal.");
+                    userService.changeCaesarDecipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher)); 
+                }         
+            }
+
+        return "redirect:/freeplay/caesarcipher";   
+    }
 }

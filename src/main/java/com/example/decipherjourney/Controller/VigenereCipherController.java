@@ -197,5 +197,59 @@ public class VigenereCipherController {
 
         return "redirect:/freeplay/vigenere";
     }
+
+    /**
+     * Function to submit your own solution
+     *  
+     * @param redirectAttributes    Object to redirect Attributes.
+     * @param request               HTTP request made by a client.
+     * @param tryOutText            The submitted text to compare to the solution.
+     * 
+     * @return The updated vigenerecipher view.
+     */
+    @RequestMapping("/freeplay/vigenerecipher/trySolution")
+    public String trySolution(RedirectAttributes redirectAttributes,
+                              HttpServletRequest request,
+                              @RequestParam("tryOutText") String tryOutText) {
+
+
+            VigenereCipher cipher = userService.getCurrentUser(request).getVigenereCipher();
+
+            if (cipher.getOriginalText().equals(tryOutText)) {
+                redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, deine Übersetzung ist korrekt!");
+                Highscore currentHighscore = userService.getCurrentUser(request).getHighscore();
+                userService.changeHighscore(userService.getCurrentUser(request).getUsername(), highscoreService.updateVigenereHighscore(currentHighscore, cipher.getErrorCounter(), cipher.getHints()));
+
+            } else {
+                userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseErrorCounter(cipher));
+                Integer errors = cipher.getErrorCounter();
+                System.out.println(errors);
+                System.out.println(cipher.getHints());
+ 
+                // Give Feedback and hints and update the hints counter
+                if (errors < 3) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider ist das nicht korrekt!");
+                } else if (errors == 3) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, probiere Häufige Buchstaben zu vergleichen.");
+                    userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher));
+                } else if (errors == 4) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, Suche ein typisches Schlüsselwort wie KEY oder einfach Buchstaben.");
+                    userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher));
+                } else if (errors == 5) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, Suche ein typisches Schlüsselwort wie KEY, TEST oder einfach Buchstaben.");
+                    userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher)); 
+                } else if (errors == 6) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, Suche ein typisches Schlüsselwort wie KEY, TEST, ABC, oder einfach Buchstaben.");
+                    userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher));   
+                } else if (errors == 7) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Nutze den Modulo um mit dem Schlüssel zu verschieben. Denk daran den Schlüssel an die Länge anzupassen.");
+                    userService.changeVigenereCipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher));
+                } else if (errors > 7){
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Die Schlüssellänge ist: " + cipher.getKeyword().length());
+                }       
+            }
+
+        return "redirect:/freeplay/vigenere";   
+    }
     
 }

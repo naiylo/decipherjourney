@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.stereotype.Controller;
@@ -136,7 +137,6 @@ public class CaesarCipherController {
             } else {
                 userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseErrorCounter(cipher));
                 Integer errors = cipher.getErrorCounter();
-                System.out.println(errors);
  
                 // Give Feedback and hints and update the hints counter
                 if (errors < 3) {
@@ -264,10 +264,9 @@ public class CaesarCipherController {
                                  RedirectAttributes redirectAttributes) {
 
         CaesarCipher newCipher = userService.getCurrentUser(request).getCaesarCipher();
-        newCipher.setCipheredText(newCipher.getOriginalText());
         
         redirectAttributes.addFlashAttribute("tryoutText", newCipher.getOriginalText());
-        redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, hier siehst du den richtigen Text.");
+        redirectAttributes.addFlashAttribute("successMessage", "Hier siehst du den richtigen Text!");
 
         return "redirect:/freeplay/caesarcipher";
     }
@@ -287,6 +286,60 @@ public class CaesarCipherController {
         userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), newCipher);
 
         redirectAttributes.addFlashAttribute("successMessage", "Hier ist dein neuer verschlüsselter Text. Viel Erfolg!");
+
+        return "redirect:/freeplay/caesarcipher";
+    }
+
+    /**
+     * Function to submit your own solution
+     *  
+     * @param redirectAttributes    Object to redirect Attributes.
+     * @param request               HTTP request made by a client.
+     * @param tryOutText            The submitted text to compare to the solution.
+     * 
+     * @return The updated caesarcipher view.
+     */
+    @RequestMapping("/freeplay/caesarcipher/trySolution")
+    public String trySolution(RedirectAttributes redirectAttributes,
+                              HttpServletRequest request,
+                              @RequestParam("tryOutText") String tryOutText) {
+
+
+        CaesarCipher cipher = userService.getCurrentUser(request).getCaesarCipher();
+
+        if (cipher.getOriginalText().equals(tryOutText)) {
+            redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, deine Übersetzung ist korrekt!");
+            Highscore currentHighscore = userService.getCurrentUser(request).getHighscore();
+            userService.changeHighscore(userService.getCurrentUser(request).getUsername(), highscoreService.updateCaesarHighscore(currentHighscore, cipher.getErrorCounter(), cipher.getHints()));
+
+        } else {
+            userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseErrorCounter(cipher));
+            Integer errors = cipher.getErrorCounter();
+            System.out.println(errors);
+            System.out.println(cipher.getHints());
+
+            // Give Feedback and hints and update the hints counter
+            if (errors < 3) {
+                redirectAttributes.addFlashAttribute("errorMessage2", "Leider ist das nicht korrekt!");
+            } else if (errors == 3) {
+                redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, probiere Häufige Buchstaben zu vergleichen.");
+                userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
+            } else if (errors == 4) {
+                redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suche nach der passenden Verschiebung.");
+                userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
+            } else if (errors == 5) {
+                redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suche nach der passenden Verschiebung.");
+                userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher)); 
+            } else if (errors == 6) {
+                redirectAttributes.addFlashAttribute("errorMessage2", "Leider falsch, guck dir kurze Wörter wie UND oder DAS an und suche nach der passenden Verschiebung.");
+                userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));   
+            } else if (errors == 7) {
+                redirectAttributes.addFlashAttribute("errorMessage2", "Der leichteste Weg ist alle 25 Möglichkeiten zu Testen. Darunter leidet aber dein Highscore!");
+                userService.changeCaesarCipher(userService.getCurrentUser(request).getUsername(), caesarCipherService.increaseHints(cipher));
+            } else if (errors > 7){
+                redirectAttributes.addFlashAttribute("errorMessage2", "Der leichteste Weg ist alle 25 Möglichkeiten zu Testen. Darunter leidet aber dein Highscore!");
+            }
+        }          
 
         return "redirect:/freeplay/caesarcipher";
     }

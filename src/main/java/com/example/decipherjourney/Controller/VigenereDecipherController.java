@@ -187,5 +187,48 @@ public class VigenereDecipherController {
 
         return "redirect:/freeplay/vigeneredecipher";
     }
+
+    /**
+     * Function to submit your own solution
+     *  
+     * @param redirectAttributes    Object to redirect Attributes.
+     * @param request               HTTP request made by a client.
+     * @param tryOutText            The submitted text to compare to the solution.
+     * 
+     * @return The updated vigeneredecipher view.
+     */
+    @RequestMapping("/freeplay/vigeneredecipher/trySolution")
+    public String trySolution(RedirectAttributes redirectAttributes,
+                              HttpServletRequest request,
+                              @RequestParam("tryOutText") String tryOutText) {
+
+
+            VigenereCipher cipher = userService.getCurrentUser(request).getVigenereDecipher();
+
+            if (cipher.getOriginalText().equals(tryOutText)) {
+                redirectAttributes.addFlashAttribute("successMessage", "Glückwunsch, deine Übersetzung ist korrekt!");
+                Highscore currentHighscore = userService.getCurrentUser(request).getHighscore();
+                userService.changeHighscore(userService.getCurrentUser(request).getUsername(), highscoreService.updateVigenereDecipherHighscore(currentHighscore, cipher.getErrorCounter(), cipher.getHints()));
+
+            } else {
+                userService.changeVigenereDecipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseErrorCounter(cipher));
+                Integer errors = cipher.getErrorCounter();
+                System.out.println(errors);
+                System.out.println(cipher.getHints());
+ 
+                // Give Feedback and hints and update the hints counter
+                if (errors < 3) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Leider ist das nicht korrekt!");
+                } else if (errors == 3) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Denk daran den Schlüssel immer zu wiederholen, so dass die Länge passt.");
+                    userService.changeVigenereDecipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher));
+                } else if (errors >= 4) {
+                    redirectAttributes.addFlashAttribute("errorMessage2", "Rechne die Buchstaben Stücl für Stück plus das passende Schlüsselzeichen mir dem Modulo Rechner.");
+                    userService.changeVigenereDecipher(userService.getCurrentUser(request).getUsername(), vigenereCipherService.increaseHints(cipher));
+                } 
+            }
+
+        return "redirect:/freeplay/vigeneredecipher";   
+    }
     
 }

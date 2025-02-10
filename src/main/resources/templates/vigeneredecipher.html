@@ -30,9 +30,8 @@
             <div class="help-text" id="help-text">
                 <h3>Erklärung:</h3>
                 <br>        
-                <p>Unter verschlüsselter Text können sie den verschlüsselten Text sehen. Hier wird auch die Lösung angezeigt sollten sie sich dafür entscheiden aufzugeben
-                                                    und den <strong>"Reveal the original Text"</strong> Button zu klicken. Mit dem <strong>"Tryout a new cipher"</strong> Button können sie eine 
-                                                    komplett neu verschlüsselte Nachricht erhalten.                    
+                <p>Ein Tutorial und Erklärung zur Chiffre sind zentral oben nachzulesen. Der Modulo Rechner unter Hilfe, dient zum einfachen Verrechnen von Buchstabenindizes. Im Notizen Berech kann direkt ein Schlüssel
+                   ausprobiert werden, dass reduziert jedoch den Highscore. Es ist freigestellt entweder direkt im Lösungsbereich zu schreiben, doer die Buttons zur Hiilfe zu nehmen.</p>                    
         </div>
     </header>
 
@@ -74,12 +73,12 @@
             <div class="notes-container"> 
                 <div class="notes-text">   
                     <h1>Notizen:</h1>
-                    <p>Die maximal genutze Schlüssellänge beträgt 7.</p>
+                    <p>Die maximal genutze Schlüssellänge beträgt 3.</p>
                 </div>
                 <form id="decipher-form" action="/freeplay/vigeneredecipher/tryKey" method="post">
                 <div class="key-container">
                     <input type="text" maxlength="5" id="newKey" name="newKey" class="key-input" placeholder="" required></input>
-                    <button type="submit" class="try-button">Try out your key</button>  
+                    <button type="submit" class="try-button">Schlüssel ausprobieren</button>  
                 </div>
                 </form>
                 <div class="feedback-messages">
@@ -96,18 +95,23 @@
                 <div class="text-headline2">
                     <h1>Verschlüsselter Text:</h1>
                 </div>
+                <form action="/freeplay/vigeneredecipher/trySolution" method="post">
                 <div class="answer-container" contenteditable="true">
-                    <p th:text="${tryoutText}"></p>
+                    <textarea id="tryOutText" name="tryOutText" th:text="${tryoutText}"></textarea>
                 </div>
                 <div class="text-buttons-container">
+                    <div class="task-buttons">
+                        <button id="submit" name="submit" class="submit-button">Lösung probieren</button>
+                    </div>
+                </form>
                 <form action="/freeplay/vigeneredecipher/revealOriginal" method="post">
                     <div class="task-buttons">
-                        <button class="reveal-button">Reveal the original Text</button>
+                        <button class="reveal-button">Original anzeigen</button>
                     </div>
                     </form>
                     <form action="/freeplay/vigeneredecipher/tryNew" method="post">
                     <div class="task-buttons">
-                        <button class="reveal-button">Tryout a new cipher</button>
+                        <button class="reveal-button">Neue Chiffre anzeigen</button>
                     </div>
                     </form>
                 </div>

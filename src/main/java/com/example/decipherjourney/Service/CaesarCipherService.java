@@ -103,6 +103,7 @@ public class CaesarCipherService {
         cipher.setOriginalText(originalText);
         cipher.setShiftNumber(shift);
         cipher.setErrorCounter(0);
+        cipher.setHints(0);
         
         // Cipher the text
         String cipheredText = cipherText(originalText, shift);
@@ -131,6 +132,7 @@ public class CaesarCipherService {
 
         cipher.setShiftNumber(shift);
         cipher.setErrorCounter(0);
+        cipher.setHints(0);
         
         // Cipher the text
         String cipheredText = cipherText(originalText, shift);

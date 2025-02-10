@@ -16,31 +16,26 @@ public class CreatorService {
      * Attribute to save all the possible texts
      */
     private List<String> exampleTextsCaesar = List.of(
-        "JEDER MENSCH HAT DAS RECHT SEIN LEBEN NACH SEINEN EIGENEN VORSTELLUNGEN ZU BESCHREITEN.", 
-
-        "KINDER SPIEGELN MEIST DAS AUSSEHEN ODER DAS VERHALTEN IHRER ELTERN WIDER.",
-        
-        "NEUE, UNBEKANNTE SITUATIONEN SIND NIE EINFACH. VIELE WEGE GEHEN IN DIE RICHTIGE RICHTUNG.",
-
-        "DER TON MACHT DIE MUSIK IST EIN SPRICHWORT, DASS DIE RELEVANZ DER KOMMUNIKATION DEUTLICH MACHT.",
-
-        "WEGE ENTSTEHEN DADURCH, DASS MAN SIE GEHT. DU ALLEIN MUSST DICH ENTSCHEIDEN.",
-
-        "MEIN NAME IST BOND, JAMES BOND. ICH BIN SPION UNTER DER BRITISCHEN KRONE.",
-
-        "ICH KOMME WIEDER, IST EIN KLASSISCHES ZITAT AUS DEM FILM TERMINATOR.",
-
-        "MEINE MUTTER HAT IMMER GESAGT, DAS LEBEN IST WIE EINE SCHACHTEL PRALINEN."
+        "ROBOTER",
+        "KRYPTOGRAHIE",
+        "SOFTWARE",
+        "PUZZLE",
+        "LONDON",
+        "ROM",
+        "FLIEGEN"
     );
 
     /**
      * Attribute to save all the possible texts
      */
     private List<String> exampleTextsVigenere = List.of(
-        "ICH BIN EIN ROBOTER!", 
-
-        "MAN SPIELT NICHT MIT ESSEN."
-        
+        "ROBOTER",
+        "KRYPTOGRAHIE",
+        "SOFTWARE",
+        "PUZZLE",
+        "LONDON",
+        "ROM",
+        "FLIEGEN"
     );
 
 
@@ -92,8 +87,7 @@ public class CreatorService {
     public String getRandomKeyword() {
 
         // List of example keywords
-        //List<String> keywords = List.of("SECRET", "KEYWORD", "ENCRYPT", "CIPHER", "CODE", "PUZZLE", "ABC", "WORD");
-        List<String> keywords = List.of("A");
+        List<String> keywords = List.of("A", "AB", "ABC", "KEY", "CBA", "TRY", "KIP");
 
         int numberOfKeywords = keywords.size();
         int randomIndex = getRandomNumber(numberOfKeywords); // Generate a random index
