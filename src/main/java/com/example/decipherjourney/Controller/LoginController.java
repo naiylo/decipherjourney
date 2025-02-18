@@ -43,7 +43,7 @@ public class LoginController {
     public String Login(HttpServletRequest request, Model model) {
         System.out.println("Switched to login page.");
 
-        return "Login";
+        return "login";
     }
 
     /**
