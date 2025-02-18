@@ -328,6 +328,6 @@ public class CaesarDecipherController {
                 }         
             }
 
-        return "redirect:/freeplay/caesarcipher";   
+        return "redirect:/freeplay/caesardecipher";   
     }
 }
