@@ -145,7 +145,7 @@ public class StoryModeService {
         System.out.println("Added Part 3.");
 
         storyMode.setStoryParts(partList);
-        storyMode.setPart("3");
+        storyMode.setPart("1");
 
         return storyMode;
     }
