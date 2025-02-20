@@ -4,7 +4,7 @@
         transform: translateY(0) translateX(-94.12%);
     }
     50% {
-        transform: translateY(-50px) translateX(-94.12%);
+        transform: translateY(-5vh) translateX(-94.12%);
     }
 }
 
@@ -31,13 +31,13 @@
 
 @keyframes increase {
     from {
-        margin-top: 90px;
-        width: 600px;
+        margin-top: 9vh;
+        width: 60vh;
         height: auto;
     }
     to {
-        margin-top: 0px;
-        width: 1200px;
+        margin-top: vh;
+        width: 120vh;
         height: auto;
     }
 }
@@ -47,109 +47,109 @@
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-50px);
+        transform: translateY(-5vh);
     }
 }
 
 @keyframes slideright {
     0% {
-        margin-left: 0px;
-        margin-right: 400px;
-        width: 1200px;
+        margin-left: vh;
+        margin-right: 40vh;
+        width: 120vh;
         height: auto;
     }
     100% {
-        margin-left: 270px;
-        margin-right: 400px;
-        width: 1200px;
+        margin-left: 27vh;
+        margin-right: 40vh;
+        width: 120vh;
         height: auto;
     }
 }
 
 @keyframes slideright2 {
     0% {
-        margin-left: 0px;
-        margin-right: 400px;
-        width: 1200px;
+        margin-left: vh;
+        margin-right: 40vh;
+        width: 120vh;
         height: auto;
     }
     100% {
-        margin-left: 550px;
+        margin-left: 55vh;
         margin-right: 325px;
-        width: 1200px;
+        width: 120vh;
         height: auto;
     }
 }
 
 @keyframes slideright3 {
     0% {
-        margin-left: 0px;
-        margin-right: 400px;
-        width: 1200px;
+        margin-left: vh;
+        margin-right: 40vh;
+        width: 120vh;
         height: auto;
     }
     100% {
-        margin-left: 450px;
-        margin-right: 400px;
-        width: 1200px;
+        margin-left: 45vh;
+        margin-right: 40vh;
+        width: 120vh;
         height: auto;
     }
 }
 
 @keyframes decrease {
     from {
-        margin-top: 0px;
-        width: 1200px;
+        margin-top: vh;
+        width: 120vh;
         height: auto;
     }
     to {
-        margin-top: 350px;
-        width: 600px;
+        margin-top: 35vh;
+        width: 60vh;
         height: auto;
     }
 }
 
 @keyframes bounce3 {
     0%, 100% {
-        margin-top: 0px;
+        margin-top: vh;
     }
     50% {
-        margin-top: -50px;
+        margin-top: -5vh;
     }
 }
 
 @keyframes bounce4 {
     0%, 100% {
-        margin-top: 350px;
+        margin-top: 35vh;
     }
     50% {
-        margin-top: 300px;
+        margin-top: 30vh;
     }
 }
 
 @keyframes slideleft {
     0% {
-        margin-left: 300px;
-        margin-right: 400px;
-        width: 1200px;
+        margin-left: 30vh;
+        margin-right: 40vh;
+        width: 120vh;
         height: auto;
     }
     100% {
-        margin-left: 0px;
-        margin-right: 400px;
-        width: 1200px;
+        margin-left: vh;
+        margin-right: 40vh;
+        width: 120vh;
         height: auto;
     }
 }
 
 @keyframes flyleftdiasappear {
     0% {
-        margin-left: 550px;
-        margin-top: 350px;
+        margin-left: 55vh;
+        margin-top: 35vh;
     }
     100% {
-        margin-top: 250px;
-        margin-left: 150px;
+        margin-top: 25vh;
+        margin-left: 15vh;
     }
 }
 
@@ -168,10 +168,10 @@
 /* Klassen für Hover-Effekte */
 .hoverindoorclickable {
     position: absolute;
-    margin-left: 130px;
-    margin-right: 400px;
-    margin-top: 90px;
-    width: 600px;
+    margin-left: 13vh;
+    margin-right: 40vh;
+    margin-top: 9vh;
+    width: 60vh;
     height: auto;
     animation: bounce 4s infinite;
 }
@@ -183,10 +183,10 @@
 
 .hoverinthecentre {
     position: absolute;
-    margin-left: 1140px;
-    margin-right: 400px;
-    margin-top: 0px;
-    width: 1200px;
+    margin-left: 114vh;
+    margin-right: 40vh;
+    margin-top: vh;
+    width: 120vh;
     height: auto;
     animation: bounce 4s infinite;
     user-select: none;
@@ -195,20 +195,20 @@
 
 .hoverinthecentreappear {
     position: absolute;
-    margin-left: 1140px;
-    margin-right: 400px;
-    margin-top: 0px;
-    width: 1200px;
+    margin-left: 114vh;
+    margin-right: 40vh;
+    margin-top: vh;
+    width: 120vh;
     height: auto;
     animation: bounce 4s infinite, fadeInSlow 3s ease-in forwards;
 }
 
 .hoverinthecentreclickableappear {
     position: absolute;
-    margin-left: 1140px;
-    margin-right: 400px;
-    margin-top: 0px;
-    width: 1200px;
+    margin-left: 114vh;
+    margin-right: 40vh;
+    margin-top: vh;
+    width: 120vh;
     height: auto;
     animation: bounce 4s infinite, fadeInSlow 4s ease-in forwards;
 }
@@ -220,10 +220,10 @@
 
 .hoverinthecenterdisappear {
     position: absolute;
-    margin-left: 1140px;
-    margin-right: 400px;
-    margin-top: 0px;
-    width: 1200px;
+    margin-left: 114vh;
+    margin-right: 40vh;
+    margin-top: vh;
+    width: 120vh;
     height: auto;
     animation: bounce 4s infinite, fadeOut 1s ease-in forwards;
     user-select: none;
@@ -233,8 +233,8 @@
 /* Animationen für Bewegungen */
 .flyfromdoortomiddlepart {
     position: absolute;
-    margin-left: 130px;
-    margin-right: 400px;
+    margin-left: 13vh;
+    margin-right: 40vh;
     animation: slideIn 3.9s ease-out forwards, increase 3.9s ease-out forwards;
 }
 
@@ -271,8 +271,8 @@
 }
 
 .flyleftdisappear {
-    margin-right: 300px;
-    width: 600px;
+    margin-right: 30vh;
+    width: 60vh;
     height: auto;
     position: relative;
     transform: scaleX(-1);
@@ -283,19 +283,19 @@
 /* Klassen für Spiegelungen und Bouncing */
 .bouncerightmirrored {
     position: absolute;
-    margin-left: 300px;
-    margin-right: 400px;
-    width: 1200px;
+    margin-left: 30vh;
+    margin-right: 40vh;
+    width: 120vh;
     height: auto;
     transform: scaleX(-1);
     animation: bounce3 4s infinite;
 }
 
 .bouncerightmirrored2 {
-    margin-left: 550px;
-    margin-right: 300px;
-    margin-top: 350px;
-    width: 600px;
+    margin-left: 55vh;
+    margin-right: 30vh;
+    margin-top: 35vh;
+    width: 60vh;
     height: auto;
     position: relative;
     transform: scaleX(-1);
@@ -304,19 +304,19 @@
 
 .bouncerightmirrored3 {
     position: absolute;
-    margin-left: 1010px;
-    margin-right: 400px;
-    margin-top: 150px;
-    width: 800px;
+    margin-left: 101vh;
+    margin-right: 40vh;
+    margin-top: 15vh;
+    width: 80vh;
     height: auto;
     transform: scaleX(-1);
     animation: bounce3 4s infinite;
 }
 .bouncerightmirrored4 {
     position: absolute;
-    margin-left: 450px;
-    margin-right: 400px;
-    width: 1200px;
+    margin-left: 45vh;
+    margin-right: 40vh;
+    width: 120vh;
     height: auto;
     transform: scaleX(-1);
     animation: bounce3 4s infinite;

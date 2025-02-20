@@ -33,14 +33,11 @@ body {
     justify-content: center;
     align-items: center;
     font-family: PixelFont, Arial, Helvetica, sans-serif;
-    padding: 150px; 
     font-size: 2rem; 
     color: white; 
-    position: absolute;
-    top: 20px; 
-    left: 50%;
-    transform: translateX(-50%); 
-    margin-left: 5px;
+    position: relative;
+    padding-top: 200px;
+    margin-bottom: -200px;
 }
 
 .welcome-container span {
@@ -63,9 +60,9 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 150px;
+    gap: 350px;
     border-radius: 15px;
-    margin: 250px 300px 250px 300px;
+    margin: 250px 200px 150px 200px;
     position: relative; 
     z-index: 1;
 }
@@ -93,7 +90,7 @@ main::after {
 }
 
 main .vertical-line {
-    position: absolute;
+    position: relative;
     width: 2px;
     background: white;
     animation: verticalLineShrinkExpand 24s infinite ease-in-out;
@@ -202,10 +199,10 @@ main .vertical-line.right {
     justify-content: center;
     align-items: center;
     font-family: PixelFont, Arial, Helvetica, sans-serif;
-    padding: 150px; 
     font-size: 2rem; 
-    color: white; 
-    position: absolute;
+    color: white;
+    padding-top: -100px; 
+    position: relative;
     bottom: 20px; 
     left: 50%;
     transform: translateX(-50%); 

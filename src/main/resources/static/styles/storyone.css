@@ -89,7 +89,6 @@ header {
 .checkpoint {
     position: relative; 
     text-align: center;
-    margin-right: 100px;
     color: #e8e8e8;
     text-shadow: rgb(0, 0, 0) 1px 0 10px;
     flex: 1; 
@@ -100,8 +99,8 @@ header {
 
 .help-container {
     position: absolute;
-    top: 100px;
-    right: 100px;
+    margin-top: 90px; 
+    right: 10px;
     z-index: 200;
     display: flex;
     flex-direction: column;
@@ -211,8 +210,8 @@ header {
     outline: none; 
     display: block; 
     cursor: pointer;
-    margin-top: 135px;
-    margin-left: -20px;
+    margin-top: 13.5vh;
+    margin-left: -2vh;
     animation: fadeIn 2s ease-in forwards; 
 }
 
@@ -226,8 +225,8 @@ header {
     cursor: pointer;
     outline: none; 
     display: block; 
-    margin-top: 135px;
-    margin-left: -20px;
+    margin-top: 13.5vh;
+    margin-left: -2vh;
 }
 
 .portal2:hover {

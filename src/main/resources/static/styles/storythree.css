@@ -143,7 +143,6 @@ header {
 .checkpoint {
     position: relative; 
     text-align: center;
-    margin-right: 100px;
     color: #e8e8e8;
     flex: 1; 
     font-size: 1.2rem;
@@ -154,8 +153,8 @@ header {
 
 .help-container {
     position: absolute;
-    top: 100px;
-    right: 100px;
+    margin-top: 90px; 
+    right: 10px;
     z-index: 200;
     display: flex;
     flex-direction: column;
@@ -255,8 +254,8 @@ header {
     width: 200px;
     height: auto;
     animation: fadeIn 2s ease-in forwards;
-    margin-top: 410px;
-    margin-left: -200px;
+    margin-top: 41vh;
+    margin-left: -20vh;
 }
 .sherlockHolmes:hover {
     filter: brightness(1.4);

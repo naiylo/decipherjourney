@@ -57,16 +57,6 @@ async function showNextDialog() {
         console.log(currentDialogIndex);
         console.log(dialogs[currentDialogIndex]);
 
-        if (currentDialogIndex === 2) {
-            switchClasses(animatedKip, 'hoverinthecentre', 'moveright');
-            await waitForNSeconds(1.5);
-            switchClasses(animatedKip, 'moveright', 'bouncerightmirrored');
-            await waitForNSeconds(1.5);
-            switchClasses(animatedKip, 'bouncerightmirrored', 'moveleft');
-            await waitForNSeconds(1.5);
-            switchClasses(animatedKip, 'moveleft', 'hoverinthecentre');
-        }
-
         if (currentDialogIndex === 4) {
             switchClasses(animatedKip, 'hoverinthecentre', 'hoverinthecenterdisappear');
             nextButton.style.display = 'none';
@@ -82,15 +72,16 @@ async function showNextDialog() {
             nextButton.style.display = 'none';
             textBubble.style.display = 'none'; 
             switchClasses(statue, 'hidden', 'statue');
+            switchClasses(salesman, 'romanSalesman', 'romanSalesman2');
         }
 
         if (currentDialogIndex === 8) {
-            switchClasses(salesman, 'romanSalesman', 'romanSalesman2');
             switchClasses(statue, 'statue', 'statue2');
         }
 
         if (currentDialogIndex === 12) {
             switchClasses(statue, 'statue2', 'hidden')
+            switchClasses(salesman, 'romanSalesman', 'hidden');
             switchClasses(html, "html2", "html3");
             nextButton.style.display = 'none';
             textBubble.style.display = 'none';

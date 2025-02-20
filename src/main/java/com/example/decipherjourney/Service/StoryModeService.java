@@ -120,7 +120,7 @@ public class StoryModeService {
             "Kip: Lass uns doch mal hier rüber gehen, dann erzähle ich dir was ich erfahren habe über die Vigenère Chiffre.",
             "Kip: Die Vigenère Chiffre funktioniert ähnlich zur Caesar Chiffre durch eine Verschiebung der Buchstaben, es wird jedoch nicht nur eine Zahl genutzt sondern ein ganzes Schlüsselwort.",
             "Kip: Die Zeichen des Schlüsselwortes stehen dabei für ihre jeweilige Zahl im Alphabet.",
-            "Kip: Die zeichen des ursprünglichen Textes werden dann der Reihenfolge nach um die aufeinanderfolgenden Zahlen verschoben.",
+            "Kip: Die Zeichen des ursprünglichen Textes werden dann der Reihenfolge nach um die aufeinanderfolgenden Zahlen verschoben.",
             "Kip: Damit ist nicht jedes A der selbe Buchstabe aber bei einer Schlüssellänge von 4 wird jeder vierte Buchstabe um die selbe Zahl vom vierten Zeichen im Schlüssel verschoben.",
             "Kip: Hier ich habe dir eine kurze Erklärung auf das Tablet geladen.",
             "[Klicke weiter um das Tutorial zu beenden, oder starte den Story Strang neu um die Erklärung von Kip erneut zu hören.]",
