@@ -232,6 +232,8 @@ header {
 .dialog-text {
     list-style-type: none;
     padding: 0;
+    user-select: none;
+    pointer-events: none;
 }
 
 .next-button {
@@ -294,7 +296,6 @@ header {
 }
 
 .testcipher {
-
     padding: 0;
     margin-left: -200px;
     width: 1600px; 

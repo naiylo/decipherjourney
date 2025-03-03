@@ -22,7 +22,9 @@ public class CreatorService {
         "PUZZLE",
         "LONDON",
         "ROM",
-        "FLIEGEN"
+        "FLIEGEN",
+        "FERTIG",
+        "ESSEN"
     );
 
     /**
@@ -35,7 +37,9 @@ public class CreatorService {
         "PUZZLE",
         "LONDON",
         "ROM",
-        "FLIEGEN"
+        "FLIEGEN",
+        "FERTIG",
+        "ESSEN"
     );
 
 

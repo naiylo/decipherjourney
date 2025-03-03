@@ -28,5 +28,5 @@ export function typeDialog(dialog, callback) {
             clearInterval(typeInterval); 
             callback(); 
         }
-    }, 10); 
+    }, 15); 
 }

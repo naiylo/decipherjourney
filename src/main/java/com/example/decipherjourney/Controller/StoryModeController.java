@@ -70,7 +70,7 @@ public class StoryModeController {
             return "redirect:/storyThree";
 
             default:
-            return "redirect:/storyOne";
+            return "endscreen";
         }
 
     }

@@ -252,9 +252,12 @@ header {
 .dialog-text {
     list-style-type: none;
     padding: 0;
+    user-select: none;
+    pointer-events: none;
 }
 
 .next-button {
+    margin-left: 20px;
     position: absolute;
     right: 10px; 
     top: 50%;

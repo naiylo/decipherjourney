@@ -170,7 +170,7 @@
                         </div>
                         <div class="notes-buttons">
                             <div class="shift-button">
-                                    <button id="shift-button" name="shift-button" class="shift-button">Shift by:</button>
+                                    <button id="shift-button" name="shift-button" class="shift-button">Verschieben um:</button>
                                 </div>
                                     <input name="shift" id="shift" type="text" maxlength="2" class="shift-input" th:value="${shift != null ? shift : ''}">   
                                 </div>
@@ -178,12 +178,12 @@
                         <div id="texttodecipher" class="texttodecipher">K O L O S S E U M</div>
                             <input id="input" class="decipherspace" placeholder="_________">
                             <button class="submitbutton">Übersetzung Testen</button>
+                            <div class="task" name="task" id="task">Aufgabe: Verschlüssele das Wort KOLOSSEUM in dem du die Caesar Chiffre mit dem Schlüssel 3 nutzt.</div>
                             <div class="result" id="result"></div>
                         <div class="explanation" id="helptext">
-                            <div class="task" name="task" id="task">Aufgabe: Verschlüssele das Wort KOLOSSEUM in dem du die Caesar Chiffre mit dem Schlüssel 3 nutzt.</div>
                             <p> Im Verschiebedisk-Bereich können Sie die innere Scheibe frei nach Vorstellung verschieben. Eine Verschiebung von zwei im Uhrzeigersinn (+2) wäre eine Entschlüsselung
                                 in der Annahme, dass eine Verschiebung von 2 genutzt wurde somit stände ein W im Verschlüsselten Text für ein U im Entschlüsselten Text. Eine Verschiebung von 2 gegen den Uhrzeigersinn (-2)  
-                                wäre eine Verschlüsselung des Originaltextes um 2 Stellen W steht nun für Y. Der "Shift-by" Button lässt dich die Scheibe direkt richtig einstellen. dass. In den Notizen kannst du bestimmte Buchstaben 
+                                wäre eine Verschlüsselung des Originaltextes um 2 Stellen W steht nun für Y. Der "Shift-by" Button lässt dich die Scheibe direkt richtig einstellen. In den Notizen kannst du bestimmte Buchstaben 
                                 Kombinationen eintragen.
                             </p>
                         </div>

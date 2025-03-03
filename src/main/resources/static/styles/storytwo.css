@@ -232,6 +232,8 @@ header {
 .dialog-text {
     list-style-type: none;
     padding: 0;
+    user-select: none;
+    pointer-events: none;
 }
 
 .next-button {
@@ -406,6 +408,8 @@ header {
     font-family: PixelFont;
     font-size: 2rem;
     text-align: center;
+    user-select: none;
+    pointer-events: none;
 }
 
 .notes-letters {
@@ -554,32 +558,34 @@ header {
     background-color: rgba(196, 196, 196, 0.3);
 }
 
-.result {
-    position: absolute;
-    height: 60px;
-    width: 380px;
-    font-size: 1.4rem;
-    margin-left: 1000px;
-    margin-top: 280px;
-}
-
-.explanation {
-    position: relative;
-    height: 100px;
-    width: 1550px;
-    margin-top: 340px;
-    color: white;
-}
-
 .task {
-    position: relative;
+    position: absolute;
     height: 100px;
     width: 400px;
     color: white;
-    margin-top: 20px;
-    margin-left: 1070px;
+    margin-top: 300px;
+    margin-left: 1010px;
     font-size: 1.2rem;
     font-weight: bold;
+    user-select: none;
+    pointer-events: none;
+}
+
+.result {
+    position: absolute;
+    height: 100px;
+    width: 400px;
+    margin-top: 400px;
+    margin-left: 1010px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.explanation {
+    position: absolute;
+    margin-top: 450px;
+    user-select: none;
+    pointer-events: none;
 }
 
 .portal {

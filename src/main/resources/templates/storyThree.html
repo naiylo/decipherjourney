@@ -34,7 +34,7 @@
             <div class="video-container">
                 <img id="animatedKip" src="/images/kip.png" class="hoverinthecentreclickableappear" alt="Der Roboter Kip.">
                 <img id="sherlockHolmes" src="/images/sherlockholmes.png" class="hidden" alt="Sherlock Holmes.">
-                <video id="video" class="hidden" autoplay muted loop>
+                <video id="video" class="hidden" autoplay muted loop onloadedmetadata="this.playbackRate = 0.8;">
                     <source src="/video/TutorialVigenereCipher.webm">
                     Ihr Browser unterstützt dieses Videoformat nicht.
                 </video>
@@ -61,8 +61,8 @@
                             <div class="task" name="task" id="task">Aufgabe: Verschlüssele das Wort LONDON mit dem Schlüsselwort ABC.</div>
                             <p> In dem Indexbereich hast du eine Übersicht welcher Buchstabe durch welche Zahl dargestellt wird und 
                                 mit dem Modulo Rechner kannst du zwei Zahlen im Modulo des Alphabetes mit einander verrechnen. Da A die 1 darstellt wäre bei einem Schlüssel von ABC das Wort AAA mit ABC zu 
-                                verrechnen und es würde BCD herauskommen, da A(1) + A(1) = B(2)  A(1) + B(2) = C(3)  A(1) + C(3) = D(4). Beim Entschlüsseln rechnest du Minus wenn das Wort ABC ist und du 
-                                denkst der Schlüssel ist KIP dann also A(1) - K(11) = P(16) B(2) - I(9) = S(19) C(3) - P(16) = M. Der Rechner macht das direkt für dich.
+                                verrechnen und es würde BCD herauskommen, da A(1) + A(1) = B(2) | A(1) + B(2) = C(3) | A(1) + C(3) = D(4). Beim Entschlüsseln rechnest du Minus wenn das Wort ABC ist und du 
+                                denkst der Schlüssel ist KIP dann also A(1) - K(11) = P(16) | B(2) - I(9) = S(19) | C(3) - P(16) = M. Der Modulo-Rechner macht das direkt für dich.
                             </p>
                         </div>
                     </div>
