@@ -32,15 +32,16 @@ public class VigenereCipherService {
             if (Character.isLetter(ch)) { 
                 char base = Character.isUpperCase(ch) ? 'A' : 'a';
                 
-                int shift = 'Z' - keyword.charAt(keywordIndex);
-                // Buchstaben verschieben und sicherstellen, dass sie im Alphabet bleiben
+                // Richtige Shift-Berechnung
+                int shift = keyword.charAt(keywordIndex) - 'A' + 1;
+                
+                // Verschlüsselung mit Vigenère-Logik
                 char shifted = (char) ((ch - base + shift) % 26 + base);
                 cipheredText.append(shifted);
     
                 // Zum nächsten Buchstaben im Schlüssel wechseln
                 keywordIndex = (keywordIndex + 1) % keyword.length();
             } else {
-                // Nicht-Buchstaben unverändert lassen
                 cipheredText.append(ch);
             }
         }
@@ -57,26 +58,29 @@ public class VigenereCipherService {
      */
     public String decipherText(String text, String keyword) {
         StringBuilder decipheredText = new StringBuilder();
-        keyword = keyword.toUpperCase(); 
+        keyword = keyword.toUpperCase();
         int keywordIndex = 0;
     
         for (char ch : text.toCharArray()) {
-            if (Character.isLetter(ch)) { 
+            if (Character.isLetter(ch)) {
                 char base = Character.isUpperCase(ch) ? 'A' : 'a';
-                int shift = 'Z' - keyword.charAt(keywordIndex);
-                // Buchstaben zurückverschieben und sicherstellen, dass sie im Alphabet bleiben
+    
+                // Richtige Shift-Berechnung für Entschlüsselung
+                int shift = keyword.charAt(keywordIndex) - 'A' + 1;
+    
+                // Buchstaben zurückverschieben
                 char shifted = (char) ((ch - base - shift + 26) % 26 + base);
                 decipheredText.append(shifted);
     
                 // Zum nächsten Buchstaben im Schlüssel wechseln
                 keywordIndex = (keywordIndex + 1) % keyword.length();
             } else {
-                // Nicht-Buchstaben unverändert lassen
                 decipheredText.append(ch);
             }
         }
         return decipheredText.toString();
     }
+    
 
     /**
      * Function to create a random VigenereCipher object with a random text and keyword.
@@ -100,6 +104,9 @@ public class VigenereCipherService {
         // Cipher the text
         String cipheredText = cipherText(originalText, keyword);
         cipher.setCipheredText(cipheredText);
+
+        System.out.println("Original Text: " + originalText);
+        System.out.println("Ciphered Text: " + cipheredText);
 
         return cipher;
     }
@@ -126,6 +133,10 @@ public class VigenereCipherService {
         String cipheredText = cipherText(originalText, keyword);
         cipher.setCipheredText(originalText);
         cipher.setOriginalText(cipheredText);
+
+        System.out.println("Original Text: " + originalText);
+        System.out.println("Ciphered Text: " + cipheredText);
+        
 
         return cipher;
     }
