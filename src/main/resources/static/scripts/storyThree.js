@@ -100,7 +100,7 @@ async function showNextDialog() {
             nextButton.style.display = 'none';
             textBubble.style.display = 'none';
             await waitForNSeconds(1.5);
-            texttodecipher.textContent = "M R W M N P";
+            texttodecipher.textContent = "M R W M N D";
             inputField.value = "";
             resultDiv.textContent = "";
             sign.textContent = "-";
