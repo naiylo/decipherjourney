@@ -1,0 +1,2921 @@
+:root {
+    --s2color0: #FFFFFF;
+    --s2color1: #000000;
+    --s2color2: #EE3300;
+    --s2color3: #F9F9FC;
+    --s2color4: #6688CC;
+    --s2color5: #DDE6FF;
+    --s2color6: #FF9900;
+    --s2color7: #E0E0E0;
+    --s2color8: #666666;
+    --s2color9: #000000;
+}
+
+body {
+    font-family: "Atkinson Hyperlegible", Verdana, Arial,sans-serif;
+    font-size: 18px;
+color: #000000; color: var(--s2color1);
+background-color: #000000; background-color: var(--s2color0);
+margin: 0px;
+    padding: 0px
+}
+html {
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape in Safari */
+}
+body.s2screenreader,
+body.s2screenreader td,
+body.s2screenreader th,
+body.s2screenreader textarea,
+body.s2screenreader input,
+body.s2screenreader select,
+body.s2screenreader button,
+body.s2screenreader div.s2accordion > .title {
+    font-size: 19px;
+}
+body.s2screenreader ul.items > li {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+body.D_rtl { direction: rtl }
+.s2background {
+    background-color: white;
+background-color: #000000; background-color: var(--s2color0);
+}
+
+p {
+    margin: 0.8em 0
+}
+td {
+    vertical-align: top;
+    font-size: 18px
+}
+th {
+    vertical-align: top;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold
+}
+
+h1 {
+    font-size: 165%
+}
+h2 {
+    font-size: 115%;
+    margin: 1.5em 0 0.8em 0
+}
+h3 {
+    font-size: 100%
+}
+hr {
+    height: 0px; color: transparent; background-color: transparent;
+    border-bottom: 2px solid #6688CC
+}
+a:link,
+a:visited { color: #6688CC; color: var(--s2color4); }
+a:hover,
+a:active,
+a:focus { color: #666666; color: var(--s2color8); }
+
+
+/* Make Atkinson Hyperlegible font available */
+@font-face {
+    font-family:"Atkinson Hyperlegible";
+    src:url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Regular-102-1.woff2") format("woff2"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Regular-102.woff") format("woff"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Regular-102.ttf") format("truetype"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Regular-102.svg") format("svg"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Regular-102.eot?#iefix") format("embedded-opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+@font-face {
+    font-family:"Atkinson Hyperlegible";
+    src:url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Bold-102-1.woff2") format("woff2"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Bold-102.woff") format("woff"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Bold-102.ttf") format("truetype"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Bold-102.svg") format("svg"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Bold-102.eot?#iefix") format("embedded-opentype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: block;
+}
+@font-face {
+    font-family:"Atkinson Hyperlegible";
+    src:url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Italic-102-1.woff2") format("woff2"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Italic-102.woff") format("woff"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Italic-102.ttf") format("truetype"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Italic-102.svg") format("svg"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Italic-102.eot?#iefix") format("embedded-opentype");
+    font-weight: normal;
+    font-style: oblique;
+    font-display: block;
+}
+@font-face {
+    font-family:"Atkinson Hyperlegible";
+    src:url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-BoldItalic-102-1.woff2") format("woff2"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-BoldItalic-102.woff") format("woff"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-BoldItalic-102.ttf") format("truetype"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-BoldItalic-102.svg") format("svg"), url("../plugins/Atkinson-Hyperlegible/Atkinson-Hyperlegible-BoldItalic-102.eot?#iefix") format("embedded-opentype");
+    font-weight: bold;
+    font-style: oblique;
+    font-display: block;
+}
+
+
+table.middle td { vertical-align: middle }
+table.fixed { table-layout: fixed }
+table.fullwidth { width: 100% } 
+div.message {
+    width: 100%;
+    padding: 6px;
+    border: 2px solid #6688CC
+}
+div.s2mark {
+    position: absolute;
+    left: -99999px;
+    overflow: hidden;
+}
+div.prompt {
+    text-align: center;
+    width: 320px;
+    min-width: min-content;
+    padding: 16px 20px 32px 20px;
+    margin: 60px auto;
+    border: 1px solid #999999
+}
+span.s2clear,
+div.s2clear {
+    clear: both;
+    display: block;
+}
+textarea,
+input,
+select,
+button {
+    font-family: "Atkinson Hyperlegible", Verdana, Arial,sans-serif;
+    font-size: 18px;
+    vertical-align: middle;
+    margin-top: 0px
+}
+
+/* Image buttons */
+button.s2imageButton,
+button.s2imageButton:hover {
+    border: 0 none;
+    background-color: transparent;
+}
+button.s2imageButton > img {
+    color: black;
+}
+button.s2imageButton > img.default,
+button.s2imageButton:hover > img.hover,
+button.s2imageButton:focus > img.hover {
+    display: inline;
+}
+button.s2imageButton > img.hover,
+button.s2imageButton:hover > img.default,
+button.s2imageButton:focus > img.default {
+    display: none;
+}
+
+input.number {
+    text-align: right;
+}
+
+/* Layout elements */
+img.s2-logo { max-width: 100%; }
+img.s2-responsive { max-width: 100%; }
+            
+table.layout {
+    border-spacing: 0;
+}
+table.layout > tr > td,
+table.layout > tr > th,
+table.layout > thead > tr > td,
+table.layout > thead > tr > th, 
+table.layout > tfoot > tr > td,
+table.layout > tfoot > tr > th, 
+table.layout > tbody > tr > td,
+table.layout > tbody > tr > th {
+    padding: 0;
+    border: 0 none;
+}
+
+/* DIV alignment */
+div.aright { margin-left: auto }
+div.acenter { margin-left: auto; margin-right: auto }
+.spaceAbove { margin-top: 2em }
+table.s2iLayout { width: 100%; border-spacing: 0; table-layout: fixed }
+table.s2iLayout > tr > td,
+table.s2iLayout > tbody > tr > td { padding: 0 }
+
+/* Hide HTML5 input up/down arrows */
+div.textinput input[type="number"]::-webkit-outer-spin-button,
+div.s2text input[type="number"]::-webkit-outer-spin-button,
+div.textinput input[type="number"]::-webkit-inner-spin-button,
+div.s2text input[type="number"]::-webkit-inner-spin-button,
+td.textinput input[type="number"]::-webkit-outer-spin-button,
+td.s2text input[type="number"]::-webkit-outer-spin-button,
+td.textinput input[type="number"]::-webkit-inner-spin-button,
+td.s2text input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+div.textinput input[type="number"],
+div.s2text input[type="number"],
+td.textinput input[type="number"] {
+    -moz-appearance: textfield;
+}
+input[type="checkbox"],
+input[type="radio"] {
+    user-select: none;
+}
+
+span.s2copy {
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+}
+            
+div.title				{
+font-weight: bold; padding: 0 0 6px 0
+}
+div.title p				{ margin: 0px 0px 0.5em 0px;  }
+div.explanation			{
+
+}
+div.explanation p {
+    margin: 0px 0px 0.5em 0px;
+}
+div.title > p:first-child,
+div.explanation > p:first-child { margin-top: 0 }
+div.title > p:last-child,
+div.explanation > p:last-child { margin-bottom: 0 }
+div.titleSpacing { margin-top: 1.6em;  }
+div.border { border: 2px solid #6688CC; padding: 9px 8px }
+        
+div.trouble { color: #EE3300 }
+div.s2fail div.title { color: #EE3300 }
+div.s2fail div.explanation { color: #EE3300 }
+
+
+dl.S2Controller {
+    display: none;
+}
+
+div.question   { }
+div.head {
+font-weight: bold
+}
+td.extended div.head {
+    background-color: transparent;
+    padding: 0;
+}
+
+table.question {
+    table-layout: fixed;
+    border-collapse: collapse
+}
+table.question th.value_text { vertical-align: bottom; text-align: center; font-size: 100%; font-weight: normal; padding-bottom: 0.2em; }
+table.question th.value_text_left { padding-left: 6px; text-align: left }
+table.question th.value_text_right { padding-right: 4px; text-align: right }
+/* Numbers within right-to-left texts */
+span.number,
+span.left-to-right {
+    direction: ltr;
+    unicode-bidi: bidi-override;
+}
+/* Also question numbers, but we need to take care of the dot */
+body.D_rtl div.s2question div.title span.number {
+    /* direction: rtl; */
+    unicode-bidi: initial;
+}
+
+table.question td.value_label,
+table.question div.value_label { font-size: 100%; font-weight: normal; padding-bottom: 0.2em; }
+div.s2anchor div.s2scaleLabels {
+    align-items: flex-end;
+}
+div.s2numbers {
+    display: flex;
+    width: 100%;
+    flex-basis: 100%;
+}
+table.question th.numbering,
+table.question td.numbering,
+div.s2numbers > div {
+vertical-align: bottom; text-align: center; font-size: 100%; padding-bottom: 0.2em;
+}
+div.s2numbers > div {
+    flex: 1 1 30px;
+}
+table.question div.polarMiddle { text-align: center; padding-bottom: 0.2em; }
+table.question div.slider { position: relative; background-repeat: no-repeat }
+body.D_rtl table.question div.slider,
+body.D_rtl div.s2items div.slider,
+body.D_rtl div.s2items div.imgscale {
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+body.D_rtl table.question div.slider div.s2currentValue,
+body.D_rtl div.s2items div.slider div.s2currentValue {
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+table.question div.sliderButton,
+div.s2question div.sliderButton,
+div.s2input div.sliderButton { position: absolute; top: 0px; background-repeat: no-repeat }
+table.s2slider.s2labels {
+    table-layout: fixed; position: relative;
+}
+table.s2slider.s2labels td.value_label {
+    overflow: hidden;
+}
+
+table.question td { padding: 3px 4px; vertical-align: middle }
+table.question td.dropdown.input { padding-top: 0.25em; padding-bottom: 0.25em; }
+table.question td.closeRight { text-align: right; padding-right: 0px }
+table.question td.closeLeft { text-align: left; padding-left: 0px }
+table.question td.nopad-x { padding-left: 0px; padding-right: 0px }
+table.question td.itemtext {  }
+
+table.question td.item { padding-top: 0.5em; padding-bottom: 0.5em;  }
+table.question td.option {  padding-top: 0.35em; padding-bottom: 0.35em;  }
+
+
+table.question th.opener,
+table.question td.opener { vertical-align: bottom; }
+table.question th.opener {
+
+}
+table.question th.opener,
+table.question td.opener,
+table.question div.opener,
+div.question div.opener,
+div.s2items div.s2opener,
+div.s2question div.s2opener {
+    font-weight: bold
+}
+div.s2question > div.s2opener {
+    padding-bottom: 0.5em;
+}
+table.question td.subheading { font-weight: bold }
+table.question th.subheading { font-weight: bold; vertical-align: bottom; padding-bottom: 2px; padding-top: 6px }
+div.subheading { margin: 1em 0 0.5em 0; font-weight: bold; }
+
+table.question td.anchor,
+div.question div.anchor,
+div.s2question div.anchor {
+
+}
+div.shadeF0,
+li.shadeF0,
+table.question tr.shadeF0 td,
+table.question tr.shadeF1 td.invShade { background-color: transparent;  }
+div.shadeF1,
+li.shadeF1,
+table.question tr.shadeF1 td { background-color: #F9F9FC; background-color: var(--s2color3); }
+table.question tr.shadeF0 td.invShade { background-color: #F9F9FC; background-color: var(--s2color3); }
+table.question tr.shadeH0 td,
+table.question tr.shadeH1 td.invShade { background-color: #F9F9FC; background-color: var(--s2color3); }
+table.question tr.shadeH1 td,
+table.question tr.shadeH0 td.invShade { background-color: transparent;  }
+@media(hover: hover) {
+  table.question tr.hover:hover td,
+  div.hover:hover { background-color: #DDE6FF; background-color: var(--s2color5); }
+}
+
+/* Screen reader optimized display */
+ul.items { list-style-type: none; padding: 0px; margin: 0px }
+ul.items > li { padding: 3px 4px; clear: both; }
+ul.items > li input { vertical-align: middle; }
+li.trouble { color: #EE3300 }
+ul.items > li.select,
+ul.items > li.checkbox { padding-left: 25px; text-indent: -25px; }
+ul.items fieldset {
+    border: 0 none;
+    padding: 0;
+    margin: 0.5em 0;
+}
+ul.items fieldset> legend {
+    margin-bottom: 0.3em;
+    font-weight: bold;
+}
+
+table.question th.gapline,
+table.question td.gapline,
+    div.gapline {
+        padding: 0px;
+        border-left: 2px solid #6688CC;
+    }
+table.question td.s2gap.gapline,
+    table.question td.s2gap.s2before {
+        position: relative;
+    }
+table.question th.dont_know { padding-left: 2px; padding-right: 2px; border-left: 2px solid #6688CC; }
+table.question td.dont_know,
+div.s2question div.s2input.s2dk {
+	text-align: center; border-left: 2px solid #6688CC;
+}
+div.s2gapline {
+align-self: stretch;
+border-left: 2px solid #6688CC;
+}
+
+table.question td.input			{ }
+table.question td.input select,
+table.question td.input input[type=text] { vertical-align: baseline }
+table.question th.wedge			{ text-align: center; padding-left: 0px; padding-right: 0px }
+table.question td.spacer		{ padding: 0px; overflow: hidden }
+table.question th.spacer		{ padding: 0px; overflow: hidden }
+table.question td.text 			{ vertical-align: middle;  }
+table.question td.rank			{ text-align: right; padding-right: 4px }
+table.question td.rank select	{ text-align: center; width: 42px }
+table.question td.float			{ text-align: left; padding: 2px 4px }
+table.question td.float input	{ vertical-align: baseline; margin: 3px 0 }
+table.question td.float input.trouble	{ border: 2px solid #EE3300 }
+table.question td.balloon		{  }
+table.question td.balloon p		{ font-size: 10px; margin: 0px 0px 4px 0px }
+table.question td.balloon textarea	{ font-size: 11px; border: 1px solid #999999 }
+table.question td.balloon textarea.trouble { border: 2px solid #EE3300 }
+table.question td.select,
+table.question td.select.itemtext textarea {
+    vertical-align: middle; 
+}
+table.question td.checkbox,
+table.question td.checkbox.itemtext textarea {
+    vertical-align: middle; 
+}
+table.question td.dropdown		{ }
+table.question td.selscale		{ text-align: center; }
+table.question td.scale			{ text-align: center; vertical-align: top;  }
+div.s2question div.s2items.S2Scale.matrix div.s2flex,
+div.s2question div.s2items.S2ScaleFull.matrix div.s2flex {
+    height: 100%;
+align-items: flex-start
+}
+table.question td.polar			{ text-align: center; vertical-align: middle;  }
+table.question td.dropdown		{}
+table.question td.contact		{ vertical-align: top }
+table.question td.contact > input[type="checkbox"] { margin: 0; }
+table.question td.left_pol		{ text-align: right }
+table.question td.right_pol		{ text-align: left }
+table.question td.padding		{ padding: 2px 4px 2px 4px; }
+table.question td.trouble,
+table.question tr.trouble td,
+div.s2question div.s2item.s2fail {
+  	color: #EE3300
+}
+table.question tr.trouble > td.extended {
+    border: 2px solid #EE3300; 
+}
+table.question td.trouble input[type="text"],
+table.question td.trouble select { border: 1px solid #EE3300 }
+table.question table.llabels { table-layout: fixed }
+table.question table.llabels td { padding: 0px }
+table.question table.llabels td.vlabel { vertical-align: middle }
+
+table.question td.container			{ padding: 0 }
+table.question th.container			{ padding: 0; text-align: left; font-weight: normal; padding-bottom: 0.2em; }
+table.question td.container td		{ padding: 0 }
+table.question td.container	div		{ position: relative; height: 16px; }
+table.question td.container input,
+table.question td.container button,
+table.question td.container label.inputCST	{ position: absolute; text-align: center; margin-left: 0; margin-right: 0; }
+table.question td.container button.input	{ position: absolute }
+table.question div.numbering {
+clear: both; position: relative; width: 100%; height: 1.2em; margin-bottom: 4px;
+}
+table.question div.numbering div {
+position: absolute; text-align: center; white-space: nowrap; overflow: hidden; font-size: 100%; padding-bottom: 0.2em;
+}
+div.s2items div.s2labels {
+    margin-bottom: 0.2em;
+}
+div.s2items div.numbering {
+    margin-bottom: 0.2em;
+    margin-top: 0.2em;
+}
+div.s2items div.numbering div {
+    font-size: 100%; padding-bottom: 0.2em;
+}
+div.s2items div.s2flex.s2labels {
+    align-items: end;
+}
+            
+table.question td.blank {
+    padding: 0;
+}
+
+table.question th.separateB,
+table.question td.separateB,
+table.question div.separateB,
+div.separateB,
+div.s2sepH { border-top: 2px solid #6688CC; }
+table.question th.separateR,
+table.question td.separateR,
+div.s2sepV,
+div.s2options.s2horizontal > div.s2separator { border-left: 2px solid #6688CC; }
+table.question td.residual {  }
+
+/* General opener */
+div.s2iOpener,
+td.s2iOpener,
+th.s2iOpener { padding-top: 0.35em; padding-bottom: 0.35em; font-weight: bold}
+div.s2items.S2select div.s2iOpener {
+    background-color: transparent;
+}
+div.s2items.S2select.s2cShaded div.s2iOpener {
+}
+            
+/* Custom inputs */
+label.inputCST { display: inline-block; vertical-align: middle; border: 0 none; padding: 0; margin: 0; background-color: transparent; }
+label.inputCST::after { content: "\200D"; }  /* zero width joiner to middle-place the CST */
+
+
+/* Responsive layout: matrix v. list */
+/* Use listing layout for very small screens by default, i.e. bootstrap xs, i.e. <320px */
+/* matrix layout for  as of 320 pixels */
+div.s2layoutList {
+    display: block;
+}
+span.s2layoutList {
+    display: inline;
+}
+div.s2layoutMatrix,
+span.s2layoutMatrix {
+    display: none;
+}
+@media (min-width: 320px) {
+    div.s2layoutList,
+    span.s2layoutList {
+        display: none;
+    }
+    div.s2layoutMatrix {
+        display: block;
+    }
+    div.s2layoutMatrix.s2flex {
+        display: flex;
+    }
+    span.s2layoutMatrix {
+        display: inline;
+    }
+}
+
+/* Responsive items in general */
+div.s2items div.s2item {
+    display: flex;
+    flex-flow: wrap;
+}
+div.s2question div.s2items {
+    width: 100%;
+}
+div.s2question div.s2items.auto {
+    /* Default (auto) is the matrix layout, but JS can change that as required */
+    display: table;
+    border-collapse: collapse;
+}
+div.s2question div.s2items.matrix {
+    display: table;
+    border-collapse: collapse;
+}
+div.s2question div.s2items > div.s2item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+}
+div.s2question div.s2items.auto > div.s2item,
+div.s2question div.s2items.matrix > div.s2item {
+    display: flex;
+}
+div.s2question div.s2items.narrow > div.s2item,
+div.s2question div.s2items.slim > div.s2item {
+    margin-bottom: 1.4em;
+}
+div.s2question div.s2items.narrow > div.s2item.s2subheading,
+div.s2question div.s2items.slim > div.s2item.s2subheading {
+    margin-top: 2em;
+}
+div.s2question div.s2items.flex > div.s2item {
+    display: flex;
+    align-content: stretch;
+}
+div.s2question div.s2items.flex > div.s2item.s2anchor {
+    align-items: flex-end;
+}
+div.s2question div.s2items.flex > div.s2item.s2text,
+div.s2question div.s2items.flex > div.s2item.s2multidropdown {
+    align-items: center;
+}
+div.s2question div.s2items.flex > div.s2item > div.s2input {
+    flex: 1 1 auto;
+}
+div.s2item { }
+div.s2item > div.s2label {
+    position: relative;
+    min-width: 10em;
+    padding: 0.5em 0.5em;
+}
+div.s2item.shadeN > div.s2label:first-child {
+    padding-left: 0;
+}
+div.s2item > div.s2input,
+tr.s2item > td > div.s2input,
+div.s2item > div.s2dk,
+tr.s2item > td > div.s2dk {
+    position: relative;
+    width: auto;
+    padding: 0.5em 0;
+}
+tr.s2item > td > div.s2input,
+div.s2item > div.s2dk,
+tr.s2item > td > div.s2dk {
+    margin: 0 auto;
+}
+div.s2aRight div.s2item > div.s2input {
+    margin: 0 0 0 auto;
+}
+div.s2aLeft div.s2item > div.s2input {
+    margin: 0 auto 0 0;
+}
+div.s2question div.s2items > div.s2item.s2anchor > div.s2label,
+div.s2question div.s2items > div.s2item.s2anchor > div.s2input,
+div.s2question div.s2items > div.s2item.s2subheading > div.s2label,
+div.s2question div.s2items > div.s2item.s2subheading > div.s2input {
+    vertical-align: bottom;
+}
+div.s2question div.s2items > div.s2item.s2subheading > div.s2label {
+    font-weight: bold;
+}
+div.s2question div.s2items > div.s2item.s2subheading > div.s2label,
+div.s2question div.s2items > div.s2item.s2subheading > div.s2input {
+    padding-top: 1em;
+}
+div.s2labels > div {
+    overflow: hidden;
+}
+div.s2items div.s2heading,
+div.s2items div.s2anchor {}
+div.s2items div.s2entireWidth {
+    max-width: 100% !important;
+    flex-basis: auto !important;
+}
+div.s2value {
+    vertical-align: bottom;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 0.5em;
+    font-size: 100%; 
+    font-weight: normal; padding-bottom: 0.2em;
+}
+div.s2value.left {
+    text-align: right;
+}
+div.s2value.right {
+    text-align: left;
+}
+div.s2value.left,
+div.s2value.right {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+}
+
+/* Visual anchor */
+div.s2visual {
+    position: relative;
+    width: 100%;
+}
+div.s2visual img {
+    position: relative;
+    max-width: 100%;
+}
+body.D_rtl div.s2visual img,
+body.D_rtl img.s2visual {
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+/* Container for elements of equal height */
+div.s2series {
+    position: relative;
+}
+div.s2series > div {
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+}
+div.s2series > div:first-child {
+    position: relative;
+}
+div.s2series > div > input {
+    /* Safari will clip the radio buttons if there is no vertical margin set */
+    margin: 1px 0;
+}
+/* Additional content visible under certain circumstances */
+div.s2question div.s2cntExtended {
+    display: none;
+}
+div.s2items.auto div.s2cntNarrow,
+div.s2items.auto div.s2cntSlim,
+div.s2items.matrix div.s2cntNarrow,
+div.s2items.matrix div.s2cntSlim,
+div.s2items.narrow div.s2layoutMatrix,
+div.s2items.slim div.s2layoutMatrix,
+div.s2question div.s2items.narrow > div.s2anchorHead,
+div.s2question div.s2items.narrow > div.s2item.s2anchor > div.s2input,
+div.s2question div.s2items.slim > div.s2item.s2anchor > div.s2input,
+div.s2question div.s2items.narrow > div.s2item.s2anchor > div.s2dk,
+div.s2question div.s2items.slim > div.s2item.s2anchor > div.s2dk,
+div.s2question div.s2items.narrow > div.s2item.s2subheading > div.s2input,
+div.s2question div.s2items.slim > div.s2item.s2subheading > div.s2input,
+div.s2question div.s2items.narrow > div.s2item.s2subheading > div.s2dk,
+div.s2question div.s2items.slim > div.s2item.s2subheading > div.s2dk
+{
+    display: none;
+}
+div.s2question div.s2items.narrow div.s2layoutList,
+div.s2question div.s2items.slim div.s2layoutList {
+    display: block;
+}
+div.s2question div.s2items.narrow span.s2layoutList,
+div.s2question div.s2items.slim span.s2layoutList {
+    display: inline;
+}
+div.s2items.narrow div.s2anchor div.s2layoutMatrix.s2polarLeft,
+div.s2items.slim div.s2anchor div.s2layoutMatrix.s2polarLeft {
+    display: block;
+    text-align: center;
+}
+
+div.s2flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+.legacyIE9 div.s2flex {
+    display: table;
+}
+div.s2flex > div {
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+.legacyIE9 div.s2flex > div {
+    display: table-cell;
+}
+/*
+no-JS fallback,
+use narrow layout for screens smaller 576px (bootstrap: sm)
+*/
+@media (max-width: 675px) {
+    div.s2question div.s2items.auto,
+    div.s2question div.s2items.auto > div.s2item,
+    div.s2question div.s2items.auto > div.s2item > div.s2label,
+    div.s2question div.s2items.auto > div.s2item > div.s2input {
+        display: block;
+    }
+    div.s2question div.s2items.auto > div.s2item.s2anchor > div.s2input,
+    div.s2question div.s2items.auto > div.s2item.s2subheading > div.s2input {
+        display: none;
+    }
+    div.s2question div.s2items.auto > div.s2item {
+        margin-bottom: 1.4em;
+    }
+    div.s2question div.s2items > div.s2item.s2subheading {
+        margin-top: 2em;
+    }
+    div.s2items.auto div.s2layoutMatrix {
+        display: none;
+    }
+    div.s2items.auto div.s2cntNarrow {
+        display: block;
+    }
+}
+
+div.s2label {
+    box-sizing: border-box;
+}
+
+/* Text input */
+div.s2item.s2text {
+    flex-wrap: wrap;
+}
+div.s2item.s2text > div.s2label,
+div.s2item.s2text > div.s2input {
+    padding: 0 0.5em;
+}
+/*
+ * Labels not centered on inputs (and their text) any more with this code
+div.s2item.s2text > div.s2label,
+div.s2input.s2text > div.s2post,
+div.s2input > div.s2dk-dk {
+    padding-top: 3px;
+}
+*/
+div.s2item.s2text > div.s2input,
+div.s2item.s2suggest > div.s2input {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* s2suggest rows use margin instead of padding */
+div.s2item.s2text > div.s2label,
+div.s2item.s2suggest > div.s2label,
+div.s2item.s2multidropdown > div.s2label {
+    margin: 0.5em 0.5em;
+}
+div.s2item.s2text > div.s2input,
+div.s2item.s2suggest > div.s2input,
+div.s2item.s2multidropdown > div.s2input {
+    margin: calc(0.5em - 3px) 0.5em;
+}
+div.s2item.s2suggest > div.s2label,
+div.s2item.s2text > div.s2label,
+div.s2item.s2multidropdown > div.s2label,
+div.s2item.s2multidropdown > div.s2input {
+    padding: 0;
+}
+div.s2item > div.s2input {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0.5em;
+}
+
+div.s2question div.s2items.flex > div.s2item.s2text > div.s2input {
+    flex: 1 1 10em;
+    align-items: center;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+div.s2input > div.s2dk-in {
+    margin-right: 0.5em;
+    flex-grow: 20;
+    min-width: 12em;
+}
+div.s2input > div.s2dk-gap {
+    min-width: 0.5em;
+    flex-grow: 1;
+}
+div.s2input > div.s2dk-dk {
+    padding-left: 0.5em;
+    display: flex;
+    gap: 0.3em;
+    border-left: 2px solid #6688CC
+}
+div.s2item.s2suggest div.s2input > div.s2dk-dk,
+div.s2item.s2text div.s2input > div.s2dk-dk {
+    padding-top: 3px;
+}
+div.s2item.s2text div.s2dk-in > div.s2post {
+    align-self: center;
+    display: inline-block;
+}
+div.s2above {
+    margin-bottom: 0.5em;
+}
+
+/* ScaleFull */
+div.S2ScaleFull div.s2item > div.s2input {
+    display: flex;
+}
+div.S2ScaleFull div.s2item > div.s2input > div.s2inputs {
+    flex: 1 1 auto;
+}
+div.s2item > div.s2input div.s2options,
+div.s2item > div.s2input div.s2dk {
+padding-top: 0.5em; }
+
+/* Selscale */
+div.selscale div.value_text {
+    text-align: center;
+    padding: 5px 10px; font-weight: normal; padding-bottom: 0.2em;
+}
+div.selscale div.wedge {
+    margin-bottom: 4px
+}
+div.selscale div.numbering {
+    text-align: center; font-size: 100%; padding-bottom: 0.2em;
+}
+div.selscale div.input {
+    text-align: center
+}
+
+/* horizontal selection */
+div.s2question div.s2blocks.s2horizontal {
+    padding-top: 8px;
+}
+div.s2question div.s2horizontal div.value_text {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+div.s2question div.s2blocks.s2horizontal,
+div.s2question div.s2options.s2horizontal {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+div.s2question div.s2blocks.s2horizontal > div.s2block {
+    flex-grow: 1;
+}
+div.s2question div.s2options.s2horizontal {
+    gap: 5px;
+}
+div.s2question div.s2options.s2horizontal div.s2option {
+    flex: 1 1 50px;
+    box-sizing: border-box;
+}
+div.s2question div.s2options.s2horizontal div.s2option img {
+    max-width: 100%;
+}
+
+/* MultiDropdown */
+
+
+/* Dynamic Selection Layout */
+.s2iSelection.multiple div.option {
+    -webkit-align-items:  center;
+    align-items: center;
+}
+.s2iSelection.single div.option {
+    -webkit-align-items: center;
+    align-items: center;
+}
+/* .s2iSelection div.option div.input { width: 25px } */
+.s2iSelection.dynamic div.option div.input {
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+.s2iSelection.dynamic div.place,
+.s2iSelection.dynamic div.option {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+        
+.s2iSelection.dynamic div.place,
+.s2iSelection.dynamic div.place > div.option {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+    flex-grow: 1;
+}
+.s2iSelection.dynamic div.option div.input > input[type="checkbox"],
+.s2iSelection.dynamic div.option div.input > input[type="radio"] {
+    margin: 0;
+}
+.s2iSelection.dynamic div.option {
+    flex-flow: row nowrap;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.s2iSelection.dynamic div.label {
+    break-inside: avoid-column;
+    page-break-inside: avoid;
+    -ms-flex: 0 1 auto; /* IE10 */
+    flex: 1 1 auto;
+}
+.s2iSelection.dynamic div.label.first {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+}
+.s2iSelection.dynamic div.label.second {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+}
+.s2iSelection.dynamic div.input.first {
+    margin: 0 0.5em;
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+}
+.s2iSelection.dynamic div.input.second {
+    margin: 0 0.5em;
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+}
+
+div.s2iSelection div.option div.label img {
+    max-width: 100%;
+}
+ 
+div.legacyIE9 .s2iSelection.dynamic div.option { display: table; width: 100%; }
+div.legacyIE9 .s2iSelection.dynamic div.option > div.input { display: table-cell; width: 2em; }
+div.legacyIE9 .s2iSelection.dynamic div.option > div.label { display: table-cell; overflow: hidden; min-height: 19px; vertical-align: middle; }
+div.legacyIE9 .s2iSelection.dynamic div.option > div.label label { vertical-align: middle; }
+div.legacyIE9 .separateB { clear: both; }			
+div.legacyIE9 div.subheading { clear: both; }
+
+/* Checkboxes that may become boxes */
+.s2iCheckbox {
+    text-align: center;
+}
+/* Safari requires some space below to not clip the inputs */
+.s2iCheckbox > input {
+    margin: 0 0 2px 0;
+}
+.s2iCheckbox > label.s2box,
+.s2iCheckbox > span.s2box {
+    display: none;
+    padding: 0.2em;
+    vertical-align: middle;
+    font-size: 100%; 
+}
+/* DK options */
+.s2dk .s2iCheckbox {
+    font-style: italic;
+    opacity: 0.8;
+}
+/*
+Always display boxes instead of radio elements on touch devices,
+and consequently remove the labels in the full-scale header
+*/
+body.D_touch .s2iCheckbox {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+            }
+body.D_touch .s2iCheckbox > label.s2box,
+body.D_touch .s2iCheckbox > span.s2box {
+                display: block;
+                flex: 1 1 auto;
+            }
+body.D_touch .s2iCheckbox > input,
+body.D_touch .s2iCheckbox > label.inputCST,
+body.D_touch .s2iCheckbox > span.s2printput {
+                position: absolute;
+                opacity: 0;
+                width: 1px;
+                height: 1px;
+            }
+body.D_touch .s2iCheckbox > label.inputCST,
+body.D_touch .s2radioLabel {
+                display: none;
+            }
+@media (max-width: 576px), handheld and (max-width: 991px), (pointer: coarse) and (max-width: 991px) {
+	 .s2iCheckbox {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+            }
+	 .s2iCheckbox > label.s2box,
+	 .s2iCheckbox > span.s2box {
+                display: block;
+                flex: 1 1 auto;
+            }
+	 .s2iCheckbox > input,
+	 .s2iCheckbox > label.inputCST,
+	 .s2iCheckbox > span.s2printput {
+                position: absolute;
+                opacity: 0;
+                width: 1px;
+                height: 1px;
+            }
+	 .s2iCheckbox > label.inputCST,
+	 .s2radioLabel {
+                display: none;
+            }
+   div.s2radioLabel {
+        display: none;
+    }
+   div.s2options.s2horizontal div.input,
+    div.s2options.s2horizontal div.input .s2iCheckbox {
+        height: 100%;
+        box-sizing: border-box;
+    }
+}
+/*
+Use listing layout for displays smaller than 992px (bootstrap: md)
+*/
+@media (max-width: 991px) {
+}
+
+/* Selection ordered in Rows */
+.s2iSelection.dynamic.rows {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-flex-wrap: wrap;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    justify-content: space-between;
+}
+.s2iSelection.dynamic.rows div.option {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1 0;
+    -ms-flex: 1 0;
+    flex: 1 0;
+}
+.s2iSelection.rows {
+    /* Note, that the gap function would not work with percentages for a fixed num. of columns */
+    margin-right: -1.4em;
+}
+.s2iSelection.rows div.option {
+    margin-right: 1.4em;
+}
+.s2iSelection div.option > div.label > label {
+    /* May have some more content after the label */
+    display: inline-block;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+padding-top: 0.35em; 
+padding-bottom: 0.35em; 
+}
+.s2iSelection div.option > div.label > label.s2custom {
+    display: block;
+    padding: 0;
+}
+.s2iSelection div.option div.label img.option {
+    display: block;
+}
+.legacyIE9 .s2iSelection.dynamic.rows div.option {
+    float: left;
+}
+
+/* Ordered in Columns */
+.s2iSelection.dynamic.cols {
+    -webkit-column-gap: 1.6em;
+    -moz-column-gap: 1.6em;
+    column-gap: 1.6em;
+}
+            
+/* Dynamic Selection Cards */
+.s2iSelection.cards { width: auto }
+.s2iSelection.cols.cards div.place,
+.s2iSelection.rows.cards div.place {
+    overflow: hidden; /* column-break-bug in Firefox */
+    /* Note, that using gap won't work with width percentages. */
+    padding-bottom: 1em; 
+}
+.s2iSelection.cols.cards div.option {
+    margin-right: 0;
+padding: 0.5em 0;
+}
+.s2iSelection.rows.cards div.option {
+    padding-top: 0.5em; padding-bottom: 0.5em;
+}
+
+.s2iSelection.cards div.option,
+.s2iCheckbox > label.s2box,
+.s2iCheckbox > span.s2box,
+div.S2PoolRating div.s2input div.s2button,
+div.S2PoolVote div.s2positions div.s2position div.s2button {
+border-width: 2px;  border-style: solid;
+border-radius: 5px; 
+border-color: #6688CC; border-color: var(--s2color4);
+background-color: transparent; 
+color: #000000; color: var(--s2color1);
+}
+.s2iSelection.cards div.option {
+background-color: transparent; 
+color: #000000; color: var(--s2color1);
+}
+            
+.s2iSelection.cards div.option.selected,
+.s2iCheckbox input:checked ~ label.s2box {
+    color: #FFFFFF;  
+    border-color: #6688CC; border-color: var(--s2color4);
+    background-color: #6688CC; background-color: var(--s2color4);
+}
+.s2iCheckbox > span.s2box {
+    color: #CCCCCC;
+    border-color: #CCCCCC;
+}
+.s2iCheckbox span.s2box.s2checked {
+    color: black;
+    border-color: black;
+}
+.s2iSelection.cards div.option.disabled,
+.s2iCheckbox input:disabled ~ label {
+    border-color: #CCCCCC; 
+    
+}
+
+.s2iSelection.cards div.option.disabled,
+.s2iCheckbox input:disabled ~ label {
+    border-color: #CCCCCC; 
+    
+}
+.s2iSelection.cards div.option.focus {
+    background-color: #DDE6FF; background-color: var(--s2color5);
+    color: #000000; color: var(--s2color1);
+}
+@media(hover: hover) {
+    .s2iSelection.cards div.option:hover,
+    .s2iCheckbox label:hover {
+        background-color: #DDE6FF; background-color: var(--s2color5);
+        color: #000000; color: var(--s2color1);
+        transition: 0.16s;
+    }
+    div.S2PoolRating div.s2input div.s2button:hover,
+    div.S2PoolVote div.s2positions div.s2position div.s2button:hover {
+        background-color: #6688CC; background-color: var(--s2color4);
+        color: #FFFFFF; 
+        transition: 0.16s;
+    }
+}
+
+.s2iSelection.cards.js div.option > div.input {
+    width: 1px;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 0 1px;
+    -ms-flex: 0 0 1px;
+    flex: 0 0 1px;
+    opacity: 0.02;
+    margin: 0;
+    overflow: hidden;
+}
+.s2iSelection.cards.js div.option > div.label {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+}
+.s2iSelection.cards div.option > div.label > label {
+    padding: 0.25em 1em;
+}
+.s2iSelection.cards div.option > div.label > label.s2custom {
+    padding: 0;
+}
+
+.selscale div.s2option .s2iCheckbox > label.s2box,
+.selscale div.s2option .s2iCheckbox > span.s2box {
+    margin-bottom: -2px;
+}
+
+div.it-checkbox,
+div.it-radio { padding-left: 26px; text-indent: -26px; padding-top: 0.35em; padding-bottom: 0.35em;  }
+div.it-checkbox > *,
+div.it-radio > * { text-indent: 0 }
+span.it-checkbox,
+span.it-radio {
+    display: inline-block;
+    margin-right: 0.3em;
+}
+
+/* CardRate */
+.s2qtCardrate div.s2item {
+    border: 1px solid #000000;
+    border-radius: 0.5em;
+    overflow: hidden;
+}
+.s2qtCardrate div.s2title {
+background-color: #F9F9FC; background-color: var(--s2color3);
+    padding: 0.5em 0.8em;
+}
+.s2qtCardrate > div.s2items div.s2title {
+    font-weight: bold;
+background-color: #F9F9FC; background-color: var(--s2color3);
+}
+.s2qtCardrate > div.s2place {
+    padding: 20px 0;
+    margin-top: 20px;
+}
+.s2qtCardrate div.s2shelf div.s2title {
+    text-align: center;
+} 
+.s2qtCardrate > div.s2items {
+    column-gap: 1.8em;
+}
+.s2qtCardrate > div.s2items > div.s2item {
+    display: block;
+    vertical-align: top;
+    margin-bottom: 1.6em;
+    cursor: move;
+}
+.s2qtCardrate > div.s2items img {
+    max-width: 100%;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    user-drag: none;
+}
+.s2qtCardrate div.s2shelf > div.s2item {
+    box-shadow: 0 0 1px 1px white;
+}
+.s2qtCardrate div.s2shelf > div.s2item.hover > div.s2title {
+background-color: #DDE6FF; background-color: var(--s2color5);
+}
+.s2qtCardrate > div.s2items > div.s2item > div.s2desc {
+    padding: 0.5em 0.8em;
+}
+div.s2qtCardrate > div.s2place.s2target {
+    outline: 2px dashed #999999;
+}
+
+
+/* S2Scale */
+div.S2Scale.s2items div.s2flex.s2options,
+div.S2Scale.s2items div.s2flex {
+    display: block;
+}
+div.S2Scale.s2items div.s2flex.s2options div.s2sepV,
+div.S2Scale.s2items div.s2flex div.s2sepV {
+    display: none;
+}
+div.S2Scale.s2items div.s2options div.s2dkOption {
+    display: flex;
+    justify-content: center;
+}
+div.S2Scale.s2items div.s2options div.s2dkOption div.s2labels {
+    order: 2;
+}
+div.S2Scale.s2items div.s2options div.s2dkOption div.s2btn {
+    /* padding-top: 0.6em; */
+    margin-top: 0.7em;
+    margin-right: 0.4em;
+    order: 1;
+}
+@media (min-width: 420px) {
+    div.S2Scale.s2items div.s2flex.s2options,
+    div.S2Scale.s2items div.s2flex {
+        display: flex;
+        align-items: flex-end;
+    }
+    div.S2Scale.s2items div.s2flex.s2options div.s2sepV,
+    div.S2Scale.s2items div.s2flex div.s2sepV {
+        display: block;
+    }
+    div.S2Scale.s2items div.s2options div.s2dkOption {
+        display: block;
+    }
+    div.S2Scale.s2items div.s2options div.s2dkOption div.s2labels {
+        order: 1;
+    }
+    div.S2Scale.s2items div.s2options div.s2dkOption div.s2btn {
+        /* padding-top: 0; */
+        margin-top: 0;
+        margin-right: 0;
+        order: 2;
+    }
+}
+
+/* Accordion */
+div.s2accordion > .title {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    margin-bottom: -2px;
+    padding: 0.75em 0.5em;
+    font-family: "Atkinson Hyperlegible", Verdana, Arial,sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+border-width: 2px;  border-style: solid;
+border-radius: 5px; 
+border-color: #6688CC; border-color: var(--s2color4);
+background-color: transparent; 
+color: #000000; color: var(--s2color1);
+}
+div.s2accordion > .title.selected {
+    border-color: #6688CC; border-color: var(--s2color4);
+    background-color: #6688CC; background-color: var(--s2color4);
+    color: #FFFFFF; 
+}
+div.s2accordion > .title:hover,
+div.s2accordion > .title:focus {
+    background-color: #DDE6FF; background-color: var(--s2color5);
+}
+div.s2accordion > .title > a,
+div.s2accordion > .title.selected:hover > a,
+div.s2accordion > .title.selected:focus > a {
+    text-decoration: none;
+    color: #000000; color: var(--s2color1);
+}
+div.s2accordion > .title.selected > a {
+    color: #FFFFFF; 
+}
+div.s2accordion > .content {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    margin-bottom: -2px;
+    padding: 0.5em 0.5em 1.2em 0.5em;
+border-width: 2px;  border-style: solid;
+border-radius: 5px; 
+border-color: #6688CC; border-color: var(--s2color4);
+}
+
+
+/* General formatting */
+        
+div.spacingV  { margin: 1em 0 }
+div.spacingV1 { height: 1em }
+div.spacingV2 { height: 0.5em }
+
+div.dots		{ margin-left: 16px; text-indent: -16px }
+label.dots		{ display: inline-block; margin-left: 16px; text-indent: -16px }
+label.dots *,
+div.dots * { text-indent: 0 }
+table.question div.right		{ text-align: right; }
+table.question div.left			{ text-align: left; }
+
+table.right  { margin-left: auto }
+table.center { margin-left: auto; margin-right: auto }
+
+table td.left	{ text-align: left }
+table td.right	{ text-align: right }
+table td.center	{ text-align: center }
+table th.center	{ text-align: center }
+table td.clipped { overflow: hidden }
+div.head div.header,
+table th.header,
+tr.s2header th.s2gap {}
+div.s2iHeading {vertical-align: top; text-align: center; padding-bottom: 0.5em; padding-top: 0.5em;}
+div.extended,
+table td.extended { padding: 10px 0px 20px 0px; }
+div.extendedItem { padding: 0px 4px 8px 4px; }
+td.extended div.extendedItem {
+    font-weight: bold;
+}
+ul.items > li div.extendedItem {
+    padding-left: 0;
+    font-weight: bold;
+}
+
+div.extendedCombine { display: flex; justify-content: space-between; }
+
+table.container { margin-top: 1.6em;  table-layout: fixed }
+table.container div.rankingTgt	{ font-size: 18px; font-weight: bold; color: #AAAAAA; border: 1px solid #AAAAAA; margin-bottom: 2px }
+table.container div.rankingHgL	{ background-color: #DDE6FF; background-color: var(--s2color5); }
+table.container div.rankingTkn	{ font-weight: bold; border: 1px solid #000000; background-color: #F9F9FC; background-color: var(--s2color3); }
+table.container div.rankingGry	{ font-weight: bold; border: 1px solid #AAAAAA; background-color: #EEEEEE; color: #AAAAAA }
+div.rankingContainer { position: relative; display: block; margin-top: 24px }
+li.ranking > div.s2label { display: inline-block; }
+
+div.s2items.S2Ranking div.s2item > div.s2input {
+    margin-right: 0;
+    /* For two-line arrangements */
+    margin-left: auto;
+}
+div.s2items.S2Ranking div.s2item {
+    align-items: center;
+}
+div.s2items.S2Ranking div.s2item > div.s2label {
+    flex: 1 1 auto;
+}
+
+table.assignment { width: 100%; }
+table.assignment tr.options td { text-align: center; font-size: 18px }
+table.assignment tr.options td.disabled { color: #CCCCCC;  }
+table.assignment tr.options td.disabled img { filter: grayscale(1) contrast(0.4) brightness(1.45); }
+table.assignment tr.options td.selected { color: #FFFFFF;  }
+table.assignment td.stimulus { vertical-align: middle; text-align: center; font-size: 30px; padding: 20px 0px; font-weight: bold }
+table.assignment td.stimulus img {
+    max-width: 100%;
+    max-height: 100%;
+}
+table.assignment td.introduction { vertical-align: middle; text-align: center; font-size: 18px; padding: 20px 0px }
+
+/* SelClick */
+div.selClick { margin-bottom: 3.2em;  }
+div.selClick div.header { margin: 0 0 6px 0; text-align: center }
+div.selClick.noscript div.header { text-align: left }
+div.selClickSubs { margin-top: 32px }
+div.selClickSubs div.fixation { }
+div.selClickQuestion { margin-bottom: 1.6em;  }
+table.selClickOptions {
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0;
+}
+div.selClickOptions {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -4%;
+}
+.selClickOption,
+.s2shelf .s2option,
+.s2target .s2gap {
+border-width: 2px;  border-style: solid;
+border-radius: 5px; 
+border-color: #CCCCCC; 
+background-color: transparent; 
+}
+.selClickOption {
+    padding: 8px;
+    margin: 12px 0px;
+}
+div.selClickOptions > div.selClickOption {
+    margin-right: 4%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+.selClickSeparator {	
+    height: 0.5em;
+    margin: 12px 0px;
+}
+.selClickNoScript { padding: 0px 0px 0px 25px; text-indent: -25px; border: 0px none; margin-bottom: 8px }
+.selClickOption input.option { vertical-align: top }
+.selClickAvailable {
+border-color: #6688CC; border-color: var(--s2color4);
+background-color: transparent; 
+color: #000000; color: var(--s2color1);
+}
+.selClickAvailable:hover {
+    background-color: #DDE6FF; background-color: var(--s2color5);
+}
+.selClickSelected {
+    border-color: #6688CC; border-color: var(--s2color4);
+    background-color: #6688CC; background-color: var(--s2color4);
+}
+td.selClickSpacer {
+    height: 26px;
+}
+
+/* Marker */
+div.Marker table { table-layout: fixed }
+div.Marker div.legend div.type {
+    margin-bottom: 1.2em;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+div.Marker div.legend div.type:last-child {
+    margin-bottom: 0
+}
+div.Marker div.legend div.type span.marker {
+    display: block;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+div.Marker div.legend div.type span.desc {
+    display: block;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin-left: 0.75em;
+}
+            
+div.Marker div.message { width: 200px; min-height: 8px; background-color: white; border-color: #EE3300 }
+table.marker { float: left; margin-right: 2em }
+table.marker td { padding-right: 0.5em }
+table.marker caption { text-align: left; font-weight: bold; margin-bottom: 0.5em }
+
+.SelBox {
+border-width: 2px;  border-style: solid;
+border-radius: 5px; 
+background-color: transparent; 
+color: #000000; color: var(--s2color1);
+}
+@media(hover: hover) {
+    .SelBox:hover {
+background-color: #DDE6FF; background-color: var(--s2color5);
+color: #000000; color: var(--s2color1);
+}
+}
+.SelBox.hover {
+    background-color: #DDE6FF; background-color: var(--s2color5);
+}
+.SelBox.inactive {
+    border-color: #CCCCCC; 
+    background-color: transparent; 
+}
+.SelBox.selected {
+    border-color: #6688CC; border-color: var(--s2color4);
+    background-color: #6688CC; background-color: var(--s2color4);
+}
+
+/* Text */
+input[type="text"].wordgap {
+    font-family: "Courier New","Courier",monospaced;
+    font-size: 15px !important; letter-spacing: 1px;
+    padding: 0 0 0 1px; margin: 0 1px; border: 0px none;
+    box-sizing: content-box;
+    background-image: url("../images/text.char10px.png");
+    background-repeat: repeat-x;
+    background-position: 0px 0px;
+    vertical-align: bottom;
+}
+input[type="text"].characters {
+    border-radius: 0;
+    padding: 0 0 0 1px;
+    box-sizing: content-box;
+}
+input[type="text"].characters.s2center {
+    text-align: center;
+}
+
+/* CSS Arrows */
+div.s2arrowLeft {
+    width: 0;
+    height: 0;
+    border-right: 1em solid;
+    border-top: 0.66em solid transparent;
+    border-bottom: 0.66em solid transparent;
+    display: inline-block;
+    margin-right: 0.16em;
+}
+div.s2arrowRight {
+    width: 0;
+    height: 0;
+    border-left: 1em solid;
+    border-top: 0.66em solid transparent;
+    border-bottom: 0.66em solid transparent;
+    display: inline-block;
+    margin-left: 0.16em;
+}
+
+/* Gallery */
+div.S2Gallery {
+    position: relative;
+}
+div.S2Gallery div.s2presenter {
+    display: flex;
+    gap: 1.6em;
+}
+div.S2Gallery div.s2presenter div.s2handleCntr {
+    flex: 0 1 2em;
+    padding-top: 5em;
+}
+div.S2Gallery div.s2presenter div.s2handleCntr div.s2arrowRight,
+div.S2Gallery div.s2presenter div.s2handleCntr div.s2arrowLeft {
+    margin-bottom: -0.25em;
+}
+div.S2Gallery div.s2handleCntr div.s2button,
+div.S2Gallery div.s2navigation div.s2button,
+div.S2Gallery div.s2message div.s2button {
+border-width: 2px;  border-style: solid;
+border-radius: 5px; 
+border-color: #6688CC; border-color: var(--s2color4);
+background-color: transparent; 
+}
+div.S2Gallery div.s2handleCntr div.s2button {
+    padding: 0.4em 0.6em;
+}
+div.S2Gallery div.s2navigation {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 0.5em;
+    padding-bottom: 1em;
+    border-bottom: 2px solid;
+border-color: #CCCCCC; 
+}
+div.S2Gallery div.s2navigation div.s2button {
+    padding: 0.2em 0.3em 0.1em;
+    text-align: center;
+    min-width: 1em;
+}
+div.S2Gallery div.s2handleCntr div.s2button:hover,
+div.S2Gallery div.s2navigation div.s2button:hover,
+div.S2Gallery div.s2message div.s2button:hover,
+div.S2Gallery div.s2navigation div.s2button.s2complete {
+background-color: #DDE6FF; background-color: var(--s2color5);
+}
+div.S2Gallery div.s2handleCntr div.s2button.disabled {
+border-color: #CCCCCC; 
+
+}
+div.S2Gallery div.s2handleCntr div.s2button.disabled,
+div.S2Gallery div.s2handleCntr div.s2button.disabled:hover {
+border-color: #CCCCCC; 
+background-color: transparent; 
+}
+div.S2Gallery div.s2handleCntr div.s2button.disabled div.s2label {
+color: #CCCCCC; 
+}
+div.S2Gallery div.s2navigation div.s2button.s2correct {
+    color: #006600;
+    border-color: #006600;
+}
+div.S2Gallery div.s2navigation div.s2button.s2wrong {
+    color: red;
+    border-color: red;
+}
+div.S2Gallery div.s2navigation div.s2button.selected {
+color: #FFFFFF; 
+border-color: #6688CC; border-color: var(--s2color4);
+background-color: #6688CC; background-color: var(--s2color4);
+}
+div.S2Gallery div.s2content {
+    flex: 1 1 auto;
+}
+div.S2Gallery div.s2gallerySH {
+    display: flex;
+    gap: 40px;
+}
+div.S2Gallery div.s2galleryNode {
+    flex: 1 1 33%;
+}
+div.S2Gallery div.s2overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+div.S2Gallery div.s2overlay div.s2container > img {
+    max-width: 100%;
+    max-height: 100%;
+}
+div.S2Gallery div.s2overlay div.s2layer {
+    pointer-events: auto;
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    /*
+    backdrop-filter: blur(6px);
+    -webit-backdrop-filter: blur(6px);
+    */
+    box-shadow: 0 0 1em white;
+}
+div.S2Gallery div.s2overlay div.s2message {
+    position: absolute;
+    left: 1em;
+    right: 1em;
+}
+div.S2Gallery div.s2overlay div.s2message.s2error {
+    margin: 1em;
+    border: 2px solid red;
+    border-radius: 1em;
+    background-color: #F6F6F6;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.6);
+    padding: 1em;
+}
+div.S2Gallery div.s2overlay div.s2message.s2error div.s2button {
+    background-color: #F6F6F6;
+}
+div.S2Gallery div.s2overlay div.s2message.s2error div.s2button:hover {
+background-color: #DDE6FF; background-color: var(--s2color5);
+}
+
+@media (max-width: 575px) {
+    div.S2Gallery div.s2presenter {
+        gap: 1em;
+    }
+    div.S2Gallery div.s2handleCntr div.s2button {
+        padding: 0.2em 0.3em;
+    }
+    div.S2Gallery div.s2presenter {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    div.S2Gallery div.s2presenter div.s2handleCntr.s2back {
+        order: 1;
+    }
+    div.S2Gallery div.s2presenter div.s2handleCntr.s2next {
+        order: 2;
+    }
+    div.S2Gallery div.s2content {
+        order: 3;
+        flex-basis: 100%;
+    }
+    div.S2Gallery div.s2overlay div.s2message {
+        left: 0.3em;
+        right: 0.3em;
+    }
+}
+
+/* Extended Selection */
+div.subheader { padding: 2px 0px; margin-top: 2px }
+div.subspacing  { margin-top: 5px }
+div.accent { font-weight: bold }
+div.subheader button { vertical-align: top; padding: 0px; margin: 0px; border: 0px none; background-color: transparent }
+div.subselect { margin-left: 1.6em; margin-bottom: 2px }
+div.suboption { padding: 2px 0px }
+div.suboption,
+div.subheader {
+    text-indent: -2em;
+    padding-left: 2em;
+}
+div.subheader input,
+div.subheader button,
+div.subheader div.inputCST,
+div.suboption input,
+div.suboption button,
+div.suboption div.inputCST { vertical-align: middle }
+div.shadeA { background-color: #F9F9FC; background-color: var(--s2color3); }
+div.shadeB { background-color: transparent;  }
+
+/* ImgPaste */
+div.imgPasteQ { }
+div.imgpaste { float: right; width: 100%; margin: 0 0 20px 20px; position: relative }
+div.imgpaste div.imgInput { margin-bottom: 16px }
+div.imgpaste div.imgPreview { width: 100%; position: absolute; left: 0; top: 0; background-color: #EEEEEE; overflow: hidden }
+div.imgpaste div.imgPreview img { width: 100%; height: auto }
+div.imgpaste div.imgTarget {
+    padding: 10px; overflow: hidden; opacity: 0.25;
+border-width: 2px;  border-style: solid;
+border-radius: 5px; 
+border-color: #6688CC; border-color: var(--s2color4);
+}
+    
+/* Language selection */
+div.languageSelection { text-align: center; margin: 80px 0px 60px 0px; min-height: 260px }
+div.languageSelection div.option {
+    min-width: 80px; max-width: 120px;
+    margin: 20px 40px; vertical-align: top;
+    display:-moz-inline-stack;
+    display:inline-block;
+}
+div.languageSelection div.desc { font-weight: bold; padding-top: 10px; }
+div.languageSelection a { text-decoration: none; color: #000000 }
+/* Note: Preserve flag aspect ratio via: width: auto; height: 40px; */
+img.s2t-flag {
+    width: auto; height: 40px; border: 1.5px outset #999999;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2); -webkit-box-shadow: 4px 4px rgba(0, 0, 0, 0.2); -moz-box-shadow: 4px 4px rgba(0, 0, 0, 0.2)
+}
+@media (max-width: 450px) {
+    div.languageSelection div.option { margin: 16px 20px }
+}
+/* SVG small symbol */
+img.langSymbol,
+button.img img.langSymbol {
+    border: 1px outset #999999;
+    vertical-align: middle;
+}
+
+div.feedback {
+border: 2px solid #EE3300; padding: 8px; margin: 32px 0px
+}
+.spacing {
+margin-bottom: 3.2em; 
+}
+div.spacing table.question {
+margin-bottom: 0;
+}
+div.s2compound + div.s2question,
+div.s2compound + div.SoSciDebug + div.s2question,
+div.s2compound + div.s2t-buttons,
+div.s2compound + div.s2t-controls,
+div.s2compound + div.s2t-imprint,
+div.s2compound + div.s2t-footer {
+margin-top: 3.2em; }
+div.s2compound:last-child {
+margin-bottom: 3.2em; 
+}
+div.center	{ text-align: center; display: table-cell; vertical-align: middle }
+
+div.progressbar {
+    position: relative; height: 16px;
+    overflow: hidden;
+    line-height: 1em;
+    
+    border: 1px solid;
+    border-color: #6688CC; border-color: var(--s2color4);
+}
+div.progressbar div.progress {
+    position: absolute; left: 0px; top: 0px; height: 100%;
+    border-radius: 0;
+    background-color: #6688CC; background-color: var(--s2color4);
+}
+div.progressbar div.progresstext {
+    font-size: 11px; top: 1px;
+    position: absolute; width: 100%;
+    white-space: nowrap;
+    
+    text-align: center
+}
+div.s2progress div.s2indicator {
+    margin: 0;
+    border: 0;
+}
+
+/* Wordgap */
+div.s2jsWordGaps {
+    display: flex;
+    gap: 3em;
+    flex-wrap: wrap;
+}
+div.s2jsWordGaps div.s2line {
+    margin-bottom: 1em;
+    line-height: 2.5;
+}
+div.s2jsWordGaps div.s2line select {
+    vertical-align: baseline;
+    width: 8em;
+}
+div.s2jsWordGaps div.s2line select:focus {
+    width: auto;
+}
+div.s2jsWordGaps div.s2shelf {
+    flex: 1 1 20%;
+    min-width: auto;
+    max-width: 100%;
+    padding-top: 8px;
+}
+div.s2jsWordGaps div.s2shelf > div.s2option,
+div.s2jsWordGaps div.s2token,
+div.s2jsWordGaps div.s2target div.s2gap {
+    display: inline-block;
+    position: relative;
+    line-height: 1.2;
+}
+div.s2jsWordGaps .s2shelf .s2option,
+div.s2jsWordGaps div.s2token,
+div.s2jsWordGaps .s2target .s2gap {
+    padding: 0.2em 1em;
+    white-space: nowrap;
+}
+div.s2jsWordGaps .s2shelf .s2option {
+    margin: 0 1em 1em 0;
+border-color: #6688CC; border-color: var(--s2color4);
+}
+div.s2jsWordGaps .s2shelf .s2option:hover,
+div.s2jsWordGaps div.s2token {
+background-color: #DDE6FF; background-color: var(--s2color5);
+}
+div.s2jsWordGaps .s2shelf .s2option.s2used {
+background-color: #6688CC; background-color: var(--s2color4);
+border-color: #CCCCCC; 
+}
+div.s2jsWordGaps div.s2target {
+    flex: 1 1 50%;
+    min-width: auto;
+}
+div.s2jsWordGaps div.s2target div.s2gap {
+    width: 100px;
+}
+div.s2jsWordGaps div.s2target div.s2gap.s2awaiting {
+border-color: #6688CC; border-color: var(--s2color4);
+background-color: #DDE6FF; background-color: var(--s2color5);
+}
+div.s2jsWordGaps div.s2target select:focus + div.s2gap {
+border-color: #6688CC; border-color: var(--s2color4);
+background-color: #DDE6FF; background-color: var(--s2color5);
+}
+div.s2jsWordGaps div.s2target select.s2fail,
+div.s2jsWordGaps div.s2target select.s2fail + div.s2gap {
+border: 2px solid #EE3300; 
+}
+div.s2WordGap.print {
+    line-height: 1.6;
+}
+div.s2WordGap.print .s2gap {
+    background-color: #F0F0F0;
+    border: 1px solid #999999;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+div.s2WordGap.print .s2wrong {
+    text-decoration: line-through;
+    margin-right: 0.5em;
+    color: #666666;
+}
+div.s2WordGap.print div.s2item {
+    padding-bottom: 0.6em;
+    margin-bottom: 0.6em;
+}
+
+/* MultiSort */
+div.s2jsMultiSort {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 1em;
+    margin-top: 2em;
+}
+div.s2jsMultiSort div.s2options {
+    flex: auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+    max-height: 85vh;
+    overflow: auto;
+    position: relative;
+    padding-right: 1em;
+}
+div.s2jsMultiSort div.s2options div.s2option,
+div.s2jsMultiSort > div.s2option.s2token,
+div.s2jsMultiSort > div.s2token > div.s2option {
+    box-sizing: border-box;
+    position: relative;
+    border: 2px solid #6688CC;
+border-radius: 5px; 
+padding: 0.2em 0.5em;
+background-color: #000000; background-color: var(--s2color0);
+color: #000000; color: var(--s2color1);
+}
+div.s2jsMultiSort div.s2tooltip,
+div.s2jsMultiSort div.s2options div.s2option div.s2tooltip:hover {
+    display: none;
+}
+div.s2jsMultiSort div.s2options div.s2option div.s2tooltip {
+    display: block;
+    font-size: 85%;
+    position: absolute;
+    top: 110%;
+    left: -9999px;
+    width: 100%;
+    min-width: 200px;
+    border: 1px solid;
+    z-index: 10;
+    padding: inherit;
+    border-radius: inherit;
+    background-color: #F0F0F0;
+    border: 1px solid #CCCCCC;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+div.s2jsMultiSort div.s2options div.s2option:hover div.s2tooltip {
+    left: 0;
+    right: 0;
+    width: auto;
+}
+div.s2jsMultiSort div.s2options div.s2option.s2moved,
+div.s2jsMultiSort div.s2targets div.s2option.s2moved {
+    opacity: 0.5;
+}
+div.s2jsMultiSort div.s2targets div.s2option.s2moving {
+    display: inline-block;
+    border: 2px solid #6688CC;
+border-radius: 5px; 
+}
+div.s2jsMultiSort div.s2options div.s2option.s2used {
+background-color: #6688CC; background-color: var(--s2color4);
+border-color: #CCCCCC; 
+}
+div.s2jsMultiSort div.s2options div.s2option.s2unavailable {
+background-color: transparent; 
+border-color: #CCCCCC; 
+color: #CCCCCC; 
+} 
+div.s2jsMultiSort div.s2targets {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2em;
+    max-height: 85vh;
+    overflow: auto;
+    position: relative;
+}
+div.s2jsMultiSort div.s2targets div.s2target {
+    flex: 1 1 auto;
+    min-height: 100px;
+    overflow: hidden; 
+    border: 2px solid #6688CC;
+border-radius: 5px; 
+display: flex;
+flex-direction: column;
+}
+div.s2jsMultiSort div.s2targets div.s2target div.s2label {
+    padding: 0.5em 1em;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #6688CC;
+}
+div.s2jsMultiSort div.s2targets div.s2target div.s2stack {
+    min-height: 3em;
+    flex-grow: 1;
+}
+div.s2jsMultiSort div.s2targets div.s2target div.s2stack div.s2option {
+    padding: 0.2em 0.5em;
+    border-top: 2px solid #6688CC;
+background-color: #000000; background-color: var(--s2color0);
+color: #000000; color: var(--s2color1);
+position: relative;
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+div.s2jsMultiSort div.s2targets div.s2target div.s2stack div.s2blank {
+    border-top: 2px solid #6688CC;
+position: relative;
+}
+div.s2jsMultiSort div.s2targets div.s2target.s2awaiting,
+div.s2jsMultiSort div.s2targets div.s2target div.s2stack.s2awaiting,
+div.s2jsMultiSort div.s2options div.s2option.s2selected {
+border-color: #6688CC; border-color: var(--s2color4);
+background-color: #DDE6FF; background-color: var(--s2color5);
+}
+div.s2jsMultiSort div.s2targets div.s2target.s2awaiting div.s2stack div.s2option,
+div.s2jsMultiSort div.s2targets div.s2target div.s2stack.s2awaiting div.s2option,
+div.s2jsMultiSort > div.s2token > div.s2option {background-color: #DDE6FF; background-color: var(--s2color5);
+}
+div.s2jsMultiSort div.s2targets div.s2target.s2awaiting div.s2label,
+div.s2jsMultiSort div.s2targets div.s2target.s2awaiting div.s2option {
+border-top-color: #6688CC; border-top-color: var(--s2color4);
+}
+div.s2jsMultiSort div.s2targets div.s2target input[type="text"] {
+    border-top: 2px solid #6688CC;
+border-right: 0 none;
+    border-left: 0 none;
+    border-bottom: 0 none;
+    padding-left: 5px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+div.s2jsMultiSort > div.s2token > div.s2multiSymbol {
+    height: 5px;
+    border: 2px solid #6688CC;
+border-bottom-left-radius: 5px; 
+border-bottom-right-radius: 5px; 
+border-top: 0 none;
+background-color: #DDE6FF; background-color: var(--s2color5);
+}
+/* MultiSort with composition "down" */
+div.s2jsMultiSort.s2cpDown {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 2em;
+    max-height: 85vh;
+}
+div.s2jsMultiSort.s2cpDown div.s2options {
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: auto;
+}
+div.s2jsMultiSort.s2cpDown div.s2targets {
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: auto;
+}
+div.s2jsMultiSort.s2cpDown div.s2targets div.s2target {
+    flex-basis: 200px;
+}
+div.s2jsMultiSort.s2cpDown div.s2options {
+    padding-right: 0.5em;
+}
+/* MultiSort with composition "right" */
+div.s2jsMultiSort.s2cpRight {
+    flex-wrap: nowrap;
+}
+div.s2jsMultiSort.s2cpRight div.s2options {
+    flex: none;
+}
+div.s2jsMultiSort.s2cpRight div.s2targets {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+/* MultiSort with composition "rows" */
+div.s2jsMultiSort.s2cpRows {
+    flex-wrap: nowrap;
+}
+div.s2jsMultiSort.s2cpRows div.s2targets {
+    flex: none;
+}
+div.s2jsMultiSort.s2cpRows div.s2options {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+/* TextElement formatting */
+
+div.info { }
+div.info div.title { text-align: center; padding: 3px 16px; background-color: #6688CC; color: white; margin-bottom: 0 }
+div.info div.content { background-color: #DDE6FF; border: 2px solid #6688CC; padding: 14px 16px 14px 16px }
+div.info div.symbol { position: relative }
+div.info div.symbol div.content { min-height: 40px; padding-left: 72px }
+div.info div.symbol div.content:before { position: absolute; left: 16px; top: 16px; content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoBAMAAAB+0KVeAAAAAXNSR0IArs4c6QAAABtQTFRFLJSZZWf+e37/h4b/np7/v8D/1tT+7u7//v/9vLRj8wAAAAF0Uk5TAEDm2GYAAAAdaVRYdENvbW1lbnQAAAAAAENyZWF0ZWQgd2l0aCBHSU1QZC5lBwAAARVJREFUKM99kz1vwkAMhm8qtzoQ6HoSQ1Ym5jKgrKhSdSOpVCkjGVAzho+Q92dzQbbzoQgvcZ74jX22zxg2C1RmaLb5261/ygG2jw0Fm+c9amti8x1tnMCo1MADqcUSyuK4aX/sh4EeRRcqWUpcSEJtwRDI2seqDbWS2r/+SVHVU9Nixx8DvNDIPoM6G8NlZexmDOeVmenL/s7OyXwI2+LB3lGTL6DQG9HkOcRNzZW97wQ3dhOFlKJQeNemI1O5nrLElyaSkiLAaUkzLakhLV6OGWuZ4ZjSkJWWGRoirUtwXTppnaRPUf87bTKPwwO/pOPgwXmw5DU41m/PrhvRcGu6van70L9bsMlVnF7ayfWevgijK/MEnOpiQU7a57EAAAAASUVORK5CYII=) }
+div.info div.content > p:first-child { margin-top: 0 }
+div.info div.content > p:last-child { margin-bottom: 0 }
+
+div.warning { }
+div.warning div.title { text-align: center; padding: 3px 16px; background-color: #EE3300; color: white; margin-bottom: 0 }
+div.warning div.content { background-color: #FFCCCC; border: 2px solid #EE3300; padding: 14px 16px 14px 16px }
+div.warning div.symbol { position: relative }
+div.warning div.symbol div.content { min-height: 40px; padding-left: 72px }
+div.warning div.symbol div.content:before { position: absolute; left: 16px; top: 16px; content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoBAMAAAB+0KVeAAAAAXNSR0IArs4c6QAAABtQTFRF9u7c/0U5/1pN/3ty/6ig/8G9/tbS++Th/v77nLqEMAAAAAF0Uk5TAEDm2GYAAAEHSURBVCjPbVMtE8IwDK3iasM2mOUQYAGDneGwuEkEd2ABgxxf2/vZbGuSFmhMc+/yLi95qTEcFqjMd1gcltPNN2zfC2ojKasQI44AbSYCDm9auCONTEpfFMSWC4u+yRHX7k1dqeuSA3C9+sKzgE2fjLtS61qPgNoJqJRNGcBZx7+7NAVYRe5FJsBTpdoFzwIwJ2lBUX3DmbPKDAQ8Qabd+xm3KHTS5z+4Ng8B1+CWNPfgHBMFlZ5DOb7RuPYrVUmZGrX34lPl+DGJpE83prq2CrzjNdAMF12dLJnKcMlsB4lxvR1sXLu6wDjhl2xHGRwDZc0uOIbo2cQPLHqK8aONnnf8I/x8mQ9sZmJrIWiXtQAAAABJRU5ErkJggg==) }
+div.warning div.content > p:first-child { margin-top: 0 }
+div.warning div.content > p:last-child { margin-bottom: 0 }
+
+div.chapter { }
+div.chapter h1 { }
+
+input.button,
+button,
+button.s2buttonInverse:hover {
+color: white; border: 1px solid #666666; background-color: #6688CC; padding: 10px 20px; font-weight: 700;
+}
+img.left { float: left; margin: 0px 16px 8px 0px }
+img.right { float: right; margin: 0px 0px 8px 16px }
+
+button img.s2default,
+button:hover img.s2hover,
+button.s2buttonInverse:hover img.s2default,
+button.s2buttonInverse img.s2hover {
+    display: inline-block;
+}
+button:hover img.s2default,
+button img.s2hover,
+button.s2buttonInverse img.s2default,
+button.s2buttonInverse:hover img.s2hover {
+    display: none;
+}
+
+/* Probing */
+#page_probe_button { margin: 1em 0 0.5em; text-align: center }
+
+
+/* Solution for text inputs with 100% width */
+div.textinput input[type="text"],
+div.textinput input[type="number"],
+div.textinput textarea,
+table.question td.textinput input[type="text"],
+table.question td.textinput input[type="number"],
+table.question td.textinput textarea,
+select,
+textarea,
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+select:focus { max-width: initial; }
+div.textinput textarea,
+table.question td.textinput textarea,
+div.textinput input[type="text"],
+div.textinput input[type="number"],
+table.question td.textinput input[type="text"],
+table.question td.textinput input[type="number"] {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+input.exactSize,
+textarea.exactSize,
+select.exactSize,
+div.exactSize {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Suggestion Question */
+div.suggestion { border: 1px solid black }
+div.suggestion div.item { padding: 3px 5px; cursor: default }
+@media(hover: hover) {
+    div.suggestion div.item:hover {
+        background-color: #316AC5;
+        color: #FFFFFF;
+        color: var(--s2color0);
+    }
+    ul.s2suggestion > li:hover {
+        background-color: #DDE6FF; background-color: var(--s2color5);
+    }
+}
+ul.s2suggestion {
+  	list-style-type: none;
+  	padding: 0; margin: 0;
+    z-index: 2;
+}
+ul.s2suggestion > li {
+    display: block; padding: 0.5em;
+border-width: 2px;  border-style: solid;
+border-radius: 5px; 
+border-color: #6688CC; border-color: var(--s2color4);
+background-color: transparent; 
+color: #000000; color: var(--s2color1);
+	border-bottom-style: none;
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+ul.s2suggestion > li > div.s2description {
+    font-size: 85%;
+    padding-bottom: 0.5em;
+    line-height: 1.2;
+}
+ul.s2suggestion > li:last-child { border-bottom-style: solid }
+ul.s2suggestion > li.highlight {
+    background-color: #DDE6FF; background-color: var(--s2color5);
+}
+
+div.s2items.S2suggest div.s2input {
+    flex: 1 1 auto;
+} 
+
+/* Text Question */
+input.s2iInputOut {
+    border-color: transparent;
+    background-color: transparent;
+    color: inherit;
+}
+
+/* Mentions */
+div.mentionsContainer div.s2eRow,
+table.question tr.s2item td div.s2mentions {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+} 
+            
+/* SelZoom Question */
+div.selzoom div.option { float: left }
+div.selzoom div.option div.box {
+    display: table-cell;
+    vertical-align: middle;
+}
+div.selzoom div.option div.box.border,
+div.selzoom div.option img.border {
+    padding: 0px;
+border-width: 2px;  border-style: solid;
+border-radius: 5px; 
+border-style: solid;
+    border-color: transparent
+}
+div.selzoom div.option div.box.border.always,
+div.selzoom div.option img.border.always {
+    border-color: #6688CC; border-color: var(--s2color4);
+}
+div.selzoom div.option div.box.border:hover,
+div.selzoom div.option div.box.border:focus,
+div.selzoom div.option img.border:hover,
+div.selzoom div.option img.border:focus,
+div.selzoom div.option.selected div.box.border,
+div.selzoom div.option.selected div.box.border.always,
+div.selzoom div.option.selected img.border {
+    border-color: #6688CC; border-color: var(--s2color4);
+}
+div.selzoom div.option div.text { margin: 0px 20px; text-align: center }
+div.selzoom div.option div.input { text-align: center; margin-top: 6px }
+
+/* MultiLevel Question */
+div.MultiLevel {
+    padding: 0.4em 0.5em;
+}
+div.content.box,
+div.items.box {
+    border-style: solid ;
+    border-width: 2px; 
+    border-color: #6688CC; border-color: var(--s2color4);
+}
+
+/* Transfer Question */
+div.s2iTransfer div.bar {
+    position: relative;
+    margin: 1em 0 4em 0; border: 1px solid;
+background-color: #000000; background-color: var(--s2color0);
+}
+div.s2iTransfer div.bar.inactive {
+    display: none;
+}
+div.s2iTransfer div.indicator { position: absolute; left: 0; top: 0; height: 100%; background-color: #CCCCCC; }
+div.s2iTransfer div.label { position: absolute; left: 0; top: 0; width: 100%; height: 100%; text-align: center; }
+
+/* MCCatalogue */
+.MCCatalogue .s2correctYes {
+    font-weight: bold;
+}
+.MCCatalogue .s2correctNo,
+.MCCatalogue .s2correctNo label {
+    text-decoration: line-through;
+}
+.MCCatalogue .s2wrongYes {
+    font-weight: bold;
+}
+.MCCatalogue .s2wrongYes div.input,
+.MCCatalogue .s2wrongNo div.input {
+    box-shadow: 0 0 0 2px red;
+    opacity: 0.75;
+}
+.MCCatalogue .s2wrongNo,
+.MCCatalogue .s2wrongNo label {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+}
+.MCCatalogue .s2correctYes div.label label::before,
+.MCCatalogue .s2wrongYes div.label label::before {
+    content: "☑ ";
+}
+.MCCatalogue .s2correctNo div.label label::before,
+.MCCatalogue .s2wrongNo div.label label::before {
+    content: "☐ ";
+    text-decoration: none;
+    display: inline-block;
+}
+.MCCatalogue .s2correctNo,
+.MCCatalogue .s2correctYes {
+    color: #00AA00;
+}
+.MCCatalogue .s2wrongNo,
+.MCCatalogue .s2wrongYes {
+    color: red;
+}
+.MCCatalogueText {
+    margin: 1em 0;
+}
+
+
+
+/* Buttons */
+.submitButtons { margin: 32px 0px 10px 0px }
+.buttonControl {
+    display: flex;
+    padding: 4px 0px 10px 0px;
+    gap: 1em;
+}
+button.s2buttonLang32 {
+    min-width: 32px;
+}
+.buttonControl input,
+.buttonControl button { font-size: 1em }
+.buttonBack { text-align: left }
+.buttonNext { text-align: right }
+.buttonSubmit { text-align: right }
+.screenreader { position: absolute; top: -9999px; height: 32px; overflow: hidden }
+.invisible { position: absolute; top: -8888px; width: 1px; height: 1px; overflow: hidden  }
+
+button.img { padding: 0; border-width: 0; vertical-align: middle; background-color: transparent; line-height: 0.6em }
+button.img::-moz-focus-inner { margin: 0; padding: 0; border-width: 0; }
+button.img img { margin: 0; padding: 0; border: 0 none }
+button.img:focus,
+button.img:hover {
+    outline-style: solid;
+    outline-width: 2px; 
+    outline-color: #6688CC; outline-color: var(--s2color4);
+}
+div.s2menuButton {
+    display: inline-block;
+    padding: 0;
+}
+div.s2menuButton > input {
+    display: none;
+}
+div.s2menuButton img {
+    display: block;
+}
+div.s2menuButton > div.s2menuContent {
+    display: flex;
+    position: absolute;
+    width: auto;
+    max-width: 0;
+    transition: max-width 0.5s;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 0 solid #FF9900;
+    border-radius: 4px;
+    background-color: white;
+}
+div.s2menuButton > div.s2menuContent button {
+    color: black;
+    margin: 0.5em;
+}
+div.s2menuButton > div.s2menuContent button > div > img {
+    display: inline-block;
+    margin-bottom: 0.5em;
+}
+div.s2menuButton:hover > div.s2menuContent,
+div.s2menuButton > input:checked ~ div.s2menuContent {
+    max-width: 400px;
+    outline: 2px solid #FF9900;
+}
+button.s2accessButton,
+button.s2accessButton.s2buttonInverse {
+    background-color: transparent;
+    border: 0 none;
+    padding: 0;
+}
+button.s2accessButton:active {
+    outline: 2px solid #FF9900;
+}
+
+/* Content that must not be selected */
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    user-drag: none;
+}
+.unselectable[draggable="true"] {
+    -webkit-user-drag: element;
+    user-drag: element;
+}
+
+.unselectable input {
+    -webkit-touch-callout: default;
+    -webkit-user-select: auto;
+    -khtml-user-select: default;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.noprint { }
+@media print {
+    .noprint { display: none }
+}
+
+/* Buttons to make invisible for CustomInputs */
+.nopacity {
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+/* Single-page mini features */
+div.s2function {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* Answers printing */
+div.print { margin: 0 0 30px 0 }
+div.print div.item.print {
+    margin: 0 0 4px 0; padding-bottom: 4px;
+    border-bottom: 1px solid #CCCCCC;
+    word-wrap: break-word;
+}
+div.print div.item div.content div.item.print:last-child {
+    border-bottom: 0 none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+div.print div.option.print { margin: 0 0 4px 0 }
+div.print div.item.selected { }
+div.print div.option.unselected,
+div.print div.option.noanswer,
+div.print div.item.noanswer,
+div.print div.content.noanswer { color: #666666 }
+div.print div.prefixed { overflow: hidden }
+div.print div.prefixed div.prefix,
+div.print div.prefixed span.prefix { display: block; float: left; margin-right: 0.4em }
+div.print div.prefixed div.content,
+div.print div.prefixed span.content { display: block; overflow: hidden }
+div.print span.wordgap { font-family: "Courier New","Courier",monospaced; font-size: 1.2em }
+div.print table.question tr.shadeF1 td { background-color: transparent; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC }
+div.print table.question th.separateR,
+div.print table.question td.separateR,
+div.print div.s2sepV,
+div.print div.s2options.s2horizontal > div.s2separator { border-left: 2px solid #CCCCCC }
+div.print div.s2item { border-bottom: 1px solid #CCCCCC; background-color: transparent; }
+div.print div.s2items { border-top: 1px solid #CCCCCC; }
+div.print div.s2item > div.s2input,
+div.print div.s2item > div.s2dk {
+    padding-top: 0.5em; padding-bottom: 0.5em;
+}
+div.s2question.print { page-break-inside: avoid; }
+div.print div.s2answerInput { display: inline-block; border: 1px solid #999999; padding: 2px 6px 2px 4px; }
+
+div.printText {
+    min-height: 1.6em;
+    box-sizing: border-box;
+    border: 1px solid;
+    padding: 2px 4px 4px 4px;
+    background-color: white;
+    word-wrap: break-word;
+}
+div.printText.number {
+    text-align: right;
+}
+
+/* Tooltips */
+span.S2Tooltip.anchor {
+  	white-space: nowrap;
+}
+span.S2Tooltip.symbol:after {
+    font-size: 0.75em;
+    font-weight: bold;
+    content: "i";
+    position: relative;
+    left: 0.35em;
+    top: -0.25em;
+}
+span.S2Tooltip.symbol {
+    display: inline-block;
+    width: 0.8em;
+    aspect-ratio: 1;
+    margin: 0 0.16em;
+    position: relative;
+    top: -0.2em;
+    color: white;
+    background-color: blue;
+    border-radius: 50%;
+    overflow: hidden;
+}
+span.S2Tooltip.marker:after {
+    content: "?";
+  	font-size: 0.8em;
+    vertical-align: super;
+}
+span.S2Tooltip.container {
+    position: absolute; z-index: 999;
+  	left: -99999px; top: -99999px;
+}
+span.S2Tooltip.anchor:hover + span.S2Tooltip.container,
+span.S2Tooltip.anchor.active + span.S2Tooltip.container {
+  	left: auto; top: auto;
+}
+span.S2Tooltip.tiptext {
+  	position: absolute;
+  	left: -100px; top: 1.5em; 
+    width: 250px; padding: 0.5em 0.8em 0.7em 0.8em;
+    color: #000000; background-color: #F9F9FC; border: 1px solid #6688CC;
+    font-weight: normal; text-align: left; 
+    display: block;
+  	text-indent: 0;
+}
+
+/* Image Buttons */
+button.s2imageButton img {
+    height: 1.2em;
+    margin-top: -1px;
+}
+button.s2imageButton img.link,
+button.s2imageButton:hover img.link,
+button.s2imageButton:focus img.link {
+    display: inline;
+}
+button.s2imageButton:hover img.link,
+button.s2imageButton:focus img.link,
+button.s2imageButton img.hover {
+    display: none;
+}
+
+/* Border formatting */
+.rounded {
+  	-webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+  	border-radius: 5px 5px;
+}
+.shadow {
+  	-moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+  	-webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+  	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* S2PoolRating */
+div.S2PoolRating div.s2item {
+    justify-content: space-between;
+}
+div.S2PoolRating div.s2item {
+    align-items: center;
+}
+div.S2PoolRating div.s2item > div.s2input {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    align-items: center;
+    margin-left: 1em;
+    margin-right: 1em;
+    flex-basis: auto;
+}
+div.S2PoolRating.s2extended div.s2item > div.s2input {
+    justify-content: center;
+}
+
+/* S2PoolVote */
+div.S2PoolVote.s2pool,
+div.S2PoolRating.s2pool {
+    margin-bottom: 1em;
+}
+div.S2PoolVote.s2pool div.s2points {
+    justify-content: center;
+}
+div.S2PoolRating.s2extended div.s2points {
+    min-width: 3em;
+}
+/* Always show the input below the text */
+div.S2PoolVote.s2items div.s2item,
+div.s2question div.S2PoolVote.s2items.matrix > div.s2item {
+    display: block;
+}
+div.S2PoolVote.s2items div.s2item > div.s2label {
+    padding-top: 0.8em;
+}
+div.S2PoolVote.s2items div.s2item > div.s2label.s2pointMode {
+    text-align: center;
+}
+div.S2PoolVote.s2items div.s2item > div.s2input {
+    padding: 0 0.5em 0.5em 0.5em;
+}
+div.S2PoolVote.s2items div.s2positions {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1em;
+    padding: 1em 0.5em;
+}
+div.S2PoolVote.s2items div.s2position {
+    flex: 1 1 50%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1em;
+    align-items: center;
+}
+div.S2PoolRating.s2items div.s2buttons,
+div.S2PoolRating.s2extended div.s2buttons {
+    display: flex;
+    gap: 0.25em;
+    flex-wrap: wrap;
+}
+div.S2PoolVote.s2items div.s2position.s2first,
+div.S2PoolRating.s2items div.s2buttons.s2minus,
+div.S2PoolRating.s2extended div.s2buttons.s2minus {
+    flex-direction: row-reverse;
+}
+div.S2PoolVote.s2items div.s2position.s2last,
+div.S2PoolRating.s2items div.s2buttons.s2plus {
+    flex-direction: row;
+}
+div.S2PoolVote.s2items div.s2positions div.s2separator {
+    flex: 0 0 auto;
+    border-left: 2px solid #6688CC;
+}
+div.S2PoolVote div.s2positions div.s2position div.s2label {
+    padding: 0.5em 1em;
+    flex-basis: 60%;
+    text-align: center;
+}
+div.S2PoolVote div.s2positions div.s2position div.s2label div.s2description {
+    margin-bottom: 0.4em;
+}
+div.S2PoolRating div.s2input div.s2button,
+div.S2PoolVote div.s2positions div.s2position div.s2label div.s2button {
+    padding: 0.2em 1em;
+    display: inline-block;
+}
+div.S2PoolVote div.s2positions div.s2position div.s2label div.s2button.s2fullsize {
+    display: block;
+}
+div.S2PoolVote div.s2positions div.s2position div.s2label.selected div.s2button {
+    color: #FFFFFF;  
+    border-color: #6688CC; border-color: var(--s2color4);
+    background-color: #6688CC; background-color: var(--s2color4);
+}
+div.S2PoolRating.s2pool,
+div.S2PoolVote.s2pool {
+    position: sticky;
+    top: 0;
+    background-color: #000000; background-color: var(--s2color0);
+    z-index: 6;
+}
+@media (max-width: 576px) {
+    div.S2PoolVote.s2pool div.s2points {
+        justify-content: left;
+    }
+    div.S2PoolVote.s2items div.s2positions {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    div.S2PoolVote.s2items div.s2positions div.s2separator {
+        display: none;
+    }
+    div.S2PoolVote.s2items div.s2position.s2first {
+        flex-direction: row;
+    }
+    div.S2PoolVote.s2items div.s2item > div.s2label.s2pointMode {
+        text-align: left;
+    }
+}
+
+/* S2Points */
+div.S2Points {
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    gap: 3px;
+    min-height: 16px; 
+}
+div.s2point,
+div.s2pointTarget {
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+}
+div.s2point {
+    background-color: #FF9900; background-color: var(--s2color6);
+    display: none;
+    border: 1px solid #666666
+}
+div.s2pointTarget {
+    border: 1px solid #999999;
+    background-color: transparent;
+}
+
+/* Text2Speech */
+div.Text2SpeechControl {
+    float: left;
+    margin: 0 0.6em 0.4em 0;
+    transition: opacity 0.2s;
+}
+.s2polarLeft div.Text2SpeechControl {
+    float: right;
+    margin: 0 0 0.4em 0.6em;
+}
+span.Text2SpeechButton {
+display: inline-block;
+background-color: #000000; background-color: var(--s2color0);
+color: #000000; color: var(--s2color1);
+padding: 0.05em 0.16em;
+    border-style: solid;
+outline: 1px solid white;
+border-width: 2px; 
+border-color: #6688CC; border-color: var(--s2color4);
+border-radius: 5px; 
+line-height: 1;
+    text-indent: 0;
+}
+span.Text2SpeechButton > img {
+    width: 1.4em; 
+}
+span.Text2SpeechButton:hover {
+background-color: #6688CC; background-color: var(--s2color4);
+}
+
+@media (hover: hover) {
+    div.Text2SpeechControl {
+        opacity: 0;
+        position: absolute;
+        margin: 0;
+        transition: all 0.2s;
+        float: none;
+    }
+    .s2polarLeft div.Text2SpeechControl {
+        float: none;
+        width: 100%;
+    }
+    *:hover > div.Text2SpeechControl {
+        opacity: 1;
+        display: block;
+    }
+    div.Text2SpeechControl > span.Text2SpeechButton {
+        position: absolute;
+        /*
+        left: 2em;
+        top: -0.8em;
+        */
+        left: -0.4em;
+        bottom: -0.2em;
+        box-shadow: 1px 1px 6px rgba(255,255,255,0.3);
+    }
+    div.Text2SpeechControl.s2inside {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    div.Text2SpeechControl.s2inside > span.Text2SpeechButton {
+        left: auto;
+        top: 0.1em;
+        bottom: auto;
+        right: 0.1em;
+    }
+    .s2polarLeft div.Text2SpeechControl > span.Text2SpeechButton {
+        left: auto;
+        right: 2em;
+    }
+}
+.s2readable { }
+
+
+
+/* Avoid auto-zoom on iOS smartphones */
+@media screen and (-webkit-min-device-pixel-ratio:0) and (max-device-width:1024px) { 
+    select,
+    textarea,
+    input[type="text"],
+    input[type="number"],
+    input[type="password"] {
+        font-size: 18px;
+    }
+    div.textinput input[type="text"].smallWidth,
+    div.textinput input[type="number"].smallWidth {
+        box-sizing: content-box;
+    }
+}
